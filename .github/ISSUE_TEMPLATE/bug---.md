@@ -8,17 +8,13 @@ assignees: ''
 ---
 
 ## Situation
----
 오류 상황 작성
 
 ## Cause
----
 오류 원인
 
 ## Improvement
----
 개선 사항
 
 ## ETC
----
 기타 사항
