@@ -1,6 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
+import { normalize } from 'styled-normalize';
 
 const GlobalStyles = createGlobalStyle`
+ ${normalize}
 
   html, body, div, p {
     margin: 0;
@@ -8,8 +10,6 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  :root {
-    --color__primary: #E75151;
-  }
+  a { cursor: pointer; text-decoration: none; }
 `;
 export default GlobalStyles;
