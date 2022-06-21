@@ -14,14 +14,14 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "baseUrl": "./src",
+    "baseUrl": "./src/",
     "paths": {
-      "@/buttons/*": ["components/atoms/buttons*"],
-      "@/boxes/*": ["components/atoms/boxes*"],
-      "@/inputs/*": ["components/atoms/inputs*"],
-      "@/logos/*": ["components/atoms/logos*"],
-      "@/resources/*": ["components/atoms/resources*"],
-      "@/texts/*": ["components/atoms/texts*"],
+      "@/buttons/*": ["components/atoms/buttons/*"],
+      "@/boxes/*": ["components/atoms/boxes/*"],
+      "@/inputs/*": ["components/atoms/inputs/*"],
+      "@/logos/*": ["components/atoms/logos/*"],
+      "@/resources/*": ["components/atoms/resources/*"],
+      "@/texts/*": ["components/atoms/texts/*"],
       "@/molecules/*": ["components/molecules/*"],
       "@/organisms/*": ["components/organisms/*"]
     }
