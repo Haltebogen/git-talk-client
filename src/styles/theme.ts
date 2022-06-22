@@ -1,21 +1,42 @@
 import { DefaultTheme } from 'styled-components';
 
-export const theme: DefaultTheme = {
-  colors: {
-    primary: '#6868AB', // purple
-    bgcolor: '#E5E5E5 ', // brighter purple
+const colors = {
+  primary: '#6868AB', // purple
+  bgcolor: '#E5E5E5 ', // brighter purple
+  msgcount: '#FF3366', // pink
 
-    text01: '#707C97', // navy
-    text02: '#6868AB', // purple
-    text03: '#0D1C2E', // black
-    text04: '#565656', // dark-gray
-    text05: '#6D6A6A', // gray
-    text06: '#8B8B8B', // light-gray
-    text07: '#fff', // white
+  // text
+  navy: '#707C97',
+  purple: '#6868AB',
+  black: '#0D1C2E',
+  darkgray: '#565656',
+  gray: '#6D6A6A',
+  lightgray: '#8B8B8B',
+  white: '#fff',
 
-    hoverbtn: '#8A8AD9', // light-purple
-    clickbtn: '#6868AB', // dark-purple
-
-    msgcount: '#FF3366', // pink
-  },
+  //button
+  hoverbtn: '#8A8AD9', // light-purple
+  clickbtn: '#6868AB', // dark-purple
 };
+
+const fontSize = {
+  title: '4rem', // 64px
+  xxl: '3rem', // 48px
+  xl: '2rem', // 32px
+  lg: '1.5rem', // 24px
+  md: '1.25rem', // 20px
+  sm: '1.125rem', // 18px
+  xs: '1rem', // 16px
+  xxs: '0.875rem', // 14px
+  micro: '0.75rem', //12px
+};
+
+export type ColorsTypes = typeof colors;
+export type FontTypes = typeof fontSize;
+
+const theme: DefaultTheme = {
+  colors,
+  fontSize,
+};
+
+export default theme;
