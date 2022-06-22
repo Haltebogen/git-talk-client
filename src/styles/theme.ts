@@ -2,7 +2,7 @@ import { DefaultTheme } from 'styled-components';
 
 const colors = {
   primary: '#6868AB', // purple
-  bgcolor: '#E5E5E5 ', // brighter purple
+  bgcolor: '#F8F8FF ', // brighter purple
   msgcount: '#FF3366', // pink
 
   // text
