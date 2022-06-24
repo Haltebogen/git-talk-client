@@ -1,7 +1,7 @@
 import { MouseEventHandler, ReactNode } from 'react';
 import styled, { css } from 'styled-components';
 
-interface BasicButtonPRops {
+interface LoginButtonPRops {
   children: ReactNode;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   ariaLabel?: string;
@@ -25,7 +25,7 @@ const Button = styled.button`
   }}
 `;
 
-const BasicButton = ({ children, ariaLabel, type, onClick }: BasicButtonPRops) => {
+const LoginButton = ({ children, ariaLabel, type, onClick }: LoginButtonPRops) => {
   return (
     <div>
       <Button aria-label={ariaLabel} type={type} onClick={onClick}>
@@ -35,4 +35,4 @@ const BasicButton = ({ children, ariaLabel, type, onClick }: BasicButtonPRops) =
   );
 };
 
-export default BasicButton;
+export default LoginButton;
