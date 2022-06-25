@@ -1,15 +1,16 @@
+import BasicButton from '@/buttons/BasicButton';
 import type { NextPage } from 'next';
-import React from 'react';
-import PlusBtn from '../components/atoms/buttons/PlusBtn';
-import BackColor from '../components/atoms/resources/Background';
+import { Container } from 'styles/inedx';
+
 const Home: NextPage = () => {
   return (
-    // <div>
-    <BackColor>
-      <PlusBtn />
-      <div>HO~~ME</div>
-    </BackColor>
-    // </div>
+    <Container>
+      <h2>GIT TALK</h2>
+      <p>GITHUB 유저들과 채팅할 수 있는 공간</p>
+      <BasicButton ariaLabel="login" type="submit" onClick={() => console.log('로그인!')}>
+        GITHUB 로그인
+      </BasicButton>
+    </Container>
   );
 };
 

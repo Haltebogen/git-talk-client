@@ -1,6 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
+import { normalize } from 'styled-normalize';
 
 const GlobalStyles = createGlobalStyle`
+ ${normalize}
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 
@@ -10,8 +12,6 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  :root {
-    --color__primary: #E75151;
-  }
+  a { cursor: pointer; text-decoration: none; }
 `;
 export default GlobalStyles;
