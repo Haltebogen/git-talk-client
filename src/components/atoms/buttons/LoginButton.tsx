@@ -1,37 +1,34 @@
-import { MouseEventHandler, ReactNode } from 'react';
 import styled, { css } from 'styled-components';
 
-interface LoginButtonPRops {
-  children: ReactNode;
-  onClick?: MouseEventHandler<HTMLButtonElement>;
-  ariaLabel?: string;
-  type?: 'submit' | 'button';
-}
-
-const Button = styled.button`
+const Button = styled.div`
   ${({ theme }) => {
     const { colors, fontSize } = theme;
     return css`
       background-color: ${colors.primary};
-      color: ${colors.white};
+      text-decoration: none;
       border: none;
-      padding: 1.25rem 6.875rem; // 수정 예정
-      font-size: ${fontSize.lg}; // 수정 예정
+      padding: 1.25rem 6.875rem;
+      font-size: ${fontSize.lg};
       border-radius: 0.625rem;
       &:hover {
         cursor: pointer;
+      }
+      a {
+        color: ${colors.white};
       }
     `;
   }}
 `;
 
-const LoginButton = ({ children, ariaLabel, type, onClick }: LoginButtonPRops) => {
+const LoginButton = () => {
   return (
-    <div>
-      <Button aria-label={ariaLabel} type={type} onClick={onClick}>
-        {children}
-      </Button>
-    </div>
+    <Button>
+      <a
+        href={`https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_ID}&redirect_uri=${process.env.NEXT_PUBLIC_API_ENDPOINT}/auth/github/callback`}
+      >
+        GITHUB LOGIN
+      </a>
+    </Button>
   );
 };
 
