@@ -26,7 +26,7 @@ const LoginButton = () => {
       <a
         href={`https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_ID}&redirect_uri=${process.env.NEXT_PUBLIC_API_ENDPOINT}/auth/github/callback`}
       >
-        GITHUB LOGIN
+        GITHUB 로그인
       </a>
     </Button>
   );

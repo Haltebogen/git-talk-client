@@ -3,21 +3,28 @@ export const Container = styled.div`
   ${({ theme }) => {
     const { colors, fontSize } = theme;
     return css`
+      padding-top: 4.87rem;
       background-color: ${colors.bgcolor};
       display: flex;
-      flex-direction: column;
       align-items: center;
+      justify-content: center;
+      .textContainer {
+        margin-left: 7rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        h2 {
+          color: ${colors.navy};
+          font-size: ${fontSize.title};
+          margin: 0;
+        }
 
-      h2 {
-        color: ${colors.navy};
-        font-size: ${fontSize.title};
-        margin: 0;
-      }
-
-      p {
-        color: ${colors.navy};
-        font-size: ${fontSize.xl};
-        padding: 1.8125rem 0 3.5rem 0;
+        p {
+          color: ${colors.navy};
+          font-size: ${fontSize.xl};
+          padding: 1.25rem 0 3.5rem 0;
+        }
       }
     `;
   }}
