@@ -21,13 +21,11 @@ const Button = styled.div`
 `;
 
 const LoginButton = () => {
+  const loginUrl = `https://github.com/login/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_GITHUB_ID}&redirect_uri=${process.env.NEXT_PUBLIC_CLIENT_URL}/api/auth/github/callback`;
+
   return (
     <Button>
-      <a
-        href={`https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_ID}&redirect_uri=${process.env.NEXT_PUBLIC_API_ENDPOINT}/auth/github/callback`}
-      >
-        GITHUB 로그인
-      </a>
+      <a href={loginUrl}>GITHUB 로그인</a>
     </Button>
   );
 };
