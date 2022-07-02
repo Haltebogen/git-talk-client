@@ -1,5 +1,11 @@
+import ListContainer from '@/molecules/FollowerList/ListContainer';
+
 const home = () => {
-  return <div>메인 페이지</div>;
+  return (
+    <div>
+      <ListContainer />
+    </div>
+  );
 };
 
 export default home;
