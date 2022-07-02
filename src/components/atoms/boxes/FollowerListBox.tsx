@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import Profile from '@/icons/profileImg.svg';
+import { useState } from 'react';
 
 export const Box = styled.div`
   ${({ theme }) => {
@@ -55,8 +56,14 @@ export interface FollowerListBoxProps {
 
 const STATUSMSG_MAX_LENGTH = 20;
 const FollowerListBox = ({ name, isFollower, profileImg, statusMessages }: FollowerListBoxProps) => {
+  const [isClick, setIsClick] = useState(false);
+
   return (
-    <Box>
+    <Box
+      onClick={() => {
+        setIsClick(!isClick);
+      }}
+    >
       {profileImg ? (
         <div className="profileImg">{profileImg}</div>
       ) : (
