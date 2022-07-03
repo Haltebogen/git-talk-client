@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components';
 import HomeLogo from '../../../assets/icons/home.svg';
+import LogoutLogo from '../../../assets/icons/logout.svg';
+import TalkLogo from '../../../assets/icons/talk.svg';
 
 const BtnWrapper = styled.div`
   ${({ theme }) => {
