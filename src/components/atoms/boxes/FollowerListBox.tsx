@@ -35,27 +35,18 @@ export const Box = styled.div`
         max-width: 12.5rem;
         min-width: 8.75rem;
       }
-      span {
-        display: flex;
-        font-size: ${fontSize.micro};
-        color: ${colors.lightpurple};
-        padding: 0.6875rem 0.6875rem 0 0;
-        font-weight: 700;
-        align-self :normal;
-      }
     `;
   }}
 `;
 
 export interface FollowerListBoxProps {
   name: string;
-  isFollower: boolean;
   profileImg: string | null;
   statusMessages?: string;
 }
 
 const STATUSMSG_MAX_LENGTH = 20;
-const FollowerListBox = ({ name, isFollower, profileImg, statusMessages }: FollowerListBoxProps) => {
+const FollowerListBox = ({ name, profileImg, statusMessages }: FollowerListBoxProps) => {
   const [isClick, setIsClick] = useState(false);
 
   return (
@@ -75,7 +66,6 @@ const FollowerListBox = ({ name, isFollower, profileImg, statusMessages }: Follo
       <div className="statusMessages">
         {statusMessages && (statusMessages.length > STATUSMSG_MAX_LENGTH ? `${statusMessages.slice(0, STATUSMSG_MAX_LENGTH)} ...` : statusMessages)}
       </div>
-      {isFollower ? <span>Follower</span> : ''}
     </Box>
   );
 };
