@@ -16,6 +16,7 @@ const colors = {
   lightgray: '#8B8B8B',
   white: '#fff',
 
+  // event
   hover: '#8A8AD9', // light-purple
   click: '#6868AB', // dark-purple
 };
