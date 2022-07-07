@@ -13,7 +13,7 @@ export const Box = styled.div`
       max-width: 36.25rem;
       input {
         border: none;
-        padding: 22px 0 22px 0.625rem;
+        padding: 1.375rem 0 1.375rem 0.625rem;
         width: 100%;
         outline: none;
         ::placeholder {
