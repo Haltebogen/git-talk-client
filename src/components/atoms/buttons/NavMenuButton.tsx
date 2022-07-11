@@ -4,12 +4,6 @@ import Bell from '@/icons/bell.svg';
 import styled, { css } from 'styled-components';
 import Link from 'next/link';
 
-export interface NavMenuButtonProps {
-  type: 'HOME' | 'CHAT' | 'NOTI';
-  content: string;
-  link: string;
-}
-
 export const Button = styled.div`
   ${({ theme }) => {
     const { colors, fontSize } = theme;
@@ -29,6 +23,12 @@ export const Button = styled.div`
     `;
   }}
 `;
+
+export interface NavMenuButtonProps {
+  type: 'HOME' | 'CHAT' | 'NOTI';
+  content: string;
+  link: string;
+}
 
 const NavMenuButton = ({ content, type, link }: NavMenuButtonProps) => {
   return (
