@@ -37,7 +37,6 @@ const NavMenuButton = ({ content, type, link }: NavMenuButtonProps) => {
         {type === 'HOME' && <Home />}
         {type === 'CHAT' && <Chat />}
         {type === 'NOTI' && <Bell />}
-
         {content}
       </Button>
     </Link>

@@ -15,7 +15,6 @@
     "jsx": "preserve",
     "incremental": true,
     "baseUrl": "./src/",
-
     "paths": {
       "@/buttons/*": ["components/atoms/buttons/*"],
       "@/boxes/*": ["components/atoms/boxes/*"],

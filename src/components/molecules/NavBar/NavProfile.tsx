@@ -1,7 +1,6 @@
 import NavEditProfileButton from '@/buttons/NavEditProfileButton';
 import ProfileDetail from '@/contents/ProfileDetail';
 import ProfileMain from '@/contents/ProfileMain';
-
 import styled from 'styled-components';
 
 export const ProfileContainer = styled.div`

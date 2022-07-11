@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import ProfileImg from '@/icons/navProfileImg.svg';
+
 export const Container = styled.div`
   ${({ theme }) => {
     const { colors, fontSize } = theme;
