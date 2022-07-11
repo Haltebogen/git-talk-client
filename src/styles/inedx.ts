@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+
 export const Container = styled.div`
   ${({ theme }) => {
     const { colors, fontSize } = theme;
@@ -8,12 +9,14 @@ export const Container = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
+
       .textContainer {
         margin-left: 7rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
         h2 {
           color: ${colors.navy};
           font-size: ${fontSize.title};
