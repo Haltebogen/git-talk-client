@@ -1,14 +1,8 @@
 import Home from '@/icons/home.svg';
 import Chat from '@/icons/chat.svg';
-import Bell from '@/icons/bell.svg';
+import NOTI from '@/icons/bell.svg';
 import styled, { css } from 'styled-components';
 import Link from 'next/link';
-
-export interface NavMenuButtonProps {
-  type: 'HOME' | 'CHAT' | 'NOTI';
-  content: string;
-  link: string;
-}
 
 export const Button = styled.div`
   ${({ theme }) => {
@@ -30,13 +24,19 @@ export const Button = styled.div`
   }}
 `;
 
+export interface NavMenuButtonProps {
+  type: 'HOME' | 'CHAT' | 'NOTI';
+  content: string;
+  link: string;
+}
+
 const NavMenuButton = ({ content, type, link }: NavMenuButtonProps) => {
   return (
     <Link href={link}>
       <Button>
         {type === 'HOME' && <Home />}
         {type === 'CHAT' && <Chat />}
-        {type === 'NOTI' && <Bell />}
+        {type === 'NOTI' && <NOTI />}
         {content}
       </Button>
     </Link>
