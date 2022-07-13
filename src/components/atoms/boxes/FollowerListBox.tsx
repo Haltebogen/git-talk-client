@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import Profile from '@/icons/profileImg.svg';
+import Profile from '@/icons/profile_img.svg';
 import { useState } from 'react';
 
 export const Box = styled.div`
@@ -28,7 +28,7 @@ export const Box = styled.div`
         font-weight: 700;
         
       }
-      .statusMessages {
+      .statusMessage {
         font-size: ${fontSize.sm};
         width: 100%;
         height:100%
@@ -42,11 +42,11 @@ export const Box = styled.div`
 export interface FollowerListBoxProps {
   name: string;
   profileImg: string | null;
-  statusMessages?: string;
+  statusMessage?: string;
 }
 
 const STATUSMSG_MAX_LENGTH = 20;
-const FollowerListBox = ({ name, profileImg, statusMessages }: FollowerListBoxProps) => {
+const FollowerListBox = ({ name, profileImg, statusMessage }: FollowerListBoxProps) => {
   const [isClick, setIsClick] = useState(false);
 
   return (
@@ -63,8 +63,8 @@ const FollowerListBox = ({ name, profileImg, statusMessages }: FollowerListBoxPr
         </div>
       )}
       <div className="name">{name}</div>
-      <div className="statusMessages">
-        {statusMessages && (statusMessages.length > STATUSMSG_MAX_LENGTH ? `${statusMessages.slice(0, STATUSMSG_MAX_LENGTH)} ...` : statusMessages)}
+      <div className="statusMessage">
+        {statusMessage && (statusMessage.length > STATUSMSG_MAX_LENGTH ? `${statusMessage.slice(0, STATUSMSG_MAX_LENGTH)} ...` : statusMessage)}
       </div>
     </Box>
   );
