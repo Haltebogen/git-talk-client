@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import Profile from '@/icons/profileImg.svg';
+import Profile from '@/icons/profile_img.svg';
 import { useState } from 'react';
 
 export const Box = styled.div`

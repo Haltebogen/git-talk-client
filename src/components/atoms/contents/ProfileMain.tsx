@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import ProfileImg from '@/icons/navProfileImg.svg';
+import ProfileImg from '@/icons/nav_profile_img.svg';
 
 export const Container = styled.div`
   ${({ theme }) => {

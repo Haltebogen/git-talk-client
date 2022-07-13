@@ -1,4 +1,4 @@
-import EditImage from '@/icons/edit_Img.svg';
+import EditImage from '@/icons/edit_img.svg';
 import styled, { css } from 'styled-components';
 
 export const Button = styled.button`
