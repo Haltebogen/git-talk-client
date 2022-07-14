@@ -49,11 +49,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["husky", "npm:8.0.1"],\
             ["next", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:12.1.6"],\
             ["react", "npm:18.2.0"],\
+            ["react-cookie", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:4.1.1"],\
             ["react-dom", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:18.2.0"],\
             ["react-is", "npm:18.2.0"],\
             ["styled-components", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:5.3.5"],\
             ["styled-normalize", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:8.0.7"],\
-            ["typescript", "patch:typescript@npm%3A4.7.3#~builtin<compat/typescript>::version=4.7.3&hash=7ad353"]\
+            ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=7ad353"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -3035,6 +3036,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@types/cookie", [\
+        ["npm:0.3.3", {\
+          "packageLocation": "./.yarn/cache/@types-cookie-npm-0.3.3-a5ddc16db3-450c930d79.zip/node_modules/@types/cookie/",\
+          "packageDependencies": [\
+            ["@types/cookie", "npm:0.3.3"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@types/eslint", [\
         ["npm:8.4.3", {\
           "packageLocation": "./.yarn/cache/@types-eslint-npm-8.4.3-d515b721fd-cc199be84e.zip/node_modules/@types/eslint/",\
@@ -3190,7 +3200,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["regexpp", "npm:3.2.0"],\
             ["semver", "npm:7.3.7"],\
             ["tsutils", "virtual:79bdcc46851533abf2798dbc7885757bf0131494b6da95bd92daf694323b4479dd51fd370ae044d6073dcad2194a61c5ebddbd8c8a2de4be75e2226f5758716c#npm:3.21.0"],\
-            ["typescript", "patch:typescript@npm%3A4.7.3#~builtin<compat/typescript>::version=4.7.3&hash=7ad353"]\
+            ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=7ad353"]\
           ],\
           "packagePeers": [\
             "@types/eslint",\
@@ -3222,7 +3232,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/typescript-estree", "virtual:1e0efb0af1690d600aa6e0ee71d3b90c678db9ca8c3ad715d98cc7f945c8d1d59790c23efaee7dfd51e3b271daa97e1bcf08e3f7570517e49570f092a3894bd1#npm:5.28.0"],\
             ["debug", "virtual:ae99434cd9e5c66ddf16ebb30c4da906e467857dd62eee4eb9f8e5111defd913deb905fa1bef1f41f93a0abe0a0fd088e76a86d4602966177de566c0be56a495#npm:4.3.4"],\
             ["eslint", "npm:8.17.0"],\
-            ["typescript", "patch:typescript@npm%3A4.7.3#~builtin<compat/typescript>::version=4.7.3&hash=7ad353"]\
+            ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=7ad353"]\
           ],\
           "packagePeers": [\
             "@types/eslint",\
@@ -3262,7 +3272,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["debug", "virtual:ae99434cd9e5c66ddf16ebb30c4da906e467857dd62eee4eb9f8e5111defd913deb905fa1bef1f41f93a0abe0a0fd088e76a86d4602966177de566c0be56a495#npm:4.3.4"],\
             ["eslint", "npm:8.17.0"],\
             ["tsutils", "virtual:79bdcc46851533abf2798dbc7885757bf0131494b6da95bd92daf694323b4479dd51fd370ae044d6073dcad2194a61c5ebddbd8c8a2de4be75e2226f5758716c#npm:3.21.0"],\
-            ["typescript", "patch:typescript@npm%3A4.7.3#~builtin<compat/typescript>::version=4.7.3&hash=7ad353"]\
+            ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=7ad353"]\
           ],\
           "packagePeers": [\
             "@types/eslint",\
@@ -3302,7 +3312,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["is-glob", "npm:4.0.3"],\
             ["semver", "npm:7.3.7"],\
             ["tsutils", "virtual:79bdcc46851533abf2798dbc7885757bf0131494b6da95bd92daf694323b4479dd51fd370ae044d6073dcad2194a61c5ebddbd8c8a2de4be75e2226f5758716c#npm:3.21.0"],\
-            ["typescript", "patch:typescript@npm%3A4.7.3#~builtin<compat/typescript>::version=4.7.3&hash=7ad353"]\
+            ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=7ad353"]\
           ],\
           "packagePeers": [\
             "@types/typescript",\
@@ -3893,6 +3903,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["cookie", [\
+        ["npm:0.4.2", {\
+          "packageLocation": "./.yarn/cache/cookie-npm-0.4.2-7761894d5f-a00833c998.zip/node_modules/cookie/",\
+          "packageDependencies": [\
+            ["cookie", "npm:0.4.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["core-js-compat", [\
         ["npm:3.23.2", {\
           "packageLocation": "./.yarn/cache/core-js-compat-npm-3.23.2-b3c0c908e3-cc5e436fd0.zip/node_modules/core-js-compat/",\
@@ -4389,7 +4408,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react", "virtual:63d7b350106538a7733123fef60e7157699d83cf0a44da15196e7ae33801ee50e1888439f0a83a1def31ee60044aead447ee1308acc2ab13fc0ec8c2d8474e23#npm:7.30.0"],\
             ["eslint-plugin-react-hooks", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:4.6.0"],\
             ["next", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:12.1.6"],\
-            ["typescript", "patch:typescript@npm%3A4.7.3#~builtin<compat/typescript>::version=4.7.3&hash=7ad353"]\
+            ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=7ad353"]\
           ],\
           "packagePeers": [\
             "@types/eslint",\
@@ -4978,11 +4997,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["husky", "npm:8.0.1"],\
             ["next", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:12.1.6"],\
             ["react", "npm:18.2.0"],\
+            ["react-cookie", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:4.1.1"],\
             ["react-dom", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:18.2.0"],\
             ["react-is", "npm:18.2.0"],\
             ["styled-components", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:5.3.5"],\
             ["styled-normalize", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:8.0.7"],\
-            ["typescript", "patch:typescript@npm%3A4.7.3#~builtin<compat/typescript>::version=4.7.3&hash=7ad353"]\
+            ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=7ad353"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -6040,6 +6060,31 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["react-cookie", [\
+        ["npm:4.1.1", {\
+          "packageLocation": "./.yarn/cache/react-cookie-npm-4.1.1-90d4f0fcb5-b734dcad35.zip/node_modules/react-cookie/",\
+          "packageDependencies": [\
+            ["react-cookie", "npm:4.1.1"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:4.1.1", {\
+          "packageLocation": "./.yarn/__virtual__/react-cookie-virtual-bb8d919bd8/0/cache/react-cookie-npm-4.1.1-90d4f0fcb5-b734dcad35.zip/node_modules/react-cookie/",\
+          "packageDependencies": [\
+            ["react-cookie", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:4.1.1"],\
+            ["@types/hoist-non-react-statics", "npm:3.3.1"],\
+            ["@types/react", "npm:18.0.14"],\
+            ["hoist-non-react-statics", "npm:3.3.2"],\
+            ["react", "npm:18.2.0"],\
+            ["universal-cookie", "npm:4.0.4"]\
+          ],\
+          "packagePeers": [\
+            "@types/react",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["react-dom", [\
         ["npm:18.2.0", {\
           "packageLocation": "./.yarn/cache/react-dom-npm-18.2.0-dd675bca1c-7d323310be.zip/node_modules/react-dom/",\
@@ -6638,7 +6683,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["tsutils", "virtual:79bdcc46851533abf2798dbc7885757bf0131494b6da95bd92daf694323b4479dd51fd370ae044d6073dcad2194a61c5ebddbd8c8a2de4be75e2226f5758716c#npm:3.21.0"],\
             ["@types/typescript", null],\
             ["tslib", "npm:1.14.1"],\
-            ["typescript", "patch:typescript@npm%3A4.7.3#~builtin<compat/typescript>::version=4.7.3&hash=7ad353"]\
+            ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=7ad353"]\
           ],\
           "packagePeers": [\
             "@types/typescript",\
@@ -6681,10 +6726,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["typescript", [\
-        ["patch:typescript@npm%3A4.7.3#~builtin<compat/typescript>::version=4.7.3&hash=7ad353", {\
-          "packageLocation": "./.yarn/cache/typescript-patch-e8f1acd78e-137d18a77f.zip/node_modules/typescript/",\
+        ["patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=7ad353", {\
+          "packageLocation": "./.yarn/cache/typescript-patch-e8b9857d0c-9096d8f6c1.zip/node_modules/typescript/",\
           "packageDependencies": [\
-            ["typescript", "patch:typescript@npm%3A4.7.3#~builtin<compat/typescript>::version=4.7.3&hash=7ad353"]\
+            ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=7ad353"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -6736,6 +6781,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/unicode-property-aliases-ecmascript-npm-2.0.0-1636cb7768-dda4d39128.zip/node_modules/unicode-property-aliases-ecmascript/",\
           "packageDependencies": [\
             ["unicode-property-aliases-ecmascript", "npm:2.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["universal-cookie", [\
+        ["npm:4.0.4", {\
+          "packageLocation": "./.yarn/cache/universal-cookie-npm-4.0.4-aa9b4bcfbf-bb2bafa7eb.zip/node_modules/universal-cookie/",\
+          "packageDependencies": [\
+            ["universal-cookie", "npm:4.0.4"],\
+            ["@types/cookie", "npm:0.3.3"],\
+            ["cookie", "npm:0.4.2"]\
           ],\
           "linkType": "HARD"\
         }]\

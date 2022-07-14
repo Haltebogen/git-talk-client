@@ -1,13 +1,17 @@
 import SearchBox from '@/boxes/SearchBox';
 import FollowerListContainer from '@/molecules/FollowerList/FollowerListContainer';
+import NavBarContainer from '@/organisms/NavBar/NavBarContainer';
 
-const home = () => {
+import { NextPage } from 'next';
+
+const Home: NextPage = () => {
   return (
     <div>
+      <NavBarContainer />
       <SearchBox />
       <FollowerListContainer />
     </div>
   );
 };
 
-export default home;
+export default Home;

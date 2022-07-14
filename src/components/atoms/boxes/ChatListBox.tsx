@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import Profile from '@/icons/profileImg.svg';
+import Profile from '@/icons/profile_img.svg';
 import { useState } from 'react';
 
 export const Box = styled.div`
@@ -11,7 +11,6 @@ export const Box = styled.div`
       background-color: ${colors.secondary};
       display: flex;
       width: 100%;
-
       gap: 1.3125rem;
       align-items: center;
       &:hover {
@@ -45,7 +44,6 @@ const Middle = styled.div`
     return css`
       display: flex;
       flex-direction: column;
-
       width: 100%;
       gap: 0.3125rem;
 
@@ -57,7 +55,6 @@ const Middle = styled.div`
       .messages {
         font-size: ${fontSize.xs};
         color: ${colors.lightgray};
-
         max-width: 12.5rem;
         min-width: 8.75rem;
       }

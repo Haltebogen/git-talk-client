@@ -10,10 +10,10 @@ const FollowerListContainer = () => {
   // 확인을 위해 임시로 컴포넌트 반복 삽입
   return (
     <Container>
-      <FollowerListBox name="kimkyungmin" isFollower={true} profileImg={null} statusMessages="상태메시지" />{' '}
-      <FollowerListBox name="kimkyungmin" isFollower={true} profileImg={null} statusMessages="상태메시지" />{' '}
-      <FollowerListBox name="kimkyungmin" isFollower={true} profileImg={null} statusMessages="상태메시지" />{' '}
-      <FollowerListBox name="kimkyungmin" isFollower={true} profileImg={null} statusMessages="상태메시지" />{' '}
+      <FollowerListBox name="kimkyungmin" profileImg={null} statusMessage="상태메시지" />{' '}
+      <FollowerListBox name="kimkyungmin" profileImg={null} statusMessage="상태메시지" />{' '}
+      <FollowerListBox name="kimkyungmin" profileImg={null} statusMessage="상태메시지" />{' '}
+      <FollowerListBox name="kimkyungmin" profileImg={null} statusMessage="상태메시지" />{' '}
     </Container>
   );
 };

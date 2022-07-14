@@ -2,7 +2,7 @@ import LoginButton from '@/buttons/LoginButton';
 import HomeLogo from '@/logos/HomeLogo';
 import type { NextPage } from 'next';
 import { Container } from 'styles/inedx';
-const Home: NextPage = () => {
+const Login: NextPage = () => {
   return (
     <Container>
       <HomeLogo />
@@ -15,4 +15,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default Login;

@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import Profile from '@/icons/profileImg.svg';
+import Profile from '@/icons/profile_img.svg';
 import { useState } from 'react';
 
 export const Box = styled.div`
@@ -28,20 +28,12 @@ export const Box = styled.div`
         font-weight: 700;
         
       }
-      .statusMessages {
+      .statusMessage {
         font-size: ${fontSize.sm};
         width: 100%;
         height:100%
         max-width: 12.5rem;
         min-width: 8.75rem;
-      }
-      span {
-        display: flex;
-        font-size: ${fontSize.micro};
-        color: ${colors.lightpurple};
-        padding: 0.6875rem 0.6875rem 0 0;
-        font-weight: 700;
-        align-self :normal;
       }
     `;
   }}
@@ -49,13 +41,12 @@ export const Box = styled.div`
 
 export interface FollowerListBoxProps {
   name: string;
-  isFollower: boolean;
   profileImg: string | null;
-  statusMessages?: string;
+  statusMessage?: string;
 }
 
 const STATUSMSG_MAX_LENGTH = 20;
-const FollowerListBox = ({ name, isFollower, profileImg, statusMessages }: FollowerListBoxProps) => {
+const FollowerListBox = ({ name, profileImg, statusMessage }: FollowerListBoxProps) => {
   const [isClick, setIsClick] = useState(false);
 
   return (
@@ -72,10 +63,9 @@ const FollowerListBox = ({ name, isFollower, profileImg, statusMessages }: Follo
         </div>
       )}
       <div className="name">{name}</div>
-      <div className="statusMessages">
-        {statusMessages && (statusMessages.length > STATUSMSG_MAX_LENGTH ? `${statusMessages.slice(0, STATUSMSG_MAX_LENGTH)} ...` : statusMessages)}
+      <div className="statusMessage">
+        {statusMessage && (statusMessage.length > STATUSMSG_MAX_LENGTH ? `${statusMessage.slice(0, STATUSMSG_MAX_LENGTH)} ...` : statusMessage)}
       </div>
-      {isFollower ? <span>Follower</span> : ''}
     </Box>
   );
 };
