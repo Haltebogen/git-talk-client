@@ -1,6 +1,6 @@
 import SearchBox from '@/boxes/SearchBox';
 import FollowerListContainer from '@/molecules/FollowerList/FollowerListContainer';
-import NavBarContainer from '@/organisms/NavBar/NavBarContainer';
+import NavBarContainer from '@/organisms/NavBar/NavBar';
 
 import { NextPage } from 'next';
 
