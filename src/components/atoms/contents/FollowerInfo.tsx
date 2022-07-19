@@ -12,7 +12,6 @@ const Info = styled.div`
       span {
         font-size: ${fontSize.xxl};
         color: ${colors.white};
-
         font-weight: 700;
         padding-top: 2.3125rem;
       }
