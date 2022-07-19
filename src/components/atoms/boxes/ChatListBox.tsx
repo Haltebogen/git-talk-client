@@ -1,42 +1,7 @@
 import styled, { css } from 'styled-components';
 import Profile from '@/icons/profile_img.svg';
 import { useState } from 'react';
-
-export const Box = styled.div`
-  ${({ theme }) => {
-    const { colors } = theme;
-    return css`
-      border-radius: 0.375rem;
-      max-width: 36.25rem;
-      background-color: ${colors.secondary};
-      display: flex;
-      width: 100%;
-      gap: 1.3125rem;
-      align-items: center;
-      &:hover {
-        background-color: ${colors.hover};
-        color: ${colors.white};
-        cursor: pointer;
-      }
-
-      &:hover ${Middle} {
-        .messages {
-          color: ${colors.white};
-        }
-      }
-
-      &:hover ${Right} {
-        .time {
-          color: ${colors.white};
-        }
-      }
-
-      .profileImg {
-        padding: 1.625rem 0 1.625rem 2.1875rem;
-      }
-    `;
-  }}
-`;
+import { ListBox } from './BoxStyles';
 
 const Middle = styled.div`
   ${({ theme }) => {
@@ -50,11 +15,13 @@ const Middle = styled.div`
       .name {
         font-size: ${fontSize.sm};
         font-weight: 700;
+        padding-left: 2.25rem;
       }
 
       .messages {
         font-size: ${fontSize.xs};
         color: ${colors.lightgray};
+        padding-left: 2.25rem;
         max-width: 12.5rem;
         min-width: 8.75rem;
       }
@@ -94,6 +61,31 @@ const Right = styled.div`
   }}
 `;
 
+const ChatBox = styled(ListBox)`
+  ${({ theme }) => {
+    const { colors } = theme;
+    return css`
+      &:hover {
+        background-color: ${colors.hover};
+        color: ${colors.white};
+        cursor: pointer;
+      }
+
+      &:hover ${Middle} {
+        .messages {
+          color: ${colors.white};
+        }
+      }
+
+      &:hover ${Right} {
+        .time {
+          color: ${colors.white};
+        }
+      }
+    `;
+  }}
+`;
+
 export interface ChatListBoxProps {
   name: string;
   profileImg: string | null;
@@ -108,7 +100,7 @@ const ChatListBox = ({ name, profileImg, messages, time, msgCount }: ChatListBox
   const [isClick, setIsClick] = useState(false);
 
   return (
-    <Box
+    <ChatBox
       onClick={() => {
         setIsClick(!isClick);
       }}
@@ -128,7 +120,7 @@ const ChatListBox = ({ name, profileImg, messages, time, msgCount }: ChatListBox
         <div className="time">{time}</div>
         <span className="msgCount">{msgCount}</span>
       </Right>
-    </Box>
+    </ChatBox>
   );
 };
 

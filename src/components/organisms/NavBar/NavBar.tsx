@@ -7,7 +7,7 @@ export const Container = styled.div`
   flex-direction: column;
   gap: 14.375rem;
   max-width: 18.125rem;
-  padding-top: 5.5rem;
+  padding-top: 3.25rem;
 `;
 
 const NavBarContainer = () => {
