@@ -31,6 +31,7 @@ const SearchBox = () => {
   const [value, setValue] = useState('');
   console.log(value);
   const inputRef = useRef<HTMLInputElement>(null);
+
   return (
     <Box>
       <Search />

@@ -6,6 +6,7 @@ export const Container = styled.div`
   flex-direction: column;
   gap: 0.4375rem;
 `;
+
 const FollowerListContainer = () => {
   // 확인을 위해 임시로 컴포넌트 반복 삽입
   return (

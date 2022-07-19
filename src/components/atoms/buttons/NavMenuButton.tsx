@@ -15,6 +15,7 @@ export const Button = styled.div`
       align-items: center;
       color: ${colors.navy};
       font-size: ${fontSize.xs};
+
       &:hover {
         cursor: pointer;
         color: ${colors.purple};
