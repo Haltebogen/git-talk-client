@@ -1,3 +1,4 @@
+import LogoutButton from '@/buttons/LogoutButton';
 import NavMenuButton from '@/buttons/NavMenuButton';
 import styled, { css } from 'styled-components';
 
@@ -15,13 +16,22 @@ export const MenuContainer = styled.div`
   }}
 `;
 
+export const Logout = styled.div`
+  padding-top: 7.5rem;
+`;
+
 const NavMenu = () => {
   return (
-    <MenuContainer>
-      <NavMenuButton content="HOME" type="HOME" link="/home" />
-      <NavMenuButton content="CHAT" type="CHAT" link="/chat" />
-      <NavMenuButton content="NOTIFICATION " type="NOTI" link="/notification" />
-    </MenuContainer>
+    <>
+      <MenuContainer>
+        <NavMenuButton content="HOME" type="HOME" link="/home" />
+        <NavMenuButton content="CHAT" type="CHAT" link="/chat" />
+        <NavMenuButton content="NOTIFICATION " type="NOTI" link="/notification" />
+        <Logout>
+          <LogoutButton />
+        </Logout>
+      </MenuContainer>
+    </>
   );
 };
 

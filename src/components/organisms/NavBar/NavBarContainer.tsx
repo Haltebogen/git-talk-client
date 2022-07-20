@@ -5,7 +5,7 @@ import NavMenu from '@/molecules/NavBar/NavMenu';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 14.375rem;
+  gap: 10rem;
   width: 100%;
   max-width: 18.125rem;
   padding-top: 3.25rem;
