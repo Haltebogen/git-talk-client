@@ -1,18 +1,34 @@
-import SearchBox from '@/boxes/SearchBox';
-import FollowerListContainer from '@/molecules/FollowerList/FollowerListContainer';
+import FollowerList from '@/organisms/FollowerList/FollowerList';
 import FollowerProfile from '@/organisms/FollowerProfile/FollowerProfile';
-import NavBarContainer from '@/organisms/NavBar/NavBar';
-
+import NavBarLayout from '@/organisms/NavBar/NavBarLayout';
 import { NextPage } from 'next';
+import styled from 'styled-components';
+
+export const Container = styled.div`
+  display: flex;
+  width: 100%;
+`;
+
+export const Area = styled.div`
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
+  justify-content: center;
+  margin-top: 5.625rem;
+`;
 
 const Home: NextPage = () => {
   return (
-    <div>
-      <NavBarContainer />
-      <SearchBox />
-      <FollowerListContainer />
-      <FollowerProfile />
-    </div>
+    <Container>
+      <NavBarLayout>
+        <Area>
+          <FollowerList />
+        </Area>
+        <Area>
+          <FollowerProfile />
+        </Area>
+      </NavBarLayout>
+    </Container>
   );
 };
 
