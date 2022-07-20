@@ -8,8 +8,7 @@ export const Container = styled.div`
   gap: 14.375rem;
   width: 100%;
   max-width: 18.125rem;
-  /* padding-top: 3.25rem; */
-  /* padding: 3.25rem 35px 0 35px; */
+  padding-top: 3.25rem;
 `;
 
 const NavBarContainer = () => {
