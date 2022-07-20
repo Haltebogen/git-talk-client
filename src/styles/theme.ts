@@ -4,6 +4,7 @@ const colors = {
   primary: '#6868AB', // purple
   secondary: '#fff', // white
   bgcolor: '#F8F8FF ', // brighter purple
+  boxcolor: '#fff', // white
   followerbgcolor: '#949494', // black
   msgcount: '#FF3366', // pink
 
