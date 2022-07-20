@@ -29,7 +29,7 @@ const Info = styled.div`
 export interface FollowerInfoProps {
   name: string;
   profileImg: string | null;
-  stateMessages?: string;
+  stateMessages?: string | null;
 }
 
 const FollowerInfo = ({ name, profileImg, stateMessages }: FollowerInfoProps) => {
