@@ -17,7 +17,7 @@ export const MenuContainer = styled.div`
 `;
 
 export const Logout = styled.div`
-  padding-top: 7.5rem;
+  padding: 7.5rem 0 3.1875rem;
 `;
 
 const NavMenu = () => {
