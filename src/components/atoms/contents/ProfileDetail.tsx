@@ -11,6 +11,8 @@ export const Container = styled.div`
       gap: 0.4375rem;
       font-size: ${fontSize.xs};
       color: ${colors.gray};
+      justify-content: flex-start;
+      padding-left: 2.3125rem;
     `;
   }}
 `;
@@ -20,6 +22,7 @@ export const Message = styled.div`
     const { fontSize } = theme;
     return css`
       font-size: ${fontSize.xxs};
+      width: 100%;
     `;
   }}
 `;
@@ -32,9 +35,21 @@ export interface ProfileDetailProps {
 const ProfileDetail = ({ type, text }: ProfileDetailProps) => {
   return (
     <Container>
-      {type === 'FOLLOWER' && <Follower />}
-      {type === 'COMPANY' && <Company />}
-      {type === 'MESSAGE' && <StatusMessages />}
+      {type === 'FOLLOWER' && (
+        <div>
+          <Follower />
+        </div>
+      )}
+      {type === 'COMPANY' && (
+        <div>
+          <Company />
+        </div>
+      )}
+      {type === 'MESSAGE' && (
+        <div>
+          <StatusMessages />
+        </div>
+      )}
       {type !== 'MESSAGE' ? <span>{text}</span> : <Message>{text}</Message>}
     </Container>
   );
