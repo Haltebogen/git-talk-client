@@ -1,40 +1,30 @@
 import styled, { css } from 'styled-components';
 import Profile from '@/icons/profile_img.svg';
 import { useState } from 'react';
+import { ListBox } from './BoxStyles';
 
-export const Box = styled.div`
+export const Name = styled.div`
   ${({ theme }) => {
-    const { colors, fontSize } = theme;
+    const { fontSize } = theme;
     return css`
-      border-radius: 0.375rem;
-      max-width: 36.25rem;
-      background-color: ${colors.secondary};
-      display: flex;
+      font-size: ${fontSize.sm};
       width: 100%;
-      gap: 1.3125rem;
-      align-items: center;
-      &:hover {
-        background-color: ${colors.hover};
-        color: ${colors.white};
-        cursor: pointer;
-      }
-    
-      .profileImg {
-        padding: 1.25rem 0 1.25rem 2.1875rem;
-      }
+      font-weight: 700;
+      padding-left: 2.25rem;
+    `;
+  }}
+`;
 
-      .name {
-        font-size: ${fontSize.sm};
-        font-weight: 700;
-        
-      }
-      .statusMessage {
-        font-size: ${fontSize.sm};
-        width: 100%;
-        height:100%
-        max-width: 12.5rem;
-        min-width: 8.75rem;
-      }
+export const StatusMessage = styled.div`
+  ${({ theme }) => {
+    const { fontSize } = theme;
+    return css`
+      font-size: ${fontSize.sm}
+      padding-left: 2.25rem;;
+      width: 100%;
+      height:100%
+      max-width: 12.5rem;
+      min-width: 8.75rem;
     `;
   }}
 `;
@@ -50,7 +40,7 @@ const FollowerListBox = ({ name, profileImg, statusMessage }: FollowerListBoxPro
   const [isClick, setIsClick] = useState(false);
 
   return (
-    <Box
+    <ListBox
       onClick={() => {
         setIsClick(!isClick);
       }}
@@ -62,11 +52,11 @@ const FollowerListBox = ({ name, profileImg, statusMessage }: FollowerListBoxPro
           <Profile />
         </div>
       )}
-      <div className="name">{name}</div>
-      <div className="statusMessage">
+      <Name>{name}</Name>
+      <StatusMessage>
         {statusMessage && (statusMessage.length > STATUSMSG_MAX_LENGTH ? `${statusMessage.slice(0, STATUSMSG_MAX_LENGTH)} ...` : statusMessage)}
-      </div>
-    </Box>
+      </StatusMessage>
+    </ListBox>
   );
 };
 

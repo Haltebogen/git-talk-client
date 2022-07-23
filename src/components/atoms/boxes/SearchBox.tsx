@@ -7,14 +7,16 @@ export const Box = styled.div`
     const { colors, fontSize } = theme;
     return css`
       display: flex;
+      width: 100%;
       padding: 1.4375rem 2.5625rem;
       border-radius: 0.375rem;
       align-items: center;
       max-width: 36.25rem;
+      background-color: ${colors.boxcolor};
 
       input {
         border: none;
-        padding: 1.375rem 0 1.375rem 0.625rem;
+        padding-left: 0.625rem;
         width: 100%;
         outline: none;
 
@@ -31,6 +33,7 @@ const SearchBox = () => {
   const [value, setValue] = useState('');
   console.log(value);
   const inputRef = useRef<HTMLInputElement>(null);
+
   return (
     <Box>
       <Search />

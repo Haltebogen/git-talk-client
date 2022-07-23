@@ -10,9 +10,11 @@ const Button = styled.div`
       padding: 1.25rem 6.875rem;
       font-size: ${fontSize.lg};
       border-radius: 0.625rem;
+
       &:hover {
         cursor: pointer;
       }
+
       a {
         color: ${colors.white};
       }
