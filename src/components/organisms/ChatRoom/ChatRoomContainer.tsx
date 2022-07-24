@@ -1,6 +1,6 @@
 import ChatInputBox from '@/boxes/ChatInputBox';
 import ChatRoomNav from '@/boxes/ChatRoomNav';
-import ChatContainer from '@/molecules/ChatList/ChatContainer';
+import ChatContainer from '@/molecules/ChatRoom/ChatContainer';
 import React from 'react';
 import styled from 'styled-components';
 
