@@ -8,12 +8,19 @@ export const ProfileContainer = styled.div`
   flex-direction: column;
   gap: 2.0625rem;
   align-items: center;
+  width: 100%;
 `;
 
 export const ProfileBox = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
   gap: 0.4375rem;
+`;
+
+export const Button = styled.div`
+  display: flex;
+  justify-content: center;
 `;
 
 const NavProfile = () => {
@@ -21,7 +28,9 @@ const NavProfile = () => {
     <ProfileContainer>
       <ProfileBox>
         <ProfileMain name="Kimkyungmin" id="github_id" profileImg={null} />
-        <NavEditProfileButton />
+        <Button>
+          <NavEditProfileButton />
+        </Button>
       </ProfileBox>
       <ProfileBox>
         <ProfileDetail type="FOLLOWER" text="71 following - 96 follower" />

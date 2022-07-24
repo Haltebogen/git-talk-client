@@ -2,10 +2,12 @@ import ChatListBox from '@/boxes/ChatListBox';
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 0.4375rem;
 `;
+
 const ChatListContainer = () => {
   // 확인을 위해 임시로 컴포넌트 반복 삽입
   return (

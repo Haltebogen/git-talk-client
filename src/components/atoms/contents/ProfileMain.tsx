@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import ProfileImg from '@/icons/nav_profile_img.svg';
+import ProfileImg from '@/icons/profile_img.svg';
 
 export const Container = styled.div`
   ${({ theme }) => {
@@ -13,6 +13,15 @@ export const Container = styled.div`
       font-size: ${fontSize.xs};
       color: ${colors.gray};
       width: 100%;
+
+      .profileImg {
+        transform: scale(0.4);
+        width: 100%;
+        max-width: 6.1875rem;
+        max-height: 6.1875rem;
+        margin-bottom: 2.5rem;
+        margin-right: 4rem;
+      }
     `;
   }}
 `;
@@ -46,15 +55,14 @@ export interface ProfileMainProps {
 const ProfileMain = ({ name, id, profileImg }: ProfileMainProps) => {
   return (
     <Container>
-      <div>
-        {profileImg ? (
-          <div className="profileImg">{profileImg}</div>
-        ) : (
-          <div className="profileImg">
-            <ProfileImg />
-          </div>
-        )}
-      </div>
+      {profileImg ? (
+        <div className="profileImg">{profileImg}</div>
+      ) : (
+        <div className="profileImg">
+          <ProfileImg />
+        </div>
+      )}
+
       <Name>{name}</Name>
       <Id>{id}</Id>
     </Container>
