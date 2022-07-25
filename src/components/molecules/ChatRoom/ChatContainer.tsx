@@ -1,27 +1,34 @@
 import React from 'react';
-import ReceiverMsgBox from '@/boxes/ReceiverMsgBox';
-import SenderMsgBox from '@/boxes/SenderMsgBox';
-import styled from 'styled-components';
+import ChatBox from './ChatBox';
+import styled, { css } from 'styled-components';
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0.625rem;
-  max-width: 53.125rem;
-  height: 49.0625rem;
-  align-items: center;
-  padding: 1.875rem;
+export const Container = styled.div`
+  ${({ theme }) => {
+    const { colors } = theme;
+    return css`
+      display: flex;
+      flex-direction: column;
+      gap: 0.875rem;
+      max-width: 43.725rem;
+      height: 49.0625rem;
+      align-items: center;
+      padding: 1.875rem;
+      background-color: ${colors.secondary};
+    `;
+  }}
 `;
 
 const ChatContainer = () => {
   return (
     <Container>
-      <ReceiverMsgBox message="안녕하세요 길게 한번 말해보겠습니다 안녕하세요 길게 한번 말해보겠습니다 안녕하세요 길게 한번 말해보겠습니다 안녕하세요 길게 한번 말해보겠습니다 안녕하세요 길게 한번 말해보겠습니다 안녕하세요 길게 한번 말해보겠습니다 안녕하세요 길게 한번 말해보겠습니다 안녕하세요 길게 한번 말해보겠습니다. " />
-      <SenderMsgBox message="hihihih" />
-      <SenderMsgBox message="hihihihihihihihihihihihihihihihihihihihih" />
-      <SenderMsgBox message="hihihih" />
-      <ReceiverMsgBox message="난 선영 선영 선영 선영 텍스트 텍스트 텍스트 테스트 " />
-      <ReceiverMsgBox message="안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요" />
+      <ChatBox isMe={false} message="안녕" />
+      <ChatBox
+        isMe={true}
+        message="안ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ녕"
+      />
+      <ChatBox isMe={true} message="안녕" />
+      <ChatBox isMe={false} message="안녕안녕 ㅏㅇㄶㄴㄷㅎㄴㄷㅎ니댜ㅗ히ㅑㄴ돟니ㅑㅗㅎㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ뇌ㅑ노햐ㅣㅗㄷ" />
+      <ChatBox isMe={true} message="안녕" />
     </Container>
   );
 };
