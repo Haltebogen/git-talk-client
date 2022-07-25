@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import Send from '@/icons/send.svg';
+// import Send from '@/icons/send.svg';
 import { useRef, useState } from 'react';
 //완
 export const Box = styled.div`
@@ -11,12 +11,13 @@ export const Box = styled.div`
       padding-right: 3.375rem;
       align-items: center;
       border-top: 0.125rem solid rgba(112, 124, 151, 0.1);
+      background-color: ${colors.secondary};
 
       input {
         border: none;
         padding: 1.375rem 0 1.375rem 0.625rem;
         outline: none;
-        width: 100%;
+        width: 90%;
 
         ::placeholder {
           color: ${colors.navy};
@@ -41,7 +42,7 @@ const ChatInputBox = () => {
           setValue(e.target.value);
         }}
       />
-      <Send />
+      {/* <Send /> */}
     </Box>
   );
 };

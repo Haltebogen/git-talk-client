@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import NavProfile from '@/icons/nav_profile_img.svg';
-import More from '@/icons/more.svg';
+// import More from '@/icons/more.svg';
 import React from 'react';
 
 export const Box = styled.div`
@@ -75,9 +75,7 @@ const ChatRoomNav = ({ name, profileImg, nickname }: ChatRoomNavProps) => {
         <div className="nickname">{nickname}</div>
         <div className="name">{name}</div>
       </Middle>
-      <Right>
-        <More className="moreBtn" />
-      </Right>
+      <Right>{/* <More className="moreBtn" /> */}</Right>
     </Box>
   );
 };
