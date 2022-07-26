@@ -22,7 +22,7 @@ export const Button = styled.button`
   }}
 `;
 
-const EditProfileImgButton = () => {
+const EditImgButton = () => {
   return (
     <Button onClick={() => console.log('edit')}>
       <EditImage />
@@ -30,4 +30,4 @@ const EditProfileImgButton = () => {
     </Button>
   );
 };
-export default EditProfileImgButton;
+export default EditImgButton;

@@ -11,6 +11,7 @@ export const Button = styled.button`
       padding: 0.5rem 1.875rem;
       font-size: ${fontSize.xs};
       color: ${colors.white};
+      max-width: 7.5rem;
 
       &:hover {
         cursor: pointer;
