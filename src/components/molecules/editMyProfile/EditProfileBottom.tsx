@@ -7,7 +7,7 @@ import styled from 'styled-components';
 const Container = styled.div`
   display: flex;
   width: 100%;
-  padding: 0 2.75rem;
+  padding: 1.875rem 2.75rem 0 2.75rem;
 `;
 
 const Left = styled.div`
