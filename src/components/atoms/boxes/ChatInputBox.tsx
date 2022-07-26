@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 // import Send from '@/icons/send.svg';
 import { useRef, useState } from 'react';
+import ChatSendButton from '@/buttons/ChatSendButton';
 //완
 export const Box = styled.div`
   ${({ theme }) => {
@@ -12,6 +13,7 @@ export const Box = styled.div`
       align-items: center;
       border-top: 0.125rem solid rgba(112, 124, 151, 0.1);
       background-color: ${colors.secondary};
+      max-width: 43.725rem;
 
       input {
         border: none;
@@ -42,7 +44,7 @@ const ChatInputBox = () => {
           setValue(e.target.value);
         }}
       />
-      {/* <Send /> */}
+      <ChatSendButton onClick={() => console.log('send')} />
     </Box>
   );
 };
