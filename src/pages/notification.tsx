@@ -1,4 +1,4 @@
-import NavBarLayout from '@/organisms/NavBar/NavBarLayout';
+import NavBarLayout from '@/organisms/navBar/NavBarLayout';
 import { NextPage } from 'next';
 
 const Notification: NextPage = () => {

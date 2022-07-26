@@ -1,8 +1,8 @@
-import SearchBox from '@/boxes/SearchBox';
-import FollowerListContainer from '@/molecules/FollowerList/FollowerListContainer';
+import SearchBox from '@/molecules/search/SearchBox';
+import FollowerListContainer from '@/molecules/followerList/FollowerListContainer';
 import styled from 'styled-components';
 
-export const Container = styled.div`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;

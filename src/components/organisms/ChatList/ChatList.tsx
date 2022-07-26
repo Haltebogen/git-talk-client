@@ -1,5 +1,5 @@
-import SearchBox from '@/boxes/SearchBox';
-import ChatListContainer from '@/molecules/ChatList/ChatListContainer';
+import SearchBox from '@/molecules/search/SearchBox';
+import ChatListContainer from '@/molecules/chatList/ChatListContainer';
 
 const ChatList = () => {
   return (

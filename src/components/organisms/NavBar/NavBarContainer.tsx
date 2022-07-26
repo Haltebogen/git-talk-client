@@ -1,8 +1,8 @@
+import NavProfile from '@/molecules/navBar/NavProfile';
+import NavMenu from '@/molecules/navBar/NavMenu';
 import styled from 'styled-components';
-import NavProfile from '@/molecules/NavBar/NavProfile';
-import NavMenu from '@/molecules/NavBar/NavMenu';
 
-export const Container = styled.div`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10rem;

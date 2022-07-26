@@ -1,5 +1,5 @@
-import ChatList from '@/organisms/ChatList/ChatList';
-import NavBarLayout from '@/organisms/NavBar/NavBarLayout';
+import ChatList from '@/organisms/chatList/ChatList';
+import NavBarLayout from '@/organisms/navBar/NavBarLayout';
 import { NextPage } from 'next';
 
 const Chat: NextPage = () => {

@@ -1,21 +1,8 @@
-import FollowerList from '@/organisms/FollowerList/FollowerList';
-import FollowerProfile from '@/organisms/FollowerProfile/FollowerProfile';
-import NavBarLayout from '@/organisms/NavBar/NavBarLayout';
+import FollowerList from '@/organisms/followerList/FollowerList';
+import FollowerProfile from '@/organisms/followerProfile/FollowerProfile';
+import NavBarLayout from '@/organisms/navBar/NavBarLayout';
 import { NextPage } from 'next';
-import styled from 'styled-components';
-
-export const Container = styled.div`
-  display: flex;
-  width: 100%;
-`;
-
-export const Area = styled.div`
-  display: flex;
-  flex-grow: 1;
-  width: 100%;
-  justify-content: center;
-  margin-top: 5.625rem;
-`;
+import { Container, Area } from 'styles/home';
 
 const Home: NextPage = () => {
   return (
