@@ -1,7 +1,7 @@
 import ContentInput from '@/inputs/ContentInput';
 import styled, { css } from 'styled-components';
 
-const Container = styled.input`
+const Container = styled.div`
   ${({ theme }) => {
     const { colors, fontSize } = theme;
     return css`
@@ -23,12 +23,12 @@ const Container = styled.input`
   }}
 `;
 
-export interface EditProfileContainerProps {
+export interface EditProfileContentProps {
   title: string;
   details: string;
 }
 
-const EditProfileContainer = ({ title, details }: EditProfileContainerProps) => {
+const EditProfileContent = ({ title, details }: EditProfileContentProps) => {
   return (
     <Container>
       <span>{title}</span>
@@ -38,4 +38,4 @@ const EditProfileContainer = ({ title, details }: EditProfileContainerProps) => 
   );
 };
 
-export default EditProfileContainer;
+export default EditProfileContent;

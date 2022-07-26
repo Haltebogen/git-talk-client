@@ -1,20 +1,28 @@
 import styled, { css } from 'styled-components';
 
 const Container = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.6875rem;
+  padding: 0.625rem 0;
+`;
+
+const Name = styled.div`
   ${({ theme }) => {
     const { colors, fontSize } = theme;
     return css`
-      display: flex;
+      font-size: ${fontSize.xxl};
+      color: ${colors.black};
+    `;
+  }}
+`;
 
-      h2 {
-        font-size: ${fontSize.xxl};
-        color: ${colors.black};
-      }
-
-      span {
-        font-size: ${fontSize.lg};
-        color: ${colors.lightgray};
-      }
+const Id = styled.div`
+  ${({ theme }) => {
+    const { colors, fontSize } = theme;
+    return css`
+      font-size: ${fontSize.lg};
+      color: ${colors.lightgray};
     `;
   }}
 `;
@@ -27,8 +35,8 @@ export interface EditProfileUserInfoProps {
 const EditProfileUserInfo = ({ name, id }: EditProfileUserInfoProps) => {
   return (
     <Container>
-      <h2>{name}</h2>
-      <span>{id}</span>
+      <Name>{name}</Name>
+      <Id>{id}</Id>
     </Container>
   );
 };
