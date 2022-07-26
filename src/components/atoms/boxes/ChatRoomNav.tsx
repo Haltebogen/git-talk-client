@@ -1,13 +1,16 @@
 import styled, { css } from 'styled-components';
 import NavProfile from '@/icons/nav_profile_img.svg';
 // import More from '@/icons/more.svg';
-import React from 'react';
+import React, { useState } from 'react';
+import MoreButton from '@/buttons/MoreButton';
+import ChatExitButton from '@/buttons/ChatExitButton';
+import ChatFollowButton from '@/buttons/ChatFollowButton';
 
 export const Box = styled.div`
   ${({ theme }) => {
     const { colors } = theme;
     return css`
-      max-width: 53.125rem;
+      max-width: 43.725rem;
       height: 10%;
       border-bottom: 0.125rem solid rgba(112, 124, 151, 0.1);
       background-color: ${colors.white};
@@ -51,9 +54,24 @@ const Middle = styled.div`
 
 const Right = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-right: 0.875rem;
 `;
+
+const ButtonDom = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+`;
+
+const DropDownButton = styled.div<{ isVisible: boolean }>`
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 4.625rem;
+  display: ${(props) => (props.isVisible ? 'block' : 'none')};
+`;
+
+const DropUpButton = styled.div``;
 
 export interface ChatRoomNavProps {
   name: string;
@@ -62,6 +80,12 @@ export interface ChatRoomNavProps {
 }
 
 const ChatRoomNav = ({ name, profileImg, nickname }: ChatRoomNavProps) => {
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+
+  const handleVisible = () => {
+    setIsVisible(!isVisible);
+  };
+
   return (
     <Box>
       {profileImg ? (
@@ -75,7 +99,17 @@ const ChatRoomNav = ({ name, profileImg, nickname }: ChatRoomNavProps) => {
         <div className="nickname">{nickname}</div>
         <div className="name">{name}</div>
       </Middle>
-      <Right>{/* <More className="moreBtn" /> */}</Right>
+      <Right>
+        <ButtonDom className="dropDown">
+          <DropUpButton>
+            <MoreButton onClick={handleVisible} />
+          </DropUpButton>
+          <DropDownButton isVisible={isVisible}>
+            <ChatExitButton onClick={() => console.log('exit')} />
+            <ChatFollowButton onClick={() => console.log('follow')} />
+          </DropDownButton>
+        </ButtonDom>
+      </Right>
     </Box>
   );
 };
