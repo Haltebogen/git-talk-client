@@ -20,7 +20,7 @@ export const Button = styled.button`
   }}
 `;
 
-interface AddButtonProps {
+export interface AddButtonProps {
   onClick: React.MouseEventHandler<HTMLButtonElement>;
 }
 
