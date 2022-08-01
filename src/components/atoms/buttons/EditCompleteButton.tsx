@@ -16,6 +16,10 @@ export const Button = styled.button`
       &:hover {
         cursor: pointer;
       }
+
+      &:active {
+        background-color: ${colors.clickbtn};
+      }
     `;
   }}
 `;

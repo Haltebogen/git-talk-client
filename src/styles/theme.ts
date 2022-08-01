@@ -20,7 +20,9 @@ const colors = {
 
   // event
   hover: '#8A8AD9', // light-purple
-  click: '#6868AB', // dark-purple
+  clickbox: '#6868AB', // dark-purple
+  clickbtn: '#35356F',
+  focus: '#1F1F5A', // deep-dark-purple
 };
 
 const fontSize = {

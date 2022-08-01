@@ -11,12 +11,16 @@ const Button = styled.div`
       font-size: ${fontSize.lg};
       border-radius: 0.625rem;
 
+      a {
+        color: ${colors.white};
+      }
+
       &:hover {
         cursor: pointer;
       }
 
-      a {
-        color: ${colors.white};
+      &:active {
+        background-color: ${colors.clickbtn};
       }
     `;
   }}
