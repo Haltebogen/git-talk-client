@@ -20,7 +20,7 @@ const Button = styled.div`
       }
 
       &:active {
-        background-color: ${colors.clickbtn};
+        background-color: ${colors.clickbtn1};
       }
     `;
   }}

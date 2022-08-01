@@ -1,8 +1,10 @@
 import { DefaultTheme } from 'styled-components';
 
 const colors = {
+  // area
   primary: '#6868AB', // purple
   secondary: '#fff', // white
+  rarely: '#C4C4C4', // brighter gray
   bgcolor: '#F8F8FF ', // brighter purple
   boxcolor: '#fff', // white
   profilebgcolor: '#949494', // black
@@ -20,8 +22,9 @@ const colors = {
 
   // event
   hover: '#8A8AD9', // light-purple
-  clickbox: '#6868AB', // dark-purple
-  clickbtn: '#35356F',
+  clickbox: '#6868AB', // purple
+  clickbtn1: '#35356F', // dark-purple
+  clickbtn2: '#6D6A6A', // gray
   focus: '#1F1F5A', // deep-dark-purple
 };
 

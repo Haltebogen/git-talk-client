@@ -18,15 +18,15 @@ export const Button = styled.button`
       }
 
       &:active {
-        background-color: ${colors.clickbtn};
+        background-color: ${colors.clickbtn1};
       }
     `;
   }}
 `;
 
-interface AddButtonProps {
+export interface AddButtonProps {
   onClick: React.MouseEventHandler<HTMLButtonElement>;
-  ariaLabel: string;
+  ariaLabel?: string;
 }
 
 const AddButton = ({ onClick, ariaLabel }: AddButtonProps) => {

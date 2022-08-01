@@ -24,7 +24,7 @@ export const Button = styled.button`
       }
 
       &:active {
-        background-color: ${colors.clickbtn};
+        background-color: ${colors.clickbtn1};
       }
     `;
   }}
