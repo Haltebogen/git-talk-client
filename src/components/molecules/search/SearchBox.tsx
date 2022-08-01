@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import Search from '@/icons/search.svg';
-import BasicInput from '@/inputs/BasicInput';
+import BasicInput, { BasicInputProps } from '@/inputs/BasicInput';
 
 export const Box = styled.div`
   ${({ theme }) => {
@@ -17,11 +17,11 @@ export const Box = styled.div`
   }}
 `;
 
-const SearchBox = () => {
+const SearchBox = ({ onChange, value }: BasicInputProps) => {
   return (
     <Box>
       <Search />
-      <BasicInput />
+      <BasicInput placeholder="Search" onChange={onChange} value={value} />
     </Box>
   );
 };

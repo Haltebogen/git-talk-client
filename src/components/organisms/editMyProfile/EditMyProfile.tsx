@@ -1,3 +1,4 @@
+import { ContentInputProps } from '@/inputs/ContentInput';
 import EditProfileBottom from '@/molecules/editMyProfile/EditProfileBottom';
 import EditProfileTop from '@/molecules/editMyProfile/EditProfileTop';
 import styled from 'styled-components';
@@ -8,11 +9,11 @@ const Container = styled.div`
   width: 100%;
 `;
 
-const EditMyProfile = () => {
+const EditMyProfile = ({ value, onChange }: ContentInputProps) => {
   return (
     <Container>
       <EditProfileTop />
-      <EditProfileBottom />
+      <EditProfileBottom value={value} onChange={onChange} />
     </Container>
   );
 };

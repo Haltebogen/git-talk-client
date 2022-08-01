@@ -1,7 +1,7 @@
-import { useRef, useState } from 'react';
+import { ChangeEventHandler, useRef } from 'react';
 import styled, { css } from 'styled-components';
 
-const Input = styled.input`
+export const Input = styled.input`
   ${({ theme }) => {
     const { colors, fontSize } = theme;
     return css`
@@ -18,21 +18,18 @@ const Input = styled.input`
   }}
 `;
 
-const BasicInput = () => {
-  const [value, setValue] = useState('');
-  console.log(value);
+export interface BasicInputProps {
+  placeholder?: string;
+  value: string;
+  onChange: ChangeEventHandler<HTMLInputElement>;
+}
+
+const BasicInput = ({ placeholder, value, onChange }: BasicInputProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   return (
     <>
-      <Input
-        placeholder="Search"
-        value={value}
-        ref={inputRef}
-        onChange={(e) => {
-          setValue(e.target.value);
-        }}
-      />
+      <Input placeholder={placeholder} onChange={onChange} value={value} ref={inputRef} />
     </>
   );
 };

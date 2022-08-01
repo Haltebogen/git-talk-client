@@ -1,12 +1,19 @@
 import SearchBox from '@/molecules/search/SearchBox';
 import ChatListContainer from '@/molecules/chatList/ChatListContainer';
+import { Container } from '@/organisms/followerList/FollowerList';
+import AddSomethingContainer from '@/molecules/addSomething/AddSomethingContainer';
+import { BasicInputProps } from '@/inputs/BasicInput';
+import { AddButtonProps } from '@/buttons/AddButton';
 
-const ChatList = () => {
+type ChatListProps = AddButtonProps & BasicInputProps;
+
+const ChatList = ({ onChange, value, onClick }: ChatListProps) => {
   return (
-    <div>
-      <SearchBox />
+    <Container>
+      <AddSomethingContainer title="대화" ariaLabel="대화 상대 추가" onClick={onClick} />
+      <SearchBox onChange={onChange} value={value} />
       <ChatListContainer />
-    </div>
+    </Container>
   );
 };
 

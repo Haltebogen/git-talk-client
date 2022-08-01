@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { ChangeEventHandler, useRef } from 'react';
 import styled, { css } from 'styled-components';
 import TextareaAutosize from 'react-textarea-autosize';
 
@@ -21,27 +21,19 @@ const Textarea = styled(TextareaAutosize)`
 `;
 
 export interface ContentInputProps {
+  value: string;
+  onChange: ChangeEventHandler<HTMLTextAreaElement>;
+
   minRows?: number;
   maxRows?: number;
   maxLength?: number;
 }
 
-const ContentInput = ({ minRows, maxRows, maxLength }: ContentInputProps) => {
-  const [value, setValue] = useState('');
-  console.log(value);
+const ContentInput = ({ value, onChange, minRows, maxRows, maxLength }: ContentInputProps) => {
   const inputRef = useRef<HTMLTextAreaElement>(null);
   return (
     <>
-      <Textarea
-        value={value}
-        ref={inputRef}
-        minRows={minRows}
-        maxRows={maxRows}
-        maxLength={maxLength}
-        onChange={(e) => {
-          setValue(e.target.value);
-        }}
-      />
+      <Textarea value={value} ref={inputRef} onChange={onChange} minRows={minRows} maxRows={maxRows} maxLength={maxLength} />
     </>
   );
 };

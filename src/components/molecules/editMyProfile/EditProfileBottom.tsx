@@ -3,6 +3,7 @@ import EditProfileUserInfo from '@/contents/EditProfileUserInfo';
 import EditProfileContent from './EditProfileContent';
 import EditProfileImg from './EditProfileImg';
 import styled from 'styled-components';
+import { ContentInputProps } from '@/inputs/ContentInput';
 
 const Container = styled.div`
   display: flex;
@@ -24,13 +25,25 @@ const Right = styled.div`
   flex-direction: column;
 `;
 
-const EditProfileBottom = () => {
+const EditProfileBottom = ({ value, onChange }: ContentInputProps) => {
   return (
     <Container>
       <Left>
         <EditProfileUserInfo name="Kimkyungmin" id="github_id" />
-        <EditProfileContent title="Status Message" type="STATUS" details="상태 메시지는 최대 50 자까지 작성하실 수 있습니다." />
-        <EditProfileContent title="Bio" type="BIO" details="자기소개는 최대 500자까지 작성이 가능합니다. 욕설이나 비방을 하는 글은 자제해 주세요." />
+        <EditProfileContent
+          title="Status Message"
+          type="STATUS"
+          details="상태 메시지는 최대 50 자까지 작성하실 수 있습니다."
+          value={value}
+          onChange={onChange}
+        />
+        <EditProfileContent
+          title="Bio"
+          type="BIO"
+          details="자기소개는 최대 500자까지 작성이 가능합니다. 욕설이나 비방을 하는 글은 자제해 주세요."
+          value={value}
+          onChange={onChange}
+        />
         <EditCompleteButton />
       </Left>
       <Right>
