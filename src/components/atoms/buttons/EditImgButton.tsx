@@ -24,7 +24,7 @@ export const Button = styled.button`
 
 const EditImgButton = () => {
   return (
-    <Button onClick={() => console.log('edit')}>
+    <Button onClick={() => console.log('edit')} aria-label="이미지 수정">
       <EditImage />
       edit
     </Button>

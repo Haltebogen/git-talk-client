@@ -26,11 +26,12 @@ export const Button = styled.button`
 
 interface AddButtonProps {
   onClick: React.MouseEventHandler<HTMLButtonElement>;
+  ariaLabel: string;
 }
 
-const AddButton = ({ onClick }: AddButtonProps) => {
+const AddButton = ({ onClick, ariaLabel }: AddButtonProps) => {
   return (
-    <Button onClick={onClick}>
+    <Button onClick={onClick} aria-label={ariaLabel}>
       <Plus />
     </Button>
   );

@@ -30,7 +30,7 @@ const LoginButton = () => {
   const loginUrl = `https://github.com/login/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_GITHUB_ID}&redirect_uri=${process.env.NEXT_PUBLIC_CLIENT_URL}/api/auth/github/callback`;
 
   return (
-    <Button>
+    <Button aria-label="로그인 하기">
       <a href={loginUrl}>GITHUB 로그인</a>
     </Button>
   );

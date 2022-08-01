@@ -14,10 +14,10 @@ const ProfileMenu = () => {
     <Menu>
       {/* 임시 링크 */}
       <div>
-        <FollowerDetailsButton type="CHAT" link="/chat" />
+        <FollowerDetailsButton type="CHAT" link="/chat" ariaLabel="일대일 대화하기" />
       </div>
       <div>
-        <FollowerDetailsButton type="GIT" link="https://github.com/Haltebogen" />
+        <FollowerDetailsButton type="GIT" link="https://github.com/Haltebogen" ariaLabel="깃허브로 이동하기" />
       </div>
     </Menu>
   );

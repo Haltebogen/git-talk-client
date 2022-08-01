@@ -25,6 +25,6 @@ export const Button = styled.button`
 `;
 
 const EditCompleteButton = () => {
-  return <Button>수정완료</Button>;
+  return <Button aria-label="수정 완료">수정완료</Button>;
 };
 export default EditCompleteButton;

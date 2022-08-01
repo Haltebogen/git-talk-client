@@ -33,7 +33,7 @@ export const Button = styled.button`
 const NavEditProfileButton = () => {
   return (
     <Link href="/edit-profile">
-      <Button>
+      <Button aria-label="내 프로필 수정하기">
         <a>Edit profile</a>
       </Button>
     </Link>
