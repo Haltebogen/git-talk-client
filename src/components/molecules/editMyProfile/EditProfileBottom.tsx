@@ -29,8 +29,8 @@ const EditProfileBottom = () => {
     <Container>
       <Left>
         <EditProfileUserInfo name="Kimkyungmin" id="github_id" />
-        <EditProfileContent title="Status Message" details="상태 메시지는 최대 50 자까지 작성하실 수 있습니다." />
-        <EditProfileContent title="Bio" details="자기소개는 최대 500자까지 작성이 가능합니다. 욕설이나 비방을 하는 글은 자제해 주세요." />
+        <EditProfileContent title="Status Message" type="STATUS" details="상태 메시지는 최대 50 자까지 작성하실 수 있습니다." />
+        <EditProfileContent title="Bio" type="BIO" details="자기소개는 최대 500자까지 작성이 가능합니다. 욕설이나 비방을 하는 글은 자제해 주세요." />
         <EditCompleteButton />
       </Left>
       <Right>

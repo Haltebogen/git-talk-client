@@ -26,13 +26,15 @@ const Container = styled.div`
 export interface EditProfileContentProps {
   title: string;
   details: string;
+  type: 'STATUS' | 'BIO';
 }
 
-const EditProfileContent = ({ title, details }: EditProfileContentProps) => {
+const EditProfileContent = ({ title, details, type }: EditProfileContentProps) => {
   return (
     <Container>
       <span>{title}</span>
-      <ContentInput />
+      {type === 'STATUS' && <ContentInput maxRows={2} maxLength={50} />}
+      {type === 'BIO' && <ContentInput minRows={6} maxRows={6} maxLength={500} />}
       <p>{details}</p>
     </Container>
   );
