@@ -7,7 +7,7 @@ const Container = styled.div`
     return css`
       display: flex;
       flex-direction: column;
-      gap: 0.25rem;
+      gap: 0.4375rem;
 
       span {
         font-size: ${fontSize.xl};

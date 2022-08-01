@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 const Container = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   gap: 0.6875rem;
   padding: 0.625rem 0;
 `;
