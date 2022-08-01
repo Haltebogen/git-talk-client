@@ -20,6 +20,7 @@ const Left = styled.div`
 
 const Right = styled.div`
   display: flex;
+  padding-right: 3.4375rem;
   flex-direction: column;
 `;
 
