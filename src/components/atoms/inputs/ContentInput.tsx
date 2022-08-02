@@ -23,7 +23,6 @@ const Textarea = styled(TextareaAutosize)`
 export interface ContentInputProps {
   value: string;
   onChange: ChangeEventHandler<HTMLTextAreaElement>;
-
   minRows?: number;
   maxRows?: number;
   maxLength?: number;
