@@ -16,8 +16,17 @@ module.exports = {
   webpackFinal: async (config) => {
     config.module.rules.push({
       test: /\.(ts|tsx)$/,
+      use: ['@svgr/webpack'],
       loader: require.resolve('babel-loader'),
     });
+
+    config.resolve.modules = [path.resolve(__dirname, '..'), 'node_modules', 'styles'];
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@components': path.resolve(__dirname, '../src/components'),
+      '@assets': path.resolve(__dirname, '../src/assets'),
+    };
+
     return config;
   },
 };
