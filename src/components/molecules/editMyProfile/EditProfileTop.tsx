@@ -8,7 +8,7 @@ const Container = styled.div`
   width: 100%;
 `;
 
-const Image = styled.div`
+const Background = styled.div`
   ${({ theme }) => {
     const { colors } = theme;
     return css`
@@ -31,7 +31,7 @@ export interface EditProfileTopProps {
 const EditProfileTop = ({ profileImg }: EditProfileTopProps) => {
   return (
     <Container>
-      {profileImg || <Image></Image>}
+      {profileImg || <Background></Background>}
       <Button>
         <EditImgButton />
       </Button>
