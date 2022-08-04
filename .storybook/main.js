@@ -16,7 +16,6 @@ module.exports = {
   webpackFinal: async (config) => {
     config.module.rules.push({
       test: /\.(ts|tsx)$/,
-      use: ['@svgr/webpack'],
       loader: require.resolve('babel-loader'),
     });
 
