@@ -65,12 +65,6 @@ const ChatBox = styled(ListBox)`
   ${({ theme }) => {
     const { colors } = theme;
     return css`
-      &:hover {
-        background-color: ${colors.hover};
-        color: ${colors.white};
-        cursor: pointer;
-      }
-
       &:hover ${Middle} {
         .messages {
           color: ${colors.white};
@@ -81,6 +75,10 @@ const ChatBox = styled(ListBox)`
         .time {
           color: ${colors.white};
         }
+      }
+
+      &:active {
+        background-color: ${colors.clickbox};
       }
     `;
   }}

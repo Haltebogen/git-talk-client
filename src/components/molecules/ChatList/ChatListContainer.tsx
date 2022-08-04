@@ -6,6 +6,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.4375rem;
+  align-items: center;
 `;
 
 const ChatListContainer = () => {

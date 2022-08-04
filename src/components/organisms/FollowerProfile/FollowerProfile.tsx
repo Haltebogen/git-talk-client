@@ -1,6 +1,6 @@
 import FollowerBackgroundBox from '@/boxes/FollowerBackgroundBox';
 import FollowerInfo from '@/contents/FollowerInfo';
-import ProfileMenu from '@/molecules/FollowerProfile/ProfileMenu';
+import ProfileMenu from '@/molecules/followerProfile/ProfileMenu';
 import styled from 'styled-components';
 
 const Info = styled.div`

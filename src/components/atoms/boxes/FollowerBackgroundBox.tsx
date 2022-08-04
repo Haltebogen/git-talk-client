@@ -6,7 +6,7 @@ export const Background = styled.div`
     const { colors } = theme;
     return css`
       width: 100%;
-      background-color: ${colors.followerbgcolor};
+      background-color: ${colors.profilebgcolor};
       max-width: 44.3125rem;
       max-height: 51.25rem;
     `;

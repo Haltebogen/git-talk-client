@@ -16,17 +16,22 @@ export const Button = styled.button`
       &:hover {
         cursor: pointer;
       }
+
+      &:active {
+        background-color: ${colors.clickbtn1};
+      }
     `;
   }}
 `;
 
-interface AddButtonProps {
+export interface AddButtonProps {
   onClick: React.MouseEventHandler<HTMLButtonElement>;
+  ariaLabel?: string;
 }
 
-const AddButton = ({ onClick }: AddButtonProps) => {
+const AddButton = ({ onClick, ariaLabel }: AddButtonProps) => {
   return (
-    <Button onClick={onClick}>
+    <Button onClick={onClick} aria-label={ariaLabel}>
       <Plus />
     </Button>
   );

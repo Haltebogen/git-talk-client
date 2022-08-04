@@ -8,12 +8,13 @@ export interface NavMenuButtonProps {
   type: 'HOME' | 'CHAT' | 'NOTI';
   content: string;
   link: string;
+  ariaLabel: string;
 }
 
-const NavMenuButton = ({ content, type, link }: NavMenuButtonProps) => {
+const NavMenuButton = ({ content, type, link, ariaLabel }: NavMenuButtonProps) => {
   return (
     <Link href={link}>
-      <MenuButton>
+      <MenuButton aria-label={ariaLabel}>
         {type === 'HOME' && <Home />}
         {type === 'CHAT' && <Chat />}
         {type === 'NOTI' && <NOTI />}
