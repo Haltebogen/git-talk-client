@@ -50,11 +50,17 @@ const Box = styled.div`
     `;
   }}
 `;
+const Top = styled.div`
+  position: absolute;
+  right: 0.625rem;
+  top: 0.3125rem;
+`;
 
 const InputZone = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
+  padding-top: 1.25rem;
 `;
 
 const ButtonZone = styled.div`
@@ -84,9 +90,11 @@ const AddSomethingModal = ({ show, onCloseModal, onSubmit, placeholder, onChange
     <Container onClick={onCloseModal}>
       <Modal onClick={stopPropagation}>
         <Box>
-          <BasicButton ariaLabel="나가기" form="CLEAR" onClick={onCloseModal}>
-            <Close />
-          </BasicButton>
+          <Top>
+            <BasicButton ariaLabel="나가기" form="CLEAR" onClick={onCloseModal}>
+              <Close />
+            </BasicButton>
+          </Top>
           <form onSubmit={onSubmit}>
             <InputZone>
               <BasicInput placeholder={placeholder} onChange={onChange} value={value} />
