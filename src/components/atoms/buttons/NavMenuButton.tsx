@@ -14,12 +14,14 @@ export interface NavMenuButtonProps {
 const NavMenuButton = ({ content, type, link, ariaLabel }: NavMenuButtonProps) => {
   return (
     <Link href={link}>
-      <MenuButton aria-label={ariaLabel}>
-        {type === 'HOME' && <Home />}
-        {type === 'CHAT' && <Chat />}
-        {type === 'NOTI' && <NOTI />}
-        {content}
-      </MenuButton>
+      <a>
+        <MenuButton aria-label={ariaLabel}>
+          {type === 'HOME' && <Home />}
+          {type === 'CHAT' && <Chat />}
+          {type === 'NOTI' && <NOTI />}
+          {content}
+        </MenuButton>
+      </a>
     </Link>
   );
 };
