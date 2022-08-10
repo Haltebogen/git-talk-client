@@ -1,11 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
-import { StorybookSampleButton } from './';
+import StorybookSampleButton from './StorybookSampleButton';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Example/Button',
+  title: 'Components/Atoms/Button/StorybookSampleButton',
   component: StorybookSampleButton,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {

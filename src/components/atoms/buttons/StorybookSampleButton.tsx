@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+import './StorybookSampleButton.css';
 
 interface ButtonProps {
   /**
@@ -27,7 +27,7 @@ interface ButtonProps {
 /**
  * Primary UI component for user interaction
  */
-export const StorybookSampleButton = ({ primary = false, size = 'medium', backgroundColor, label, ...props }: ButtonProps) => {
+const StorybookSampleButton = ({ primary = false, size = 'medium', backgroundColor, label, ...props }: ButtonProps) => {
   const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
   return (
     <button type="button" className={['storybook-button', `storybook-button--${size}`, mode].join(' ')} style={{ backgroundColor }} {...props}>
@@ -35,3 +35,4 @@ export const StorybookSampleButton = ({ primary = false, size = 'medium', backgr
     </button>
   );
 };
+export default StorybookSampleButton;
