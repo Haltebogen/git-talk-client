@@ -18,7 +18,7 @@ const Home: NextPage = () => {
         <Area>
           <FollowerList
             onClick={openModal}
-            onChange={(event) => {
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
               const { value } = event.target;
               onChangeValue;
               setValue(value);
