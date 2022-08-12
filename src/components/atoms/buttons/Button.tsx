@@ -81,11 +81,11 @@ export const ButtonLayout = styled.button<ButtonProps>`
 export type ButtonType = 'primary' | 'cancel' | 'circle' | 'clear';
 
 export interface ButtonProps {
-  children: ReactNode;
+  children?: ReactNode;
   onClick?: MouseEventHandler<HTMLButtonElement>;
-  buttonType: ButtonType;
+  buttonType?: ButtonType;
   disabled?: boolean;
-  ariaLabel: string;
+  ariaLabel?: string;
   label?: string;
   color?: string;
   width?: string;
