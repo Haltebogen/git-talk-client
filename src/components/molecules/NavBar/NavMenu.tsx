@@ -21,7 +21,7 @@ export const MenuContainer = styled.div`
 `;
 
 export const Bottom = styled.div`
-  padding-top: 4rem;
+  padding: 4rem 0 2rem 0;
 `;
 
 export const MenuButton = styled(ButtonLayout)`
