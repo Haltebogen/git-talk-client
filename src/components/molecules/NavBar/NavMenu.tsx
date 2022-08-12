@@ -4,7 +4,7 @@ import NOTI from '@/icons/bell.svg';
 import LOGOUT from '@/icons/logout.svg';
 import styled, { css } from 'styled-components';
 import Link from 'next/link';
-import { ButtonLayout } from '@/buttons/button';
+import { ButtonLayout } from '@/buttons/Button';
 
 export const MenuContainer = styled.div`
   ${({ theme }) => {

@@ -1,6 +1,6 @@
 import ProfileDetail from '@/contents/ProfileDetail';
 import ProfileMain from '@/contents/ProfileMain';
-import { ButtonLayout } from '@/buttons/button';
+import { ButtonLayout } from '@/buttons/Button';
 import styled, { css } from 'styled-components';
 import Link from 'next/link';
 

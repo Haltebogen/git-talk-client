@@ -1,6 +1,6 @@
 import EditImage from '@/icons/edit_img.svg';
 import styled, { css } from 'styled-components';
-import { ButtonLayout } from './button';
+import { ButtonLayout } from './Button';
 
 const EditButton = styled(ButtonLayout)`
   ${({ theme }) => {
