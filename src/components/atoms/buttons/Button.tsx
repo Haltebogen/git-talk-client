@@ -86,11 +86,15 @@ export interface ButtonProps {
   buttonType: ButtonType;
   disabled?: boolean;
   ariaLabel: string;
+  label?: string;
+  color?: string;
+  width?: string;
 }
 
-const Button = ({ children, onClick, ariaLabel, buttonType, disabled }: ButtonProps) => {
+const Button = ({ children, onClick, ariaLabel, buttonType, disabled, label, color, width }: ButtonProps) => {
   return (
-    <ButtonLayout onClick={onClick} ariaLabel={ariaLabel} buttonType={buttonType} disabled={disabled}>
+    <ButtonLayout onClick={onClick} ariaLabel={ariaLabel} buttonType={buttonType} disabled={disabled} style={{ color, width }}>
+      {label}
       {children}
     </ButtonLayout>
   );
