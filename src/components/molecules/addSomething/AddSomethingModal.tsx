@@ -1,8 +1,8 @@
-import BasicButton from '@/buttons/BasicButton';
+import { FormEvent, MouseEventHandler } from 'react';
 import BasicInput, { BasicInputProps } from '@/inputs/BasicInput';
 import Close from '@/icons/close.svg';
 import styled, { css } from 'styled-components';
-import { FormEvent, MouseEventHandler } from 'react';
+import Button from '@/buttons/Button';
 
 const Container = styled.div`
   width: 100%;
@@ -50,6 +50,7 @@ const Box = styled.div`
     `;
   }}
 `;
+
 const Top = styled.div`
   position: absolute;
   right: 0.625rem;
@@ -91,21 +92,21 @@ const AddSomethingModal = ({ show, onCloseModal, onSubmit, placeholder, onChange
       <Modal onClick={stopPropagation}>
         <Box>
           <Top>
-            <BasicButton ariaLabel="나가기" form="CLEAR" onClick={onCloseModal}>
+            <Button ariaLabel="나가기" buttonType="clear" onClick={onCloseModal}>
               <Close />
-            </BasicButton>
+            </Button>
           </Top>
           <form onSubmit={onSubmit}>
             <InputZone>
               <BasicInput placeholder={placeholder} onChange={onChange} value={value} />
             </InputZone>
             <ButtonZone>
-              <BasicButton ariaLabel="추가" form="OK" onClick={onClick}>
+              <Button ariaLabel="추가" buttonType="primary" onClick={onClick}>
                 추가
-              </BasicButton>
-              <BasicButton ariaLabel="취소" form="NO" onClick={onClick}>
+              </Button>
+              <Button ariaLabel="취소" buttonType="cancel" onClick={onClick}>
                 취소
-              </BasicButton>
+              </Button>
             </ButtonZone>
           </form>
         </Box>

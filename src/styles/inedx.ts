@@ -1,3 +1,4 @@
+import { ButtonLayout } from '@/buttons/Button';
 import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
@@ -29,6 +30,17 @@ export const Container = styled.div`
           padding: 1.25rem 0 3.5rem 0;
         }
       }
+    `;
+  }}
+`;
+
+export const LoginButton = styled(ButtonLayout)`
+  ${({ theme }) => {
+    const { fontSize } = theme;
+    return css`
+      border-radius: 0.625rem;
+      padding: 1.25rem 6.875rem;
+      font-size: ${fontSize.lg};
     `;
   }}
 `;

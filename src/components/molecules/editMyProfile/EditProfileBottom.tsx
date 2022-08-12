@@ -1,9 +1,9 @@
-import EditCompleteButton from '@/buttons/EditCompleteButton';
 import EditProfileUserInfo from '@/contents/EditProfileUserInfo';
 import EditProfileContent from './EditProfileContent';
 import EditProfileImg from './EditProfileImg';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { ContentInputProps } from '@/inputs/ContentInput';
+import { ButtonLayout } from '@/buttons/Button';
 
 const Container = styled.div`
   display: flex;
@@ -25,6 +25,18 @@ const Right = styled.div`
   flex-direction: column;
 `;
 
+const EditButton = styled(ButtonLayout)`
+  ${({ theme }) => {
+    const { fontSize } = theme;
+    return css`
+      border-radius: 0.625rem;
+      padding: 0.5rem 1.875rem;
+      font-size: ${fontSize.xs};
+      max-width: 7.5rem;
+    `;
+  }}
+`;
+
 const EditProfileBottom = ({ value, onChange }: ContentInputProps) => {
   return (
     <Container>
@@ -44,7 +56,15 @@ const EditProfileBottom = ({ value, onChange }: ContentInputProps) => {
           value={value}
           onChange={onChange}
         />
-        <EditCompleteButton />
+        <EditButton
+          ariaLabel="수정 완료"
+          onClick={() => {
+            console.log('수정완료');
+          }}
+          buttonType="primary"
+        >
+          수정완료
+        </EditButton>
       </Left>
       <Right>
         <EditProfileImg profileImg={null} />
