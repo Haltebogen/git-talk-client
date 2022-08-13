@@ -62,9 +62,9 @@ export interface BoxProps {
   color?: string;
 }
 
-const Box = ({ children, boxType, onClick, content, width, color }: BoxProps) => {
+const Box = ({ children, boxType, onClick, content, width, color, ...props }: BoxProps) => {
   return (
-    <BoxLayout boxType={boxType} onClick={onClick} style={{ width, color }}>
+    <BoxLayout boxType={boxType} onClick={onClick} style={{ width, color }} {...props}>
       {content}
       {children}
     </BoxLayout>
