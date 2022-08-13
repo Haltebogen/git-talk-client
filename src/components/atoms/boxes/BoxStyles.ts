@@ -19,6 +19,10 @@ export const ListBox = styled.div`
         cursor: pointer;
       }
 
+      &:active {
+        background-color: ${colors.clickbox};
+      }
+
       .profileImg {
         padding: 1.25rem 0 1.25rem 2.1875rem;
         transform: scale(0.2);

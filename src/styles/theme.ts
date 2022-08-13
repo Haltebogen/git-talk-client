@@ -1,11 +1,13 @@
 import { DefaultTheme } from 'styled-components';
 
 const colors = {
+  // area
   primary: '#6868AB', // purple
   secondary: '#fff', // white
+  rarely: '#C4C4C4', // brighter gray
   bgcolor: '#F8F8FF ', // brighter purple
   boxcolor: '#fff', // white
-  followerbgcolor: '#949494', // black
+  profilebgcolor: '#949494', // black
   msgcount: '#FF3366', // pink
 
   // text
@@ -20,7 +22,10 @@ const colors = {
 
   // event
   hover: '#8A8AD9', // light-purple
-  click: '#6868AB', // dark-purple
+  clickbox: '#6868AB', // purple
+  clickbtn1: '#35356F', // dark-purple
+  clickbtn2: '#6D6A6A', // gray
+  focus: '#1F1F5A', // deep-dark-purple
 };
 
 const fontSize = {

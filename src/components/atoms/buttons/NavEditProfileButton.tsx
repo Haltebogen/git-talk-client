@@ -12,16 +12,19 @@ export const Button = styled.button`
       display: flex;
       width: 100%;
       justify-content: center;
-      color: ${colors.white};
       font-size: ${fontSize.xxs};
       border: none;
+
+      a {
+        color: ${colors.white};
+      }
 
       &:hover {
         cursor: pointer;
       }
 
-      a {
-        color: ${colors.white};
+      &:active {
+        background-color: ${colors.clickbtn1};
       }
     `;
   }}
@@ -30,7 +33,7 @@ export const Button = styled.button`
 const NavEditProfileButton = () => {
   return (
     <Link href="/edit-profile">
-      <Button>
+      <Button aria-label="내 프로필 수정하기">
         <a>Edit profile</a>
       </Button>
     </Link>

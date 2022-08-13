@@ -1,15 +1,12 @@
-import EditCompleteButton from '@/buttons/EditCompleteButton';
-import EditProfileImgButton from '@/buttons/EditProfileImgButton';
-import NavBarLayout from '@/organisms/NavBar/NavBarLayout';
+import EditMyProfile from '@/organisms/editMyProfile/EditMyProfile';
+import NavBarLayout from '@/organisms/navBar/NavBarLayout';
 import { NextPage } from 'next';
 
 const Editprofile: NextPage = () => {
   return (
     <div>
       <NavBarLayout>
-        edit-profile page
-        <EditCompleteButton />
-        <EditProfileImgButton />
+        <EditMyProfile />
       </NavBarLayout>
     </div>
   );

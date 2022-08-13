@@ -24,9 +24,9 @@ const NavMenu = () => {
   return (
     <>
       <MenuContainer>
-        <NavMenuButton content="HOME" type="HOME" link="/home" />
-        <NavMenuButton content="CHAT" type="CHAT" link="/chat" />
-        <NavMenuButton content="NOTIFICATION " type="NOTI" link="/notification" />
+        <NavMenuButton content="HOME" type="HOME" link="/home" ariaLabel="홈으로 가기" />
+        <NavMenuButton content="CHAT" type="CHAT" link="/chat" ariaLabel="채팅하기" />
+        <NavMenuButton content="NOTIFICATION " type="NOTI" link="/notification" ariaLabel="알림 보기" />
         <Logout>
           <LogoutButton />
         </Logout>

@@ -1,6 +1,9 @@
-import SearchBox from '@/boxes/SearchBox';
-import FollowerListContainer from '@/molecules/FollowerList/FollowerListContainer';
+import SearchBox from '@/molecules/search/SearchBox';
+import FollowerListContainer from '@/molecules/followerList/FollowerListContainer';
 import styled from 'styled-components';
+import AddSomethingContainer from '@/molecules/addSomething/AddSomethingContainer';
+import { BasicInputProps } from '@/inputs/BasicInput';
+import { AddButtonProps } from '@/buttons/AddButton';
 
 export const Container = styled.div`
   display: flex;
@@ -10,10 +13,13 @@ export const Container = styled.div`
   gap: 1.25rem;
 `;
 
-const FollowerList = () => {
+type FollowerListProps = AddButtonProps & BasicInputProps;
+
+const FollowerList = ({ onChange, value, onClick }: FollowerListProps) => {
   return (
     <Container>
-      <SearchBox />
+      <AddSomethingContainer title="친구" ariaLabel="친구 추가" onClick={onClick} />
+      <SearchBox onChange={onChange} value={value} />
       <FollowerListContainer />
     </Container>
   );

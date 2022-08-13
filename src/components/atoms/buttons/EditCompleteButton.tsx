@@ -11,15 +11,20 @@ export const Button = styled.button`
       padding: 0.5rem 1.875rem;
       font-size: ${fontSize.xs};
       color: ${colors.white};
+      max-width: 7.5rem;
 
       &:hover {
         cursor: pointer;
+      }
+
+      &:active {
+        background-color: ${colors.clickbtn1};
       }
     `;
   }}
 `;
 
 const EditCompleteButton = () => {
-  return <Button>수정완료</Button>;
+  return <Button aria-label="수정 완료">수정완료</Button>;
 };
 export default EditCompleteButton;

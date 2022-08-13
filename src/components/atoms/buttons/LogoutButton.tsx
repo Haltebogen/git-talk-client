@@ -5,7 +5,7 @@ import { MenuButton } from './ButtonStyles';
 const LogoutButton = () => {
   return (
     <Link href="/">
-      <MenuButton>
+      <MenuButton aria-label="로그아웃 하기">
         <LOGOUT />
         LOG OUT
       </MenuButton>

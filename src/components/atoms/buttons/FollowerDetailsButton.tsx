@@ -26,11 +26,12 @@ const Menu = styled.div`
 export interface FollowerDetailsButtonProps {
   type: 'CHAT' | 'GIT';
   link: string;
+  ariaLabel: string;
 }
 
-const FollowerDetailsButton = ({ type, link }: FollowerDetailsButtonProps) => {
+const FollowerDetailsButton = ({ type, link, ariaLabel }: FollowerDetailsButtonProps) => {
   return (
-    <Button>
+    <Button aria-label={ariaLabel}>
       <Link href={link}>
         <a>
           {type === 'CHAT' && (
