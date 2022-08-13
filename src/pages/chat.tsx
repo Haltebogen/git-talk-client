@@ -18,7 +18,7 @@ const Chat: NextPage = () => {
         <Area>
           <ChatList
             onClick={openModal}
-            onChange={(event) => {
+            onChange={(event: any) => {
               const { value } = event.target;
               onChangeValue;
               setValue(value);
