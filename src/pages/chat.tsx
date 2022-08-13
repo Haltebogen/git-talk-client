@@ -1,9 +1,7 @@
 import ChatRoomContainer from '@/organisms/ChatRoom/ChatRoomContainer';
-import { NextPage } from 'next';
-import styled from 'styled-components';
 import AddSomethingModal from '@/molecules/addSomething/AddSomethingModal';
-import ChatList from '@/organisms/chatList/ChatList';
-import NavBarLayout from '@/organisms/navBar/NavBarLayout';
+import ChatList from '@/organisms/ChatList/ChatList';
+import NavBarLayout from '@/organisms/NavBar/NavBarLayout';
 import useInput from 'hooks/useInput';
 import useModal from 'hooks/useModal';
 import { NextPage } from 'next';
@@ -16,9 +14,9 @@ const Chat: NextPage = () => {
 
   return (
     <Container>
-    <NavBarLayout>
-    <Area>
-    <ChatList
+      <NavBarLayout>
+        <Area>
+          <ChatList
             onClick={openModal}
             onChange={(event) => {
               const { value } = event.target;
