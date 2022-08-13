@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import NavProfile from '@/icons/nav_profile_img.svg';
+import ProfileImg from '@/icons/profile_img.svg';
 // import More from '@/icons/more.svg';
 import React, { useState } from 'react';
 import MoreButton from '@/buttons/MoreButton';
@@ -15,15 +15,17 @@ export const Box = styled.div`
       border-bottom: 0.125rem solid rgba(112, 124, 151, 0.1);
       background-color: ${colors.white};
       display: flex;
+      gap: 2.375rem;
       /* position: fixed;
       top: 0;
       left: 0;
       right: 0; */
       .profileImg {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 1.625rem 1.625rem 1.625rem 2.1875rem;
+        margin-bottom: 2.225rem;
+        margin-left: 0.875rem;
+        transform: scale(0.2);
+        width: 100%;
+        max-width: 3.25rem;
       }
     `;
   }}
@@ -92,7 +94,7 @@ const ChatRoomNav = ({ name, profileImg, nickname }: ChatRoomNavProps) => {
         <div className="profileImg">{profileImg}</div>
       ) : (
         <div className="profileImg">
-          <NavProfile />
+          <ProfileImg />
         </div>
       )}
       <Middle>
