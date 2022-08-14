@@ -14,17 +14,17 @@ const Container = styled.div`
 
 const ChatRoomContainer = () => {
   const [chat, onChangeChat, setChat] = useInput('');
-  const [messages, setMessages] = useState<string[]>([]);
+  const [messages, setMessages] = useState<any[]>([]);
   const onSubmitForm = (e: any) => {
     e.preventDefault();
     if (!chat) return;
     setChat('');
-    console.log(chat);
+    setMessages([...messages, chat]);
   };
   return (
     <Container>
       <ChatRoomNav name="선영" profileImg={null} nickname="yuniiyuns" />
-      <ChatContainer />
+      <ChatContainer messages={messages} />
       <ChatInputBox onChange={onChangeChat} value={chat} onSubmit={onSubmitForm} />
     </Container>
   );
