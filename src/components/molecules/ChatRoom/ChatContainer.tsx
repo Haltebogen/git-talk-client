@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import ChatBox from './ChatBox';
 import styled, { css } from 'styled-components';
 
@@ -11,23 +11,32 @@ export const Container = styled.div`
       gap: 0.875rem;
       max-width: 43.725rem;
       height: 49.0625rem;
-      align-items: center;
       padding: 1.875rem;
       background-color: ${colors.secondary};
+      overflow-y: auto;
     `;
   }}
 `;
 
-const ChatContainer = () => {
+export type ChatContainerProps = {
+  messages: string[];
+};
+
+const ChatContainer = ({ messages }: ChatContainerProps) => {
+  const scrollRef = useRef<null | HTMLDivElement>(null);
+
+  useEffect(() => {
+    scrollRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
+
   return (
     <Container>
-      <ChatBox
-        isMe={true}
-        message="안ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ녕"
-      />
-      <ChatBox isMe={true} message="안녕" />
-      <ChatBox isMe={false} message="안녕안녕 ㅏㅇㄶㄴㄷㅎㄴㄷㅎ니댜ㅗ히ㅑㄴ돟니ㅑㅗㅎㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ뇌ㅑ노햐ㅣㅗㄷ" />
-      <ChatBox isMe={true} message="안녕" />
+      {messages &&
+        messages.map((message: any, i: number) => (
+          <div key={i} ref={scrollRef}>
+            <ChatBox profileImg={null} message={message} isMe={false} />
+          </div>
+        ))}
     </Container>
   );
 };
