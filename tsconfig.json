@@ -16,6 +16,7 @@
     "incremental": true,
     "baseUrl": "./src/",
     "paths": {
+      "@/styles/*": ["styles/*"],
       "@/buttons/*": ["components/atoms/buttons/*"],
       "@/boxes/*": ["components/atoms/boxes/*"],
       "@/inputs/*": ["components/atoms/inputs/*"],

@@ -1,17 +1,22 @@
-import LoginButton from '@/buttons/LoginButton';
 import HomeLogo from '@/logos/HomeLogo';
 import type { NextPage } from 'next';
-import { Container } from 'styles/inedx';
+import { Container, LoginButton, TextContainer } from '@/styles/index';
 
 const Login: NextPage = () => {
+  const loginUrl = `https://github.com/login/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_GITHUB_ID}&redirect_uri=${process.env.NEXT_PUBLIC_CLIENT_URL}/api/auth/github/callback`;
+
   return (
     <Container>
       <HomeLogo />
-      <div className="textContainer">
+      <TextContainer>
         <h2>GIT TALK</h2>
         <p>GITHUB 유저들과 채팅할 수 있는 공간</p>
-        <LoginButton />
-      </div>
+        <a href={loginUrl} role="button" aria-label="깃허브 로그인하기">
+          <LoginButton buttonType="primary" buttonRole="link">
+            GITHUB 로그인
+          </LoginButton>
+        </a>
+      </TextContainer>
     </Container>
   );
 };

@@ -1,5 +1,6 @@
-import AddButton, { AddButtonProps } from '@/buttons/AddButton';
+import { ButtonProps, ButtonLayout } from '@/buttons/Button';
 import styled, { css } from 'styled-components';
+import Plus from '@/icons/plus.svg';
 
 export const Container = styled.div`
   ${({ theme }) => {
@@ -13,6 +14,7 @@ export const Container = styled.div`
       align-items: center;
 
       span {
+        width: 100%;
         color: ${colors.navy};
         font-size: ${fontSize.lg};
       }
@@ -20,7 +22,11 @@ export const Container = styled.div`
   }}
 `;
 
-interface AddSomethingContainerProps extends AddButtonProps {
+const AddButton = styled(ButtonLayout)`
+  max-width: 2.9375rem;
+`;
+
+interface AddSomethingContainerProps extends ButtonProps {
   title: string;
 }
 
@@ -28,7 +34,9 @@ const AddSomethingContainer = ({ title, ariaLabel, onClick }: AddSomethingContai
   return (
     <Container>
       <span>{title}</span>
-      <AddButton onClick={onClick} ariaLabel={ariaLabel} />
+      <AddButton onClick={onClick} ariaLabel={ariaLabel} buttonType="circle">
+        <Plus />
+      </AddButton>
     </Container>
   );
 };

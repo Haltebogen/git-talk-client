@@ -1,33 +1,25 @@
 import EditImage from '@/icons/edit_img.svg';
 import styled, { css } from 'styled-components';
+import { ButtonLayout } from './Button';
 
-export const Button = styled.button`
+const EditButton = styled(ButtonLayout)`
   ${({ theme }) => {
     const { colors, fontSize } = theme;
     return css`
-      border: none;
       color: ${colors.purple};
-      display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background-color: transparent;
       padding: 0;
       font-size: ${fontSize.xs};
-
-      &:hover {
-        cursor: pointer;
-      }
     `;
   }}
 `;
 
 const EditImgButton = () => {
   return (
-    <Button onClick={() => console.log('edit')} aria-label="이미지 수정">
+    <EditButton onClick={() => console.log('edit')} ariaLabel="이미지 수정" buttonType="clear" buttonRole="event">
       <EditImage />
       edit
-    </Button>
+    </EditButton>
   );
 };
 export default EditImgButton;

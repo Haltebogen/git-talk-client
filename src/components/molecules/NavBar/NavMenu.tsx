@@ -1,6 +1,10 @@
-import LogoutButton from '@/buttons/LogoutButton';
-import NavMenuButton from '@/buttons/NavMenuButton';
+import Home from '@/icons/home.svg';
+import Chat from '@/icons/chat.svg';
+import NOTI from '@/icons/bell.svg';
+import LOGOUT from '@/icons/logout.svg';
 import styled, { css } from 'styled-components';
+import Link from 'next/link';
+import Button from '@/buttons/Button';
 
 export const MenuContainer = styled.div`
   ${({ theme }) => {
@@ -16,20 +20,64 @@ export const MenuContainer = styled.div`
   }}
 `;
 
-export const Logout = styled.div`
-  padding: 7.5rem 0 3.1875rem;
+export const Bottom = styled.div`
+  padding: 4rem 0 2rem 0;
+`;
+
+export const MenuButton = styled(Button)`
+  ${({ theme }) => {
+    const { colors, fontSize } = theme;
+    return css`
+      gap: 1.375rem;
+      color: ${colors.navy};
+      font-size: ${fontSize.xs};
+      justify-content: flex-start;
+
+      &:hover {
+        color: ${colors.purple};
+      }
+    `;
+  }}
 `;
 
 const NavMenu = () => {
   return (
     <>
       <MenuContainer>
-        <NavMenuButton content="HOME" type="HOME" link="/home" ariaLabel="홈으로 가기" />
-        <NavMenuButton content="CHAT" type="CHAT" link="/chat" ariaLabel="채팅하기" />
-        <NavMenuButton content="NOTIFICATION " type="NOTI" link="/notification" ariaLabel="알림 보기" />
-        <Logout>
-          <LogoutButton />
-        </Logout>
+        <Link href="/home">
+          <a aria-label="홈으로 가기" role="button">
+            <MenuButton buttonType="clear" buttonRole="link">
+              <Home />
+              HOME
+            </MenuButton>
+          </a>
+        </Link>
+        <Link href="/chat">
+          <a aria-label="채팅하기" role="button">
+            <MenuButton buttonType="clear" buttonRole="link">
+              <Chat />
+              CHAT
+            </MenuButton>
+          </a>
+        </Link>
+        <Link href="/notification">
+          <a aria-label="알림 확인하기" role="button">
+            <MenuButton buttonType="clear" buttonRole="link">
+              <NOTI />
+              NOTIFICATION
+            </MenuButton>
+          </a>
+        </Link>
+        <Bottom>
+          <Link href="/">
+            <a aria-label="로그아웃하기" role="button">
+              <MenuButton buttonType="clear" buttonRole="link">
+                <LOGOUT />
+                LOG OUT
+              </MenuButton>
+            </a>
+          </Link>
+        </Bottom>
       </MenuContainer>
     </>
   );
