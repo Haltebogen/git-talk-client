@@ -82,10 +82,10 @@ export type ButtonType = 'primary' | 'cancel' | 'circle' | 'clear';
 export type ButtonRole = 'link' | 'event';
 
 export interface ButtonProps {
-  children: ReactNode;
+  children?: ReactNode;
   onClick?: MouseEventHandler<HTMLButtonElement>;
-  buttonType: ButtonType;
-  buttonRole: ButtonRole;
+  buttonType?: ButtonType;
+  buttonRole?: ButtonRole;
   ariaLabel?: string;
   disabled?: boolean;
   label?: string;

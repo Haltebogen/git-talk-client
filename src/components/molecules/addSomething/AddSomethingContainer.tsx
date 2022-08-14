@@ -34,7 +34,7 @@ const AddSomethingContainer = ({ title, ariaLabel, onClick }: AddSomethingContai
   return (
     <Container>
       <span>{title}</span>
-      <AddButton onClick={onClick} ariaLabel={ariaLabel} buttonType="circle">
+      <AddButton onClick={onClick} ariaLabel={ariaLabel} buttonType="circle" buttonRole="event">
         <Plus />
       </AddButton>
     </Container>

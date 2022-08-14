@@ -92,7 +92,7 @@ const AddSomethingModal = ({ show, onCloseModal, onSubmit, placeholder, onChange
       <Modal onClick={stopPropagation}>
         <Box>
           <Top>
-            <Button ariaLabel="나가기" buttonType="clear" onClick={onCloseModal}>
+            <Button ariaLabel="나가기" buttonType="clear" onClick={onCloseModal} buttonRole="event">
               <Close />
             </Button>
           </Top>
@@ -101,10 +101,10 @@ const AddSomethingModal = ({ show, onCloseModal, onSubmit, placeholder, onChange
               <BasicInput placeholder={placeholder} onChange={onChange} value={value} />
             </InputZone>
             <ButtonZone>
-              <Button ariaLabel="추가" buttonType="primary" onClick={onClick}>
+              <Button ariaLabel="추가" buttonType="primary" onClick={onClick} buttonRole="event">
                 추가
               </Button>
-              <Button ariaLabel="취소" buttonType="cancel" onClick={onClick}>
+              <Button ariaLabel="취소" buttonType="cancel" onClick={onClick} buttonRole="event">
                 취소
               </Button>
             </ButtonZone>
