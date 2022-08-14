@@ -1,6 +1,6 @@
 import ProfileDetail from '@/contents/ProfileDetail';
 import ProfileMain from '@/contents/ProfileMain';
-import { ButtonLayout } from '@/buttons/Button';
+import Button from '@/buttons/Button';
 import styled, { css } from 'styled-components';
 import Link from 'next/link';
 
@@ -24,7 +24,7 @@ export const ButtonZone = styled.div`
   justify-content: center;
 `;
 
-const EditButton = styled(ButtonLayout)`
+const EditButton = styled(Button)`
   ${({ theme }) => {
     const { fontSize } = theme;
     return css`
@@ -42,8 +42,8 @@ const NavProfile = () => {
         <ProfileMain name="Kimkyungmin" id="github_id" profileImg={null} />
         <ButtonZone>
           <Link href="/edit-profile">
-            <a>
-              <EditButton buttonType="primary" ariaLabel="내 프로필 수정하기">
+            <a aria-label="내 프로필 수정하기" role="button">
+              <EditButton buttonType="primary" buttonRole="link">
                 Edit profile
               </EditButton>
             </a>

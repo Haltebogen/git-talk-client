@@ -1,4 +1,4 @@
-import { ButtonLayout } from '@/buttons/Button';
+import Button from '@/buttons/Button';
 import Chat from '@/icons/follower_chat.svg';
 import Git from '@/icons/github.svg';
 import Link from 'next/link';
@@ -12,7 +12,7 @@ const Menu = styled.div`
   margin: 0;
 `;
 
-const MenuButton = styled(ButtonLayout)`
+const MenuButton = styled(Button)`
   ${({ theme }) => {
     const { colors, fontSize } = theme;
 
@@ -32,15 +32,15 @@ const ProfileMenu = () => {
     <Menu>
       {/* 임시 링크 */}
       <Link href="/chat">
-        <a>
-          <MenuButton buttonType="clear" ariaLabel="일대일 대화하기">
+        <a role="button" aria-label="일대일 대화하기">
+          <MenuButton buttonType="clear" buttonRole="link">
             <Chat />
             <span>1:1 채팅</span>
           </MenuButton>
         </a>
       </Link>
-      <a href="https://github.com/Haltebogen">
-        <MenuButton buttonType="clear" ariaLabel="깃허브로 이동하기">
+      <a href="https://github.com/Haltebogen" role="button" aria-label="깃허브로 이동하기">
+        <MenuButton buttonType="clear" buttonRole="link">
           <Git />
           <span>GitHub</span>
         </MenuButton>

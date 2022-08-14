@@ -62,6 +62,7 @@ const EditProfileBottom = ({ value, onChange }: ContentInputProps) => {
             console.log('수정완료');
           }}
           buttonType="primary"
+          buttonRole="event"
         >
           수정완료
         </EditButton>

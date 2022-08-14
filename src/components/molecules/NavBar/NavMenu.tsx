@@ -4,7 +4,7 @@ import NOTI from '@/icons/bell.svg';
 import LOGOUT from '@/icons/logout.svg';
 import styled, { css } from 'styled-components';
 import Link from 'next/link';
-import { ButtonLayout } from '@/buttons/Button';
+import Button from '@/buttons/Button';
 
 export const MenuContainer = styled.div`
   ${({ theme }) => {
@@ -24,7 +24,7 @@ export const Bottom = styled.div`
   padding: 4rem 0 2rem 0;
 `;
 
-export const MenuButton = styled(ButtonLayout)`
+export const MenuButton = styled(Button)`
   ${({ theme }) => {
     const { colors, fontSize } = theme;
     return css`
@@ -45,24 +45,24 @@ const NavMenu = () => {
     <>
       <MenuContainer>
         <Link href="/home">
-          <a>
-            <MenuButton buttonType="clear" ariaLabel="홈으로 가기">
+          <a aria-label="홈으로 가기" role="button">
+            <MenuButton buttonType="clear" buttonRole="link">
               <Home />
               HOME
             </MenuButton>
           </a>
         </Link>
         <Link href="/chat">
-          <a>
-            <MenuButton buttonType="clear" ariaLabel="채팅하기">
+          <a aria-label="채팅하기" role="button">
+            <MenuButton buttonType="clear" buttonRole="link">
               <Chat />
               CHAT
             </MenuButton>
           </a>
         </Link>
         <Link href="/notification">
-          <a>
-            <MenuButton buttonType="clear" ariaLabel="알림 확인 하기">
+          <a aria-label="알림 확인하기" role="button">
+            <MenuButton buttonType="clear" buttonRole="link">
               <NOTI />
               NOTIFICATION
             </MenuButton>
@@ -70,8 +70,8 @@ const NavMenu = () => {
         </Link>
         <Bottom>
           <Link href="/">
-            <a>
-              <MenuButton buttonType="clear" ariaLabel="홈으로 가기">
+            <a aria-label="로그아웃하기" role="button">
+              <MenuButton buttonType="clear" buttonRole="link">
                 <LOGOUT />
                 LOG OUT
               </MenuButton>
