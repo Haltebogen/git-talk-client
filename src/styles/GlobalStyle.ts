@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
 
-const GlobalStyles = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
  ${normalize}
 
   html, body, div, p {
@@ -13,4 +13,4 @@ const GlobalStyles = createGlobalStyle`
 
   a { cursor: pointer; text-decoration: none; }
 `;
-export default GlobalStyles;
+export default GlobalStyle;
