@@ -10,7 +10,7 @@ const Editprofile: NextPage = () => {
       <NavBarLayout>
         <EditMyProfile
           value={value}
-          onChange={(event: any) => {
+          onChange={(event) => {
             const { value } = event.target;
             onChangeValue;
             setValue(value);
