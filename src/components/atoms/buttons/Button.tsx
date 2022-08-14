@@ -79,21 +79,36 @@ export const ButtonLayout = styled.button<ButtonProps>`
 `;
 
 export type ButtonType = 'primary' | 'cancel' | 'circle' | 'clear';
+export type ButtonRole = 'link' | 'event';
 
 export interface ButtonProps {
-  children?: ReactNode;
+  children: ReactNode;
   onClick?: MouseEventHandler<HTMLButtonElement>;
-  buttonType?: ButtonType;
-  disabled?: boolean;
+  buttonType: ButtonType;
+  buttonRole: ButtonRole;
   ariaLabel?: string;
+  disabled?: boolean;
   label?: string;
   color?: string;
   width?: string;
 }
 
-const Button = ({ children, onClick, ariaLabel, buttonType, disabled, label, color, width, ...props }: ButtonProps) => {
-  return (
-    <ButtonLayout onClick={onClick} ariaLabel={ariaLabel} buttonType={buttonType} disabled={disabled} {...props} style={{ color, width }}>
+const Button = ({ children, onClick, ariaLabel, buttonType, buttonRole, disabled, label, color, width, ...props }: ButtonProps) => {
+  return buttonRole === 'event' ? (
+    <ButtonLayout
+      onClick={onClick}
+      ariaLabel={ariaLabel}
+      buttonRole={buttonRole}
+      buttonType={buttonType}
+      disabled={disabled}
+      {...props}
+      style={{ color, width }}
+    >
+      {label}
+      {children}
+    </ButtonLayout>
+  ) : (
+    <ButtonLayout as="div" buttonRole={buttonRole} buttonType={buttonType} disabled={disabled} {...props} style={{ color, width }}>
       {label}
       {children}
     </ButtonLayout>
