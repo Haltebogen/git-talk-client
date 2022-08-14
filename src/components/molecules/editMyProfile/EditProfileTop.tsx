@@ -19,7 +19,7 @@ const Background = styled.div`
   }}
 `;
 
-const Button = styled.div`
+const ButtonZone = styled.div`
   position: absolute;
   padding-top: 23.75rem;
 `;
@@ -32,9 +32,9 @@ const EditProfileTop = ({ profileImg }: EditProfileTopProps) => {
   return (
     <Container>
       {profileImg || <Background></Background>}
-      <Button>
+      <ButtonZone>
         <EditImgButton />
-      </Button>
+      </ButtonZone>
     </Container>
   );
 };
