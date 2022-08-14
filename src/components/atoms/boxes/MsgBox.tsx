@@ -1,4 +1,3 @@
-import { ChatBoxProps } from '@/molecules/ChatRoom/ChatBox';
 import React from 'react';
 import styled, { css } from 'styled-components';
 
@@ -36,7 +35,12 @@ export const ReceiverMsgBox = styled(Box)`
   }}
 `;
 
-const MsgBox = ({ isMe, message }: ChatBoxProps) => {
+export interface MsgBoxProps {
+  isMe: boolean;
+  message: string;
+}
+
+const MsgBox = ({ isMe, message }: MsgBoxProps) => {
   return <>{isMe ? <SenderMsgBox>{message}</SenderMsgBox> : <ReceiverMsgBox>{message}</ReceiverMsgBox>}</>;
 };
 

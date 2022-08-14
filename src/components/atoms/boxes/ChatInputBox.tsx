@@ -86,7 +86,7 @@ const ChatInputBox = ({ onSubmit, onChange, value }: ChatInputBoxProps) => {
     <Box>
       <ChatMsgForm onSubmit={onSubmit}>
         <ReactTextareaAutosize placeholder="메시지를 입력해주세요" value={value} onChange={onChange} onKeyDown={onPressEnter} />
-        <ChatSendButton onClick={() => console.log('Send')} />
+        <ChatSendButton onClick={onSubmit} />
       </ChatMsgForm>
     </Box>
   );
