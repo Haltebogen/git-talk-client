@@ -54,9 +54,9 @@ export const BoxLayout = styled.button<BoxProps>`
 export type BoxType = 'list' | 'backrgound';
 
 export interface BoxProps {
-  children: ReactNode;
+  children?: ReactNode;
   onClick?: MouseEventHandler<HTMLButtonElement>;
-  boxType: BoxType;
+  boxType?: BoxType;
   width?: string;
   content?: string;
   color?: string;
