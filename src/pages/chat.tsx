@@ -1,9 +1,9 @@
 import AddSomethingModal from '@/molecules/addSomething/AddSomethingModal';
 import useInput from 'hooks/useInput';
 import useModal from 'hooks/useModal';
-import ChatRoomContainer from '@/organisms/ChatRoom/ChatRoomContainer';
-import ChatList from '@/organisms/ChatList/ChatList';
-import NavBarLayout from '@/organisms/NavBar/NavBarLayout';
+import ChatRoomContainer from '@/organisms/chatRoom/ChatRoomContainer';
+import ChatList from '@/organisms/chatList/ChatList';
+import NavBarLayout from '@/organisms/navBar/NavBarLayout';
 import { NextPage } from 'next';
 import { Container, Area } from 'styles/chat';
 

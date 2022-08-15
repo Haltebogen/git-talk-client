@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
 import ProfileImg from '@/icons/profile_img.svg';
-// import More from '@/icons/more.svg';
 import React, { useState } from 'react';
 import MoreButton from '@/buttons/MoreButton';
 import ChatExitButton from '@/buttons/ChatExitButton';
@@ -63,6 +62,7 @@ const ButtonDom = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
+  justify-content: center;
 `;
 
 const DropDownButton = styled.div<{ isVisible: boolean }>`

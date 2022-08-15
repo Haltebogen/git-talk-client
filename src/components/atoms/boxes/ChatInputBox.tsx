@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-// import Send from '@/icons/send.svg';
 import React, { useRef, useState } from 'react';
 import ChatSendButton from '@/buttons/ChatSendButton';
 import ReactTextareaAutosize from 'react-textarea-autosize';
