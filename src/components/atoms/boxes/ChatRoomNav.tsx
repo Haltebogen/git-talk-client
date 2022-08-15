@@ -65,6 +65,7 @@ const DropDownButton = styled.div<{ isVisible: boolean }>`
   display: flex;
   flex-direction: column;
   position: absolute;
+  justify-content: space-between;
   top: 4.625rem;
   display: ${(props) => (props.isVisible ? 'block' : 'none')};
 `;

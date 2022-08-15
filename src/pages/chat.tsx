@@ -1,15 +1,9 @@
-import ChatRoomContainer from '@/organisms/ChatRoom/ChatRoomContainer';
-import AddSomethingModal from '@/molecules/addSomething/AddSomethingModal';
-<<<<<<< HEAD
-=======
-import ChatList from '@/organisms/ChatList/ChatList';
-import NavBarLayout from '@/organisms/NavBar/NavBarLayout';
->>>>>>> f302a1a15d172afcfac865ce1acd3cf447de969a
-import useInput from 'hooks/useInput';
-import useModal from 'hooks/useModal';
 import ChatRoomContainer from '@/organisms/chatRoom/ChatRoomContainer';
+import AddSomethingModal from '@/molecules/addSomething/AddSomethingModal';
 import ChatList from '@/organisms/chatList/ChatList';
 import NavBarLayout from '@/organisms/navBar/NavBarLayout';
+import useInput from 'hooks/useInput';
+import useModal from 'hooks/useModal';
 import { NextPage } from 'next';
 import { Container, Area } from 'styles/chat';
 
