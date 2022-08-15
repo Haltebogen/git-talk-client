@@ -15,10 +15,6 @@ export const Box = styled.div`
       background-color: ${colors.white};
       display: flex;
       gap: 2.375rem;
-      /* position: fixed;
-      top: 0;
-      left: 0;
-      right: 0; */
       .profileImg {
         margin-bottom: 2.225rem;
         margin-left: 0.875rem;

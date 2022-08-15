@@ -14,7 +14,7 @@ export const WhiteBtn = styled(ButtonLayout)`
 
 export const MoreButton = ({ onClick }: ButtonProps) => {
   return (
-    <WhiteBtn onClick={onClick} buttonType="circle">
+    <WhiteBtn onClick={onClick} buttonType="circle" buttonRole="event">
       <More />
     </WhiteBtn>
   );

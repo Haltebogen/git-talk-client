@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components';
 import React, { useRef, useState } from 'react';
 import ChatSendButton from '@/buttons/ChatSendButton';
 import ReactTextareaAutosize from 'react-textarea-autosize';
-//완
 
 export type ChatInputBoxProps = {
   onSubmit: (e: any) => void;
