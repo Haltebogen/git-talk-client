@@ -6,7 +6,14 @@ const Notification: NextPage = () => {
   return (
     <div>
       <NavBarLayout>
-        <NotificationListContainer />
+        <NotificationListContainer
+          title="following"
+          message="notification"
+          link="https://github.com/Haltebogen"
+          isRead={true}
+          notificationType="FOLLOW"
+          isSendPushNotification={false}
+        />
       </NavBarLayout>
     </div>
   );
