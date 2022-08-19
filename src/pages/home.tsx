@@ -1,7 +1,7 @@
 import AddSomethingModal from '@/molecules/addSomething/AddSomethingModal';
 import FollowerList from '@/organisms/followerList/FollowerList';
-import FollowerProfile from '@/organisms/FollowerProfile/FollowerProfile';
-import NavBarLayout from '@/organisms/NavBar/NavBarLayout';
+import FollowerProfile from '@/organisms/followerProfile/FollowerProfile';
+import NavBarLayout from '@/organisms/navBar/NavBarLayout';
 import useInput from 'hooks/useInput';
 import useModal from 'hooks/useModal';
 import { NextPage } from 'next';
