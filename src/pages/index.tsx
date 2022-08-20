@@ -1,12 +1,16 @@
 import HomeLogo from '@/logos/HomeLogo';
 import type { NextPage } from 'next';
 import { Container, LoginButton, TextContainer } from '@/styles/index';
+import Head from 'next/head';
 
 const Login: NextPage = () => {
   const loginUrl = `https://github.com/login/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_GITHUB_ID}&redirect_uri=${process.env.NEXT_PUBLIC_CLIENT_URL}/api/auth/github/callback`;
 
   return (
     <Container>
+      <Head>
+        <title>Git-Talk</title>
+      </Head>
       <HomeLogo />
       <TextContainer>
         <h2>GIT TALK</h2>

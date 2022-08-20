@@ -5,7 +5,7 @@ import { NextPage } from 'next';
 const Notification: NextPage = () => {
   return (
     <div>
-      <NavBarLayout>
+      <NavBarLayout title="Git-Talk _ 알림">
         <NotificationListContainer
           title="following"
           message="notification"

@@ -13,7 +13,7 @@ const Home: NextPage = () => {
   const [newMember, onChangeNewMember, setNewMember] = useInput('');
   return (
     <Container>
-      <NavBarLayout>
+      <NavBarLayout title="Git-Talk _ 홈">
         <Area>
           <FollowerList
             onClick={openModal}

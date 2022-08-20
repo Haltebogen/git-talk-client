@@ -13,7 +13,7 @@ const Chat: NextPage = () => {
 
   return (
     <Container>
-      <NavBarLayout>
+      <NavBarLayout title="Git-Talk _ 채팅">
         <Area>
           <ChatList
             onClick={openModal}

@@ -7,7 +7,7 @@ const Editprofile: NextPage = () => {
   const [value, onChangeValue, setValue] = useInput('');
   return (
     <div>
-      <NavBarLayout>
+      <NavBarLayout title="Git-Talk _ 프로필 수정">
         <EditMyProfile
           value={value}
           onChange={(event) => {
