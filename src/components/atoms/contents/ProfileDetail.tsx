@@ -3,21 +3,31 @@ import Company from '@/icons/company.svg';
 import StatusMessages from '@/icons/status_messages.svg';
 import Follower from '@/icons/follower.svg';
 
-export const Container = styled.div`
+const Container = styled.div`
   ${({ theme }) => {
     const { colors, fontSize } = theme;
     return css`
       display: flex;
-      gap: 0.4375rem;
       font-size: ${fontSize.xs};
       color: ${colors.gray};
       justify-content: flex-start;
-      padding-left: 2.3125rem;
+      padding: 0 2rem 0 2.3125rem;
     `;
   }}
 `;
 
-export const Message = styled.div`
+const Content = styled.div`
+  width: 100%;
+  display: flex;
+  gap: 0.4375rem;
+
+  svg {
+    width: 100%;
+    max-width: 1.5rem;
+  }
+`;
+
+const Message = styled.div`
   ${({ theme }) => {
     const { fontSize } = theme;
     return css`
@@ -27,30 +37,38 @@ export const Message = styled.div`
   }}
 `;
 
+export type InfoType = 'follow' | 'company' | 'message';
+
 export interface ProfileDetailProps {
-  type: 'FOLLOWER' | 'COMPANY' | 'MESSAGE';
-  text: string;
+  InfoType: InfoType;
+  text?: string;
+  following?: number;
+  follower?: number;
 }
 
-const ProfileDetail = ({ type, text }: ProfileDetailProps) => {
+const ProfileDetail = ({ InfoType, text, following, follower }: ProfileDetailProps) => {
   return (
     <Container>
-      {type === 'FOLLOWER' && (
-        <div>
+      {InfoType === 'follow' && (
+        <Content>
           <Follower />
-        </div>
+          <span>
+            {following} following - {follower} follower
+          </span>
+        </Content>
       )}
-      {type === 'COMPANY' && (
-        <div>
+      {InfoType === 'company' && (
+        <Content>
           <Company />
-        </div>
+          <span>{text}</span>
+        </Content>
       )}
-      {type === 'MESSAGE' && (
-        <div>
+      {InfoType === 'message' && (
+        <Content>
           <StatusMessages />
-        </div>
+          <Message>{text}</Message>
+        </Content>
       )}
-      {type !== 'MESSAGE' ? <span>{text}</span> : <Message>{text}</Message>}
     </Container>
   );
 };

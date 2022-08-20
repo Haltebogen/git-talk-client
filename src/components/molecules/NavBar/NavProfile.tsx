@@ -51,9 +51,9 @@ const NavProfile = () => {
         </ButtonZone>
       </ProfileBox>
       <ProfileBox>
-        <ProfileDetail type="FOLLOWER" text="71 following - 96 follower" />
-        <ProfileDetail type="COMPANY" text="@WOO-AH~" />
-        <ProfileDetail type="MESSAGE" text="오늘도 나는 1Commit을 달린다." />
+        <ProfileDetail InfoType="follow" following={71} follower={96} />
+        <ProfileDetail InfoType="company" text="@WOO-AH~" />
+        <ProfileDetail InfoType="message" text="오늘도 나는 1Commit을 달린다." />
       </ProfileBox>
     </ProfileContainer>
   );
