@@ -1,3 +1,4 @@
+import ChatRoomContainer from '@/organisms/chatRoom/ChatRoomContainer';
 import AddSomethingModal from '@/molecules/addSomething/AddSomethingModal';
 import ChatList from '@/organisms/chatList/ChatList';
 import NavBarLayout from '@/organisms/navBar/NavBarLayout';
@@ -17,13 +18,16 @@ const Chat: NextPage = () => {
         <Area>
           <ChatList
             onClick={openModal}
-            onChange={(event) => {
+            onChange={(event: any) => {
               const { value } = event.target;
               onChangeValue;
               setValue(value);
             }}
             value={value}
           />
+        </Area>
+        <Area>
+          <ChatRoomContainer />
         </Area>
       </NavBarLayout>
       <AddSomethingModal
