@@ -1,9 +1,10 @@
 import styled, { css } from 'styled-components';
 import ProfileImg from '@/icons/profile_img.svg';
 import React, { useState } from 'react';
-import MoreButton from '@/buttons/MoreButton';
-import ChatExitButton from '@/buttons/ChatExitButton';
-import ChatFollowButton from '@/buttons/ChatFollowButton';
+import { ButtonLayout, ButtonProps } from '@/buttons/Button';
+import ChatFollow from '@/icons/chat_follow.svg';
+import More from '@/icons/more.svg';
+import ChatExit from '@/icons/chat_exit.svg';
 
 export const Box = styled.div`
   ${({ theme }) => {
@@ -26,6 +27,21 @@ export const Box = styled.div`
   }}
 `;
 
+export const ChatFollowButton = styled(ButtonLayout)``;
+
+export const ChatExitButton = styled(ButtonLayout)`
+  margin-bottom: 0.5475rem;
+`;
+
+export const MoreButton = styled(ButtonLayout)`
+  ${({ theme }) => {
+    const { colors } = theme;
+    return css`
+      box-shadow: 0.0875rem 0.0875rem rgba(0, 0, 0, 0.1);
+      background-color: ${colors.white};
+    `;
+  }}
+`;
 const Middle = styled.div`
   ${({ theme }) => {
     const { colors, fontSize } = theme;
@@ -72,13 +88,13 @@ const DropDownButton = styled.div<{ isVisible: boolean }>`
 
 const DropUpButton = styled.div``;
 
-export interface ChatRoomNavProps {
+interface ChatRoomNavProps extends ButtonProps {
   name: string;
   profileImg: string | null;
   nickname: string;
 }
 
-const ChatRoomNav = ({ name, profileImg, nickname }: ChatRoomNavProps) => {
+const ChatRoomNav = ({ name, profileImg, nickname, onClick }: ChatRoomNavProps) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
   const handleVisible = () => {
@@ -101,11 +117,17 @@ const ChatRoomNav = ({ name, profileImg, nickname }: ChatRoomNavProps) => {
       <Right>
         <ButtonDom className="dropDown">
           <DropUpButton>
-            <MoreButton onClick={handleVisible} />
+            <MoreButton onClick={handleVisible} buttonType="circle" buttonRole="event">
+              <More />
+            </MoreButton>
           </DropUpButton>
           <DropDownButton isVisible={isVisible}>
-            <ChatExitButton onClick={() => console.log('exit')} />
-            <ChatFollowButton onClick={() => console.log('follow')} />
+            <ChatExitButton onClick={onClick} buttonType="circle" buttonRole="event">
+              <ChatExit />
+            </ChatExitButton>
+            <ChatFollowButton onClick={onClick} buttonType="circle" buttonRole="event">
+              <ChatFollow />
+            </ChatFollowButton>
           </DropDownButton>
         </ButtonDom>
       </Right>

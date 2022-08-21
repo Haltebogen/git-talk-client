@@ -1,13 +1,14 @@
 import styled, { css } from 'styled-components';
-import React, { useRef, useState } from 'react';
-import ChatSendButton from '@/buttons/ChatSendButton';
+import React from 'react';
 import ReactTextareaAutosize from 'react-textarea-autosize';
+import Send from '@/icons/send.svg';
+import { ButtonLayout, ButtonProps } from '@/buttons/Button';
 
-export type ChatInputBoxProps = {
+interface ChatInputBoxProps extends ButtonProps {
   onSubmit: (e: any) => void;
   onChange?: React.ChangeEventHandler<HTMLTextAreaElement>;
   value?: string;
-};
+}
 
 export const Box = styled.div`
   ${({ theme }) => {
@@ -37,39 +38,39 @@ export const Box = styled.div`
 `;
 
 export const ChatMsgForm = styled.form`
-  ${({ theme }) => {
-    const { colors, fontSize } = theme;
-    return css`
-      display: flex;
-      align-items: center;
-      vertical-align: middle;
-      width: 100%;
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+  width: 100%;
 
-      textarea {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        resize: none;
-        width: 100%;
-        max-width: 64rem;
-        max-height: 18.75rem;
-        font-size: 1rem;
-        border: none;
-        border-radius: 0.9375rem;
-        outline: none;
-        overflow-y: auto;
-        padding: 1.875rem;
+  textarea {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    resize: none;
+    width: 100%;
+    max-width: 64rem;
+    max-height: 18.75rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.9375rem;
+    outline: none;
+    overflow-y: auto;
+    padding: 1.875rem;
 
-        &:focus {
-          border: solid 0.0625rem var(--border-focus);
-        }
+    &:focus {
+      border: solid 0.0625rem var(--border-focus);
+    }
 
-        .placeholder {
-          text-align: center;
-        }
-      }
-    `;
-  }}
+    .placeholder {
+      text-align: center;
+    }
+  }
+`;
+
+export const ChatSendButton = styled(ButtonLayout)`
+  box-shadow: 0.0875rem 0.0875rem rgba(0, 0, 0, 0.1);
+  width: auto;
 `;
 
 const ChatInputBox = ({ onSubmit, onChange, value }: ChatInputBoxProps) => {
@@ -84,7 +85,9 @@ const ChatInputBox = ({ onSubmit, onChange, value }: ChatInputBoxProps) => {
     <Box>
       <ChatMsgForm onSubmit={onSubmit}>
         <ReactTextareaAutosize placeholder="메시지를 입력해주세요" value={value} onChange={onChange} onKeyDown={onPressEnter} />
-        <ChatSendButton onClick={onSubmit} />
+        <ChatSendButton onClick={onSubmit} buttonType="circle" buttonRole="event">
+          <Send />
+        </ChatSendButton>
       </ChatMsgForm>
     </Box>
   );
