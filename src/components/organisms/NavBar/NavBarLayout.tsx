@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import NavBarContainer from './NavBarContainer';
+import NavBar from './NavBar';
 import styled, { css } from 'styled-components';
 import Head from 'next/head';
 
@@ -27,7 +27,7 @@ export interface NavBarLayoutProps {
 const NavBarLayout = ({ children, title }: NavBarLayoutProps) => {
   return (
     <Layout>
-      <NavBarContainer />
+      <NavBar />
       <Head>
         <title>{title}</title>
       </Head>
