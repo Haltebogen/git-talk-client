@@ -1,13 +1,12 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import axios from 'axios';
-
+import { setAuthToken } from 'utils/storage/authCookie';
 const baseUrl = 'https://github.com/login/oauth/access_token';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
-    const { data, userinfo } = await getUser(req);
-    console.log(data);
-    console.log(userinfo);
+    const { data } = await getUser(req);
+    setAuthToken(res, data.accessToken, data.refreshToken);
 
     return res.status(200).redirect('/home');
   } catch (err) {
@@ -32,8 +31,6 @@ async function getUser(req: NextApiRequest) {
     },
   );
 
-  console.log(`requestToken`, requestToken);
-
   const { access_token, token_type, scope } = requestToken;
 
   const { data } = await axios.post(process.env.NEXT_PUBLIC_API_ENDPOINT + '/auth/login', {
@@ -42,11 +39,5 @@ async function getUser(req: NextApiRequest) {
     scope,
   });
 
-  const { data: userinfo } = await axios.get('https://api.github.com/user', {
-    headers: {
-      Authorization: `Bearer ${access_token}`,
-    },
-  });
-
-  return { data, userinfo };
+  return data;
 }

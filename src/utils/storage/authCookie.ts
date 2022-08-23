@@ -2,7 +2,7 @@ import { serialize, CookieSerializeOptions } from 'cookie';
 import { NextApiResponse } from 'next';
 import Cookies from 'js-cookie';
 
-export const setRefreshToken = (res: NextApiResponse, accesshToken: string, refreshToken: string) => {
+export const setAuthToken = (res: NextApiResponse, accesshToken: string, refreshToken: string) => {
   const today = new Date();
   const expireDate = today.setDate(today.getDate() + 7);
 
