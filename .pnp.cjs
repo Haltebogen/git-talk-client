@@ -49,7 +49,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@storybook/testing-library", "npm:0.0.13"],\
             ["@svgr/webpack", "npm:6.2.1"],\
             ["@types/babel__core", "npm:7.1.19"],\
+            ["@types/cookie", "npm:0.5.1"],\
             ["@types/eslint", "npm:8.4.3"],\
+            ["@types/js-cookie", "npm:3.0.2"],\
             ["@types/node", "npm:18.6.3"],\
             ["@types/react", "npm:18.0.14"],\
             ["@types/react-dom", "npm:18.0.5"],\
@@ -62,14 +64,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["axios", "npm:0.27.2"],\
             ["babel-loader", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:8.2.5"],\
             ["babel-plugin-styled-components", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:2.0.7"],\
+            ["cookie", "npm:0.5.0"],\
             ["eslint", "npm:8.17.0"],\
             ["eslint-config-next", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:12.1.6"],\
             ["eslint-plugin-react-hooks", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:4.6.0"],\
             ["husky", "npm:8.0.1"],\
+            ["js-cookie", "npm:3.0.1"],\
             ["next", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:12.1.6"],\
             ["next-redux-wrapper", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:7.0.5"],\
             ["react", "npm:18.2.0"],\
-            ["react-cookie", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:4.1.1"],\
             ["react-dom", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:18.2.0"],\
             ["react-is", "npm:18.2.0"],\
             ["react-redux", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:8.0.2"],\
@@ -9456,10 +9459,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@types/cookie", [\
-        ["npm:0.3.3", {\
-          "packageLocation": "./.yarn/cache/@types-cookie-npm-0.3.3-a5ddc16db3-450c930d79.zip/node_modules/@types/cookie/",\
+        ["npm:0.5.1", {\
+          "packageLocation": "./.yarn/cache/@types-cookie-npm-0.5.1-4b655a0ac0-9a8d60fc84.zip/node_modules/@types/cookie/",\
           "packageDependencies": [\
-            ["@types/cookie", "npm:0.3.3"]\
+            ["@types/cookie", "npm:0.5.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -9596,6 +9599,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@types/istanbul-reports", "npm:3.0.1"],\
             ["@types/istanbul-lib-report", "npm:3.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/js-cookie", [\
+        ["npm:3.0.2", {\
+          "packageLocation": "./.yarn/cache/@types-js-cookie-npm-3.0.2-0fde2a4d71-7ab964288d.zip/node_modules/@types/js-cookie/",\
+          "packageDependencies": [\
+            ["@types/js-cookie", "npm:3.0.2"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -12878,13 +12890,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["cookie", [\
-        ["npm:0.4.2", {\
-          "packageLocation": "./.yarn/cache/cookie-npm-0.4.2-7761894d5f-a00833c998.zip/node_modules/cookie/",\
-          "packageDependencies": [\
-            ["cookie", "npm:0.4.2"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
         ["npm:0.5.0", {\
           "packageLocation": "./.yarn/cache/cookie-npm-0.5.0-e2d58a161a-1f4bd2ca57.zip/node_modules/cookie/",\
           "packageDependencies": [\
@@ -15577,7 +15582,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@storybook/testing-library", "npm:0.0.13"],\
             ["@svgr/webpack", "npm:6.2.1"],\
             ["@types/babel__core", "npm:7.1.19"],\
+            ["@types/cookie", "npm:0.5.1"],\
             ["@types/eslint", "npm:8.4.3"],\
+            ["@types/js-cookie", "npm:3.0.2"],\
             ["@types/node", "npm:18.6.3"],\
             ["@types/react", "npm:18.0.14"],\
             ["@types/react-dom", "npm:18.0.5"],\
@@ -15590,14 +15597,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["axios", "npm:0.27.2"],\
             ["babel-loader", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:8.2.5"],\
             ["babel-plugin-styled-components", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:2.0.7"],\
+            ["cookie", "npm:0.5.0"],\
             ["eslint", "npm:8.17.0"],\
             ["eslint-config-next", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:12.1.6"],\
             ["eslint-plugin-react-hooks", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:4.6.0"],\
             ["husky", "npm:8.0.1"],\
+            ["js-cookie", "npm:3.0.1"],\
             ["next", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:12.1.6"],\
             ["next-redux-wrapper", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:7.0.5"],\
             ["react", "npm:18.2.0"],\
-            ["react-cookie", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:4.1.1"],\
             ["react-dom", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:18.2.0"],\
             ["react-is", "npm:18.2.0"],\
             ["react-redux", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:8.0.2"],\
@@ -17320,6 +17328,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:18.6.3"],\
             ["merge-stream", "npm:2.0.0"],\
             ["supports-color", "npm:8.1.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["js-cookie", [\
+        ["npm:3.0.1", {\
+          "packageLocation": "./.yarn/cache/js-cookie-npm-3.0.1-04c7177de1-bb48de67e2.zip/node_modules/js-cookie/",\
+          "packageDependencies": [\
+            ["js-cookie", "npm:3.0.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -20279,31 +20296,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
-      ["react-cookie", [\
-        ["npm:4.1.1", {\
-          "packageLocation": "./.yarn/cache/react-cookie-npm-4.1.1-90d4f0fcb5-b734dcad35.zip/node_modules/react-cookie/",\
-          "packageDependencies": [\
-            ["react-cookie", "npm:4.1.1"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:4.1.1", {\
-          "packageLocation": "./.yarn/__virtual__/react-cookie-virtual-bb8d919bd8/0/cache/react-cookie-npm-4.1.1-90d4f0fcb5-b734dcad35.zip/node_modules/react-cookie/",\
-          "packageDependencies": [\
-            ["react-cookie", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:4.1.1"],\
-            ["@types/hoist-non-react-statics", "npm:3.3.1"],\
-            ["@types/react", "npm:18.0.14"],\
-            ["hoist-non-react-statics", "npm:3.3.2"],\
-            ["react", "npm:18.2.0"],\
-            ["universal-cookie", "npm:4.0.4"]\
-          ],\
-          "packagePeers": [\
-            "@types/react",\
-            "react"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
       ["react-docgen", [\
         ["npm:5.4.3", {\
           "packageLocation": "./.yarn/cache/react-docgen-npm-5.4.3-10385f7edf-cef935ba94.zip/node_modules/react-docgen/",\
@@ -23125,17 +23117,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["unist-util-visit-parents", "npm:3.1.1"],\
             ["@types/unist", "npm:2.0.6"],\
             ["unist-util-is", "npm:4.1.0"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["universal-cookie", [\
-        ["npm:4.0.4", {\
-          "packageLocation": "./.yarn/cache/universal-cookie-npm-4.0.4-aa9b4bcfbf-bb2bafa7eb.zip/node_modules/universal-cookie/",\
-          "packageDependencies": [\
-            ["universal-cookie", "npm:4.0.4"],\
-            ["@types/cookie", "npm:0.3.3"],\
-            ["cookie", "npm:0.4.2"]\
           ],\
           "linkType": "HARD"\
         }]\

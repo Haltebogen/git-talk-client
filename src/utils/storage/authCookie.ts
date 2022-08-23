@@ -1,22 +1,28 @@
-import { Cookies } from 'react-cookie';
+import { serialize, CookieSerializeOptions } from 'cookie';
+import { NextApiResponse } from 'next';
+import Cookies from 'js-cookie';
 
-const cookies = new Cookies();
-
-export const setRefreshToken = (refreshToken: string) => {
+export const setRefreshToken = (res: NextApiResponse, accesshToken: string, refreshToken: string) => {
   const today = new Date();
   const expireDate = today.setDate(today.getDate() + 7);
 
-  return cookies.set('refresh_token', refreshToken, {
+  const options: CookieSerializeOptions = {
+    // httpOnly: true,
+    secure: process.env.NODE_ENV !== 'development',
     sameSite: 'strict',
+    maxAge: expireDate,
     path: '/',
-    expires: new Date(expireDate),
-  });
+  };
+
+  const serialised = [serialize('access_token', accesshToken, options), serialize('refresh_token', refreshToken, options)];
+
+  res.setHeader('Set-Cookie', serialised);
 };
 
 export const getCookieToken = () => {
-  return cookies.get('refresh_token');
+  return Cookies.get('access_token');
 };
 
 export const removeCookieToken = () => {
-  return cookies.remove('refresh_token', { sameSite: 'strict', path: '/' });
+  return Cookies.remove('access_token', { sameSite: 'strict', path: '/' });
 };
