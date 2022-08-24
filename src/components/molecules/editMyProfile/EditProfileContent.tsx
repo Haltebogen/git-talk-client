@@ -1,4 +1,5 @@
-import ContentInput, { ContentInputProps } from '@/inputs/ContentInput';
+import ContentInput from '@/inputs/ContentInput';
+import { ChangeEventHandler } from 'react';
 import styled, { css } from 'styled-components';
 
 const Container = styled.div`
@@ -23,18 +24,24 @@ const Container = styled.div`
   }}
 `;
 
-export interface EditProfileContentProps extends ContentInputProps {
+export type InputType = 'status' | 'bio';
+
+export interface EditProfileContentProps {
   title: string;
   details: string;
-  type: 'STATUS' | 'BIO';
+  inputType: InputType;
+  statusValue?: string;
+  bioValue?: string;
+  onStatusChange?: ChangeEventHandler<HTMLTextAreaElement>;
+  onBioChange?: ChangeEventHandler<HTMLTextAreaElement>;
 }
 
-const EditProfileContent = ({ title, details, type, value, onChange }: EditProfileContentProps) => {
+const EditProfileContent = ({ title, details, inputType, statusValue, bioValue, onStatusChange, onBioChange }: EditProfileContentProps) => {
   return (
     <Container>
       <span>{title}</span>
-      {type === 'STATUS' && <ContentInput maxRows={2} maxLength={50} value={value} onChange={onChange} />}
-      {type === 'BIO' && <ContentInput minRows={6} maxRows={6} maxLength={500} value={value} onChange={onChange} />}
+      {inputType === 'status' && <ContentInput maxRows={2} maxLength={50} value={statusValue} onChange={onStatusChange} />}
+      {inputType === 'bio' && <ContentInput minRows={6} maxRows={6} maxLength={500} value={bioValue} onChange={onBioChange} />}
       <p>{details}</p>
     </Container>
   );

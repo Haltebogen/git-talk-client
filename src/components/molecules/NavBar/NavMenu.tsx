@@ -40,7 +40,11 @@ export const MenuButton = styled(Button)`
   }}
 `;
 
-const NavMenu = () => {
+interface NavMenuProps {
+  onClick: () => void;
+}
+
+const NavMenu = ({ onClick }: NavMenuProps) => {
   return (
     <>
       <MenuContainer>
@@ -68,7 +72,7 @@ const NavMenu = () => {
             </MenuButton>
           </a>
         </Link>
-        <Bottom>
+        <Bottom onClick={onClick}>
           <Link href="/">
             <a aria-label="로그아웃하기" role="button">
               <MenuButton buttonType="clear" buttonRole="link">
