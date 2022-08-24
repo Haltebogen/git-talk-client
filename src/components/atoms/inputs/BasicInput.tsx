@@ -21,7 +21,7 @@ export const Input = styled.input`
 export interface BasicInputProps {
   placeholder?: string;
   value: string;
-  onChange: ChangeEventHandler<HTMLInputElement>;
+  onChange?: ChangeEventHandler<HTMLInputElement>;
 }
 
 const BasicInput = ({ placeholder, value, onChange }: BasicInputProps) => {
