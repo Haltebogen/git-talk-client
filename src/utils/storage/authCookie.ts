@@ -24,5 +24,5 @@ export const getCookieToken = () => {
 };
 
 export const removeCookieToken = () => {
-  return Cookies.remove('access_token', { sameSite: 'strict', path: '/' });
+  return Cookies.remove('access_token', { sameSite: 'strict', path: '/' }), Cookies.remove('refresh_token', { sameSite: 'strict', path: '/' });
 };
