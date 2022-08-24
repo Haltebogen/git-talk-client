@@ -6,6 +6,7 @@ export const Box = styled.div`
   padding: 1.25rem 1.5rem;
   box-shadow: 0.125rem 0.125rem rgba(112, 124, 151, 0.25);
   word-break: break-all;
+  white-space: pre-wrap;
 `;
 
 export const SenderMsgBox = styled(Box)`

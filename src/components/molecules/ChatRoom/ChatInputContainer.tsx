@@ -48,13 +48,16 @@ export const ChatSendButton = styled(ButtonLayout)`
 
 interface ChatInputContainerProps extends ContentInputProps {
   onSubmit: (e: any) => void;
+  setChat: (s: string) => void;
 }
 
-const ChatInputContainer = ({ value, onChange, onSubmit }: ChatInputContainerProps) => {
+const ChatInputContainer = ({ value, onChange, setChat, onSubmit }: ChatInputContainerProps) => {
   const onPressEnter = (event: React.KeyboardEvent) => {
     if (event.key === 'Enter' && !event.shiftKey) {
       event.preventDefault();
       onSubmit(event);
+    } else if (event.key === 'Enter' && event.shiftKey) {
+      setChat(value + '\n');
     }
   };
 

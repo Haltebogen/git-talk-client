@@ -20,12 +20,13 @@ const ChatRoomContainer = () => {
     if (!chat) return;
     setChat('');
     setMessages([...messages, chat]);
+    console.log(messages);
   };
   return (
     <Container>
       <ChatRoomNav name="선영" profileImg={null} nickname="yuniiyuns" />
       <ChatContainer messages={messages} />
-      <ChatInputContainer onChange={onChangeChat} value={chat} onSubmit={onSubmitForm} />
+      <ChatInputContainer setChat={setChat} onChange={onChangeChat} value={chat} onSubmit={onSubmitForm} />
     </Container>
   );
 };
