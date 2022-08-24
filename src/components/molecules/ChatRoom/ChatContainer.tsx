@@ -14,6 +14,9 @@ export const Container = styled.div`
       padding: 1.875rem;
       background-color: ${colors.secondary};
       overflow-y: auto;
+      ::-webkit-scrollbar {
+        display: none;
+      }
     `;
   }}
 `;

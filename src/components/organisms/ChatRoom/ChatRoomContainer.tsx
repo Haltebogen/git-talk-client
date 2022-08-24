@@ -1,5 +1,5 @@
-import ChatInputBox from '@/boxes/ChatInputBox';
-import ChatRoomNav from '@/boxes/ChatRoomNav';
+import ChatInputContainer from '@/molecules/chatRoom/ChatInputContainer';
+import ChatRoomNav from '@/molecules/chatRoom/ChatRoomNav';
 import ChatContainer from '@/molecules/chatRoom/ChatContainer';
 import React, { useState } from 'react';
 import styled from 'styled-components';
@@ -25,7 +25,7 @@ const ChatRoomContainer = () => {
     <Container>
       <ChatRoomNav name="선영" profileImg={null} nickname="yuniiyuns" />
       <ChatContainer messages={messages} />
-      <ChatInputBox onChange={onChangeChat} value={chat} onSubmit={onSubmitForm} />
+      <ChatInputContainer onChange={onChangeChat} value={chat} onSubmit={onSubmitForm} />
     </Container>
   );
 };
