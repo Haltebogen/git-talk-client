@@ -75,10 +75,10 @@ interface AddSomethingModalProps extends BasicInputProps {
   show: boolean;
   onCloseModal: () => void;
   onSubmit: (event: FormEvent<HTMLFormElement>) => void;
-  onClick: MouseEventHandler<HTMLButtonElement>;
+  onCancelClick: MouseEventHandler<HTMLButtonElement>;
 }
 
-const AddSomethingModal = ({ show, onCloseModal, onSubmit, placeholder, onChange, value, onClick }: AddSomethingModalProps) => {
+const AddSomethingModal = ({ show, onCloseModal, onSubmit, placeholder, onChange, value, onCancelClick }: AddSomethingModalProps) => {
   if (!show) {
     return null;
   }
@@ -101,10 +101,10 @@ const AddSomethingModal = ({ show, onCloseModal, onSubmit, placeholder, onChange
               <BasicInput placeholder={placeholder} onChange={onChange} value={value} />
             </InputZone>
             <ButtonZone>
-              <Button ariaLabel="추가" buttonType="primary" onClick={onClick} buttonRole="event">
+              <Button type="submit" ariaLabel="팔로워 추가" buttonType="primary" buttonRole="event">
                 추가
               </Button>
-              <Button ariaLabel="취소" buttonType="cancel" onClick={onClick} buttonRole="event">
+              <Button type="reset" ariaLabel="팔로워 추가 취소" buttonType="cancel" onClick={onCancelClick} buttonRole="event">
                 취소
               </Button>
             </ButtonZone>
