@@ -80,10 +80,12 @@ export const ButtonLayout = styled.button<ButtonProps>`
 
 export type ButtonType = 'primary' | 'cancel' | 'circle' | 'clear';
 export type ButtonRole = 'link' | 'event';
+export type ButtonAttribute = 'button' | 'submit' | 'reset';
 
 export interface ButtonProps {
   children?: ReactNode;
   onClick?: MouseEventHandler<HTMLButtonElement>;
+  type?: ButtonAttribute;
   buttonType?: ButtonType;
   buttonRole?: ButtonRole;
   ariaLabel?: string;
@@ -93,9 +95,10 @@ export interface ButtonProps {
   width?: string;
 }
 
-const Button = ({ children, onClick, ariaLabel, buttonType, buttonRole, disabled, label, color, width, ...props }: ButtonProps) => {
+const Button = ({ children, onClick, ariaLabel, type, buttonType, buttonRole, disabled, label, color, width, ...props }: ButtonProps) => {
   return buttonRole === 'event' ? (
     <ButtonLayout
+      type={type}
       onClick={onClick}
       ariaLabel={ariaLabel}
       buttonRole={buttonRole}
