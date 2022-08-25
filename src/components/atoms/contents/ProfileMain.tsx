@@ -53,7 +53,7 @@ export const Id = styled.div`
 
 export interface ProfileMainProps {
   name?: string;
-  profileImg: string | null;
+  profileImg: string | null | undefined;
   id?: string;
 }
 

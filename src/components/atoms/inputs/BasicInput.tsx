@@ -20,7 +20,7 @@ export const Input = styled.input`
 
 export interface BasicInputProps {
   placeholder?: string;
-  value: string;
+  value?: string;
   onChange?: ChangeEventHandler<HTMLInputElement>;
 }
 

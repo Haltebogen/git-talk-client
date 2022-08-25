@@ -22,12 +22,12 @@ type NotificationType = 'FOLLOW' | 'SERVICE_JOIN' | 'CHAT_MESSAGE' | 'CHAT_JOIN'
 interface NotificationListContainerProps {
   title: string;
   message: string;
-  link: string;
-  isRead: boolean;
-  notificationType: NotificationType;
-  isSendPushNotification: boolean;
-  sender?: string;
-  receiver?: string;
+  link?: string;
+  isRead?: boolean;
+  notificationType?: NotificationType;
+  isSendPushNotification?: boolean;
+  sender: string;
+  receiver: string;
 }
 
 const NotificationListContainer = ({ title, message, link, isRead, notificationType, isSendPushNotification }: NotificationListContainerProps) => {
