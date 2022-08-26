@@ -3,6 +3,7 @@ import BasicInput, { BasicInputProps } from '@/inputs/BasicInput';
 import Close from '@/icons/close.svg';
 import styled, { css } from 'styled-components';
 import Button from '@/buttons/Button';
+import SearchResult from '../search/SearchResult';
 
 const Container = styled.div`
   width: 100%;
@@ -76,9 +77,21 @@ interface AddSomethingModalProps extends BasicInputProps {
   onCloseModal: () => void;
   onSubmit: (event: FormEvent<HTMLFormElement>) => void;
   onCancelClick: MouseEventHandler<HTMLButtonElement>;
+  searchValue: [];
+  onResultClick: MouseEventHandler<HTMLLIElement>;
 }
 
-const AddSomethingModal = ({ show, onCloseModal, onSubmit, placeholder, onChange, value, onCancelClick }: AddSomethingModalProps) => {
+const AddSomethingModal = ({
+  show,
+  onCloseModal,
+  onSubmit,
+  placeholder,
+  onChange,
+  value,
+  onCancelClick,
+  searchValue,
+  onResultClick,
+}: AddSomethingModalProps) => {
   if (!show) {
     return null;
   }
@@ -110,6 +123,7 @@ const AddSomethingModal = ({ show, onCloseModal, onSubmit, placeholder, onChange
             </ButtonZone>
           </form>
         </Box>
+        <SearchResult searchValue={searchValue} onClick={onResultClick} />
       </Modal>
     </Container>
   );
