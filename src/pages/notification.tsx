@@ -9,7 +9,8 @@ const Notification: NextPage = () => {
         <NotificationListContainer
           title="following"
           message="notification"
-          link="https://github.com/Haltebogen"
+          sender=""
+          receiver=""
           isRead={true}
           notificationType="FOLLOW"
           isSendPushNotification={false}
