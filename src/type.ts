@@ -2,9 +2,10 @@ export interface Iuser {
   name?: string;
   nickName: string;
   company?: string;
-  followersNum?: string;
-  followingsNum?: string;
+  followersNum?: number;
+  followingsNum?: number;
   profileImageUrl?: string;
+  statusMessage?: string;
 }
 
 export interface Imember {
