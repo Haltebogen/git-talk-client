@@ -4,12 +4,18 @@ import NavBarLayout from '@/organisms/navBar/NavBarLayout';
 import useInput from 'hooks/useInput';
 import useModal from 'hooks/useModal';
 import { NextPage } from 'next';
+import { FormEvent, useCallback } from 'react';
 import { Container, Area } from 'styles/chat';
 
 const Chat: NextPage = () => {
   const { isShown, openModal, closeModal } = useModal();
   const [value, onChangeValue, setValue] = useInput('');
-  const [newMember, onChangeNewMember, setNewMember] = useInput('');
+  const [chat, onChangeChat, setChat] = useInput('');
+  const object: [] = [];
+
+  const onSubmit = useCallback((event: FormEvent) => {
+    event.preventDefault();
+  }, []);
 
   return (
     <Container>
@@ -27,19 +33,20 @@ const Chat: NextPage = () => {
         </Area>
       </NavBarLayout>
       <AddSomethingModal
+      onResultClick={()=>console.log('click')}
+        searchValue={object}
+        value={chat}
         show={isShown}
-        onClick={() => setNewMember('')}
+        onSubmit={onSubmit}
+        onCancelClick={() => onChangeChat('')}
         onCloseModal={closeModal}
-        onSubmit={(event) => {
-          event.preventDefault();
-        }}
         placeholder="이메일 혹은 아이디를 입력하세요"
         onChange={(event) => {
+          console.log(event.target.value);
           const { value } = event.target;
-          onChangeNewMember;
-          setNewMember(value);
+          onChangeChat;
+          setChat(value);
         }}
-        value={newMember}
       />
     </Container>
   );
