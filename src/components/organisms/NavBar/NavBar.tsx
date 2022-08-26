@@ -4,12 +4,12 @@ import ProfileMain from '@/contents/ProfileMain';
 import styled, { css } from 'styled-components';
 import Button from '@/buttons/Button';
 import Link from 'next/link';
-import useSWR from 'swr';
 import { useDispatch } from 'react-redux';
 import { logout, setUser } from 'store/features/userSlice';
-import fetcher from 'utils/api/main';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { removeCookieToken } from 'utils/storage/authCookie';
+import subInstance from 'utils/api/sub';
+import { Iuser } from 'type';
 
 const Container = styled.div`
   display: flex;
@@ -52,18 +52,25 @@ const EditButton = styled(Button)`
 `;
 
 const NavBar = () => {
-  const { data: userInfo } = useSWR(`/api/v1/member`, fetcher, { dedupingInterval: 100000 });
+  const [userInfo, setUserInfo] = useState<Iuser | null>(null);
   const dispatch = useDispatch();
+
   const onLogout = () => {
     removeCookieToken();
     dispatch(logout());
   };
 
   useEffect(() => {
-    if (userInfo) dispatch(setUser(userInfo));
-  }, [userInfo, dispatch]);
+    subInstance
+      .getUserInfo()
+      .then((response) => {
+        setUserInfo(response.data);
+        console.log('userInfo', response.data);
+        dispatch(setUser(response.data));
+      })
+      .catch((error) => console.log(error));
+  }, [dispatch]);
 
-  console.log(userInfo);
   return (
     <Container>
       <ProfileContainer>
