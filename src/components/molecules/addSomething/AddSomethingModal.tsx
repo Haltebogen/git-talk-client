@@ -1,4 +1,4 @@
-import { FormEvent, MouseEventHandler } from 'react';
+import { Children, FormEvent, MouseEventHandler, ReactNode } from 'react';
 import BasicInput, { BasicInputProps } from '@/inputs/BasicInput';
 import Close from '@/icons/close.svg';
 import styled, { css } from 'styled-components';
@@ -77,21 +77,10 @@ interface AddSomethingModalProps extends BasicInputProps {
   onCloseModal: () => void;
   onSubmit: (event: FormEvent<HTMLFormElement>) => void;
   onCancelClick: MouseEventHandler<HTMLButtonElement>;
-  searchValue: [];
-  onResultClick: MouseEventHandler<HTMLLIElement>;
+  children: ReactNode;
 }
 
-const AddSomethingModal = ({
-  show,
-  onCloseModal,
-  onSubmit,
-  placeholder,
-  onChange,
-  value,
-  onCancelClick,
-  searchValue,
-  onResultClick,
-}: AddSomethingModalProps) => {
+const AddSomethingModal = ({ show, onCloseModal, onSubmit, placeholder, onChange, value, onCancelClick, children }: AddSomethingModalProps) => {
   if (!show) {
     return null;
   }
@@ -123,7 +112,7 @@ const AddSomethingModal = ({
             </ButtonZone>
           </form>
         </Box>
-        <SearchResult searchValue={searchValue} onClick={onResultClick} />
+        {children}
       </Modal>
     </Container>
   );

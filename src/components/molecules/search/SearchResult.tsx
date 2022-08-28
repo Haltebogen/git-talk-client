@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { BoxLayout } from '@/boxes/Box';
-import { MouseEventHandler } from 'react';
+import { ReactNode } from 'react';
 
 const ResultBox = styled(BoxLayout)`
   ${({ theme }) => {
@@ -29,7 +29,6 @@ const ResultList = styled.ul`
       z-index: 100;
       width: 98%;
       max-height: 12.5rem;
-
       list-style: none;
       top: 0;
       padding: 0;
@@ -55,31 +54,20 @@ const ResultList = styled.ul`
       }
 
       span {
-        display: ;
         width: 100%;
       }
     `;
   }}
 `;
 
-type SearchType = 'follow' | 'chat';
-
 interface SearchResultProps {
-  searchValue: [];
-  searchType?: SearchType;
-  onClick: MouseEventHandler<HTMLLIElement>;
+  children: ReactNode;
 }
 
-const SearchResult = ({ searchValue, onClick }: SearchResultProps) => {
+const SearchResult = ({ children }: SearchResultProps) => {
   return (
     <ResultBox boxType="backrgound">
-      <ResultList>
-        {searchValue?.map((data: any, id: number) => (
-          <li key={id} onClick={onClick}>
-            <span>{data.nickName}</span>
-          </li>
-        ))}
-      </ResultList>
+      <ResultList>{children}</ResultList>
     </ResultBox>
   );
 };
