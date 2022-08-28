@@ -78,7 +78,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-redux", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:8.0.2"],\
             ["react-textarea-autosize", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:8.3.4"],\
             ["redux-logger", "npm:3.0.6"],\
-            ["redux-persist", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:6.0.0"],\
             ["storybook-addon-styled-component-theme", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:2.0.0"],\
             ["styled-components", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:5.3.5"],\
             ["styled-normalize", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:8.0.7"],\
@@ -15612,7 +15611,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-redux", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:8.0.2"],\
             ["react-textarea-autosize", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:8.3.4"],\
             ["redux-logger", "npm:3.0.6"],\
-            ["redux-persist", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:6.0.0"],\
             ["storybook-addon-styled-component-theme", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:2.0.0"],\
             ["styled-components", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:5.3.5"],\
             ["styled-normalize", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:8.0.7"],\
@@ -20720,32 +20718,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["redux-logger", "npm:3.0.6"],\
             ["deep-diff", "npm:0.3.8"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["redux-persist", [\
-        ["npm:6.0.0", {\
-          "packageLocation": "./.yarn/cache/redux-persist-npm-6.0.0-56dad69feb-edaf10dbf1.zip/node_modules/redux-persist/",\
-          "packageDependencies": [\
-            ["redux-persist", "npm:6.0.0"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:6.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/redux-persist-virtual-61df6cbb8f/0/cache/redux-persist-npm-6.0.0-56dad69feb-edaf10dbf1.zip/node_modules/redux-persist/",\
-          "packageDependencies": [\
-            ["redux-persist", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:6.0.0"],\
-            ["@types/react", "npm:18.0.14"],\
-            ["@types/redux", null],\
-            ["react", "npm:18.2.0"],\
-            ["redux", null]\
-          ],\
-          "packagePeers": [\
-            "@types/react",\
-            "@types/redux",\
-            "react",\
-            "redux"\
           ],\
           "linkType": "HARD"\
         }]\
