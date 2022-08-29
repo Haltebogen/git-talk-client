@@ -12,6 +12,11 @@ const primaryButtonStyles = css`
       &:active {
         background-color: ${colors.clickbtn1};
       }
+
+      &:disabled {
+        background-color: ${colors.disabledkbtn};
+        cursor: default;
+      }
     `;
   }}
 `;

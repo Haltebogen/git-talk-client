@@ -16,7 +16,7 @@ const EditButton = styled(ButtonLayout)`
 
 const EditImgButton = () => {
   return (
-    <EditButton onClick={() => console.log('edit')} ariaLabel="이미지 수정" buttonType="clear" buttonRole="event">
+    <EditButton ariaLabel="이미지 수정" buttonType="clear" buttonRole="event">
       <EditImage />
       edit
     </EditButton>
