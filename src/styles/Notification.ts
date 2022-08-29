@@ -22,22 +22,27 @@ export const NotificationBox = styled(BoxLayout)`
       background-color: ${colors.secondary};
       display: flex;
       width: 100%;
-      padding: 1.875rem;
+      padding: 0.9375rem;
       gap: 0.625rem;
+    `;
+  }}
+`;
+
+export const NotiTitle = styled.div`
+  ${({ theme }) => {
+    const { colors } = theme;
+    return css`
+      display: flex;
+      align-items: center;
+      min-width: 28.125rem;
+      color: ${colors.gray};
 
       h2 {
-        color: ${colors.gray};
+        padding-right: 2.5rem;
         margin: 0;
       }
     `;
   }}
-`;
-export const Content = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  gap: 3.125rem;
 `;
 
 export const UserInfo = styled.div`
@@ -46,7 +51,6 @@ export const UserInfo = styled.div`
     return css`
       display: flex;
       align-items: center;
-      padding-right: 6.5rem;
 
       span {
         padding: 0.625rem 0 0 0.625rem;
@@ -55,6 +59,14 @@ export const UserInfo = styled.div`
       }
     `;
   }}
+`;
+
+export const Content = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 3.125rem;
 `;
 
 export const ProfileImage = styled(Image)`
