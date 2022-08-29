@@ -9,12 +9,13 @@ export interface Iuser {
 }
 
 export interface Imember {
-  email: string;
-  isFollower: boolean;
-  isFollowing: boolean;
-  isMember: boolean;
-  nickName: string;
+  bio?: string;
+  company?: string;
+  email?: string;
+  followersNum?: number;
+  followingsNum?: number;
+  name?: string;
+  nickName?: string;
   profileImageUrl: string;
-  providerId: number;
-  statusMessage: string;
+  statusMessage?: string;
 }
