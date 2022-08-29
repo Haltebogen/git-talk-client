@@ -31,6 +31,13 @@ export const NotificationBox = styled(BoxLayout)`
     `;
   }}
 `;
+export const Content = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 3.125rem;
+`;
 
 export const UserInfo = styled.div`
   ${({ theme }) => {
@@ -38,12 +45,12 @@ export const UserInfo = styled.div`
     return css`
       display: flex;
       align-items: center;
+      padding-right: 6.5rem;
 
       span {
-        padding-left: 0.625rem;
+        padding: 0.625rem 0 0 0.625rem;
         font-size: ${fontSize.xxs};
         color: ${colors.gray};
-        padding-top: 0.625rem;
       }
     `;
   }}
@@ -57,8 +64,12 @@ export const NotiDetails = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  span {
-    width: 100%;
-    padding: 0;
-  }
+  max-width: 31.25rem;
+  padding-top: 0.625rem;
+`;
+
+export const Date = styled.div`
+  width: 100%;
+  max-width: 18.75rem;
+  padding-top: 0.625rem;
 `;
