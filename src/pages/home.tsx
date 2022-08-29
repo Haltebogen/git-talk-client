@@ -46,6 +46,7 @@ const Home: NextPage = () => {
           event.preventDefault();
           subInstance.createFollow(memberId);
           setNewMember('');
+          setMemberId(0);
         }}
         placeholder="이메일 혹은 아이디를 입력하세요"
         onChange={(event) => {
