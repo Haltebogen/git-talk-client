@@ -4,12 +4,13 @@ import ProfileMain from '@/contents/ProfileMain';
 import styled, { css } from 'styled-components';
 import Button from '@/buttons/Button';
 import Link from 'next/link';
-import { useDispatch } from 'react-redux';
-import { logout, setUser } from 'store/features/userSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { IUserState, logout, setUser } from 'store/features/userSlice';
 import { useEffect, useState } from 'react';
 import { removeCookieToken } from 'utils/storage/authCookie';
 import subInstance from 'utils/api/sub';
 import { Iuser } from 'type';
+import { State } from 'store/configureStore';
 
 const Container = styled.div`
   display: flex;
@@ -53,6 +54,7 @@ const EditButton = styled(Button)`
 
 const NavBar = () => {
   const [userInfo, setUserInfo] = useState<Iuser | null>(null);
+  const { name, nickName, profileImageUrl, statusMessage } = useSelector<State, IUserState>((state) => state.user);
   const dispatch = useDispatch();
 
   const onLogout = () => {
@@ -75,7 +77,7 @@ const NavBar = () => {
     <Container>
       <ProfileContainer>
         <ProfileBox>
-          <ProfileMain name={userInfo?.name} id={userInfo?.nickName} profileImg={userInfo?.profileImageUrl} />
+          <ProfileMain name={name} id={nickName} profileImg={profileImageUrl} />
           <ButtonZone>
             <Link href="/edit-profile">
               <a aria-label="내 프로필 수정하기" role="button">
@@ -89,7 +91,7 @@ const NavBar = () => {
         <ProfileBox>
           <ProfileDetail InfoType="follow" following={userInfo?.followingsNum} follower={userInfo?.followersNum} />
           <ProfileDetail InfoType="company" text={userInfo?.company} />
-          <ProfileDetail InfoType="message" text={userInfo?.statusMessage} />
+          <ProfileDetail InfoType="message" text={statusMessage} />
         </ProfileBox>
       </ProfileContainer>
       <NavMenu onClick={onLogout} />
