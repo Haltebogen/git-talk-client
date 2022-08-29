@@ -37,8 +37,6 @@ const Chat: NextPage = () => {
         </Area>
       </NavBarLayout>
       <AddSomethingModal
-      onResultClick={()=>console.log('click')}
-        searchValue={object}
         value={chat}
         show={isShown}
         onSubmit={onSubmit}
@@ -51,7 +49,9 @@ const Chat: NextPage = () => {
           onChangeChat;
           setChat(value);
         }}
-      />
+      >
+        결과
+      </AddSomethingModal>
     </Container>
   );
 };
