@@ -12,6 +12,7 @@ import { useSelector } from 'react-redux';
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+
   width: 100%;
 `;
 
@@ -44,7 +45,7 @@ const BottomContainer = styled.div`
   padding: 1.875rem 2.75rem 0 2.75rem;
 `;
 
-const Left = styled.div`
+const Left = styled.form`
   display: flex;
   flex-direction: column;
   padding: 0 5.25rem;
