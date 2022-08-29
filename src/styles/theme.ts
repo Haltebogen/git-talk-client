@@ -25,6 +25,7 @@ const colors = {
   clickbox: '#6868AB', // purple
   clickbtn1: '#35356F', // dark-purple
   clickbtn2: '#6D6A6A', // gray
+  disabledkbtn: '#C4C4C4', //  brighter gray
   focus: '#1F1F5A', // deep-dark-purple
 };
 
