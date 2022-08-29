@@ -17,7 +17,7 @@ const Container = styled.div`
   gap: 10rem;
   width: 100%;
   max-width: 18.125rem;
-  padding-top: 3.25rem;
+  padding: 3.25rem 0;
 `;
 
 export const ProfileContainer = styled.div`
