@@ -26,6 +26,7 @@ export const NotificationBox = styled(BoxLayout)`
       gap: 0.625rem;
 
       h2 {
+        color: ${colors.gray};
         margin: 0;
       }
     `;
