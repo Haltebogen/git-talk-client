@@ -65,6 +65,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["babel-loader", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:8.2.5"],\
             ["babel-plugin-styled-components", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:2.0.7"],\
             ["cookie", "npm:0.5.0"],\
+            ["core-js-pure", "npm:3.23.1"],\
             ["eslint", "npm:8.17.0"],\
             ["eslint-config-next", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:12.1.6"],\
             ["eslint-plugin-react-hooks", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:4.6.0"],\
@@ -15598,6 +15599,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["babel-loader", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:8.2.5"],\
             ["babel-plugin-styled-components", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:2.0.7"],\
             ["cookie", "npm:0.5.0"],\
+            ["core-js-pure", "npm:3.23.1"],\
             ["eslint", "npm:8.17.0"],\
             ["eslint-config-next", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:12.1.6"],\
             ["eslint-plugin-react-hooks", "virtual:bcc378a96d283fa5094b90b293475ca5b765cca1a5ebc54218d01d226e3e6837e52cac5d7dff864193766cdd04899c78db0431f8a995642da28567e9b946e245#npm:4.6.0"],\

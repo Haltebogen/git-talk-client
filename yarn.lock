@@ -7699,7 +7699,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"core-js-pure@npm:^3.20.2":
+"core-js-pure@npm:3.23.1, core-js-pure@npm:^3.20.2":
   version: 3.23.1
   resolution: "core-js-pure@npm:3.23.1"
   checksum: a31d934f9ef7a0907e7c767c1eeba7aae6a9c5b01b8a8cd2dccd01e7ca1bf72bdfddc43ebb69855c5390ceae8dc1a51da739bb67c0d72d904b81e28b2b1d7ce8
@@ -9852,6 +9852,7 @@ __metadata:
     babel-loader: ^8.2.5
     babel-plugin-styled-components: ^2.0.7
     cookie: ^0.5.0
+    core-js-pure: 3.23.1
     eslint: ^8.17.0
     eslint-config-next: ^12.1.6
     eslint-plugin-react-hooks: ^4.6.0
