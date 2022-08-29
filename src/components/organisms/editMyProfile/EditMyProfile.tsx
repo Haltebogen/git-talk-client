@@ -1,18 +1,14 @@
 import EditImgButton from '@/buttons/EditImgButton';
 import styled, { css } from 'styled-components';
 import EditProfileUserInfo from '@/contents/EditProfileUserInfo';
-import EditProfileContent from '@/molecules/editMyProfile/EditProfileContent';
+import EditProfileContent, { EditProfileStateProps } from '@/molecules/editMyProfile/EditProfileContent';
 import { ButtonLayout } from '@/buttons/Button';
 import EditProfileImg from '@/molecules/editMyProfile/EditProfileImg';
-import useInput from 'hooks/useInput';
-import { IUserState } from 'store/features/userSlice';
-import { State } from 'store/configureStore';
-import { useSelector } from 'react-redux';
+import { ChangeEventHandler, FormEvent, MouseEventHandler, RefObject } from 'react';
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-
   width: 100%;
 `;
 
@@ -71,11 +67,31 @@ const EditButton = styled(ButtonLayout)`
   }}
 `;
 
-const EditMyProfile = () => {
-  const [statusValue, onStatusChange, setStatusValue] = useInput('');
-  const [bioValue, onBioChange, setBioValue] = useInput('');
-  const { name, nickName, profileImageUrl } = useSelector<State, IUserState>((state) => state.user);
+interface EditMyProfileProps extends EditProfileStateProps {
+  onSubmit: (event: FormEvent<HTMLFormElement>) => void;
+  name: string | null | undefined;
+  nickName: string | null | undefined;
+  profileImageUrl: string | null | undefined;
+  fileInputref: RefObject<HTMLInputElement>;
+  onImageChange: ChangeEventHandler<HTMLInputElement>;
+  onEditFileClick: MouseEventHandler<HTMLDivElement>;
+}
 
+const EditMyProfile = ({
+  onSubmit,
+  statusValue,
+  onStatusChange,
+  bioValue,
+  onBioChange,
+  name,
+  nickName,
+  profileImageUrl,
+  bioPlaceholder,
+  statusPlaceholder,
+  fileInputref,
+  onImageChange,
+  onEditFileClick,
+}: EditMyProfileProps) => {
   return (
     <Container>
       <TopContainer>
@@ -88,9 +104,10 @@ const EditMyProfile = () => {
         </ButtonZone>
       </TopContainer>
       <BottomContainer>
-        <Left>
+        <Left onSubmit={onSubmit}>
           <EditProfileUserInfo name={name} id={nickName} />
           <EditProfileContent
+            statusPlaceholder={statusPlaceholder}
             title="Status Message"
             inputType="status"
             details="상태 메시지는 최대 50 자까지 작성하실 수 있습니다."
@@ -98,26 +115,19 @@ const EditMyProfile = () => {
             onStatusChange={onStatusChange}
           />
           <EditProfileContent
+            bioPlaceholder={bioPlaceholder}
             title="Bio"
             inputType="bio"
             details="자기소개는 최대 500자까지 작성이 가능합니다. 욕설이나 비방을 하는 글은 자제해 주세요."
             bioValue={bioValue}
             onBioChange={onBioChange}
           />
-          <EditButton
-            ariaLabel="수정 완료"
-            onClick={() => {
-              setStatusValue('');
-              setBioValue('');
-            }}
-            buttonType="primary"
-            buttonRole="event"
-          >
+          <EditButton ariaLabel="수정 완료" buttonType="primary" buttonRole="event" disabled={!statusValue || !bioValue}>
             수정완료
           </EditButton>
         </Left>
         <Right>
-          <EditProfileImg profileImg={profileImageUrl} />
+          <EditProfileImg profileImg={profileImageUrl} fileInputref={fileInputref} onImageChange={onImageChange} onEditFileClick={onEditFileClick} />
         </Right>
       </BottomContainer>
     </Container>
