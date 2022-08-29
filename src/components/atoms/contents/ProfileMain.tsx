@@ -52,9 +52,9 @@ export const Id = styled.div`
 `;
 
 export interface ProfileMainProps {
-  name?: string;
+  name?: string | null | undefined;
   profileImg: string | null | undefined;
-  id?: string;
+  id?: string | null | undefined;
 }
 
 const ProfileMain = ({ name, id, profileImg }: ProfileMainProps) => {

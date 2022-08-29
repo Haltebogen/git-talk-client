@@ -26,13 +26,14 @@ export interface ContentInputProps {
   minRows?: number;
   maxRows?: number;
   maxLength?: number;
+  placeholder?: string | null | undefined;
 }
 
-const ContentInput = ({ value, onChange, minRows, maxRows, maxLength }: ContentInputProps) => {
+const ContentInput = ({ value, onChange, minRows, maxRows, maxLength, placeholder }: ContentInputProps) => {
   const inputRef = useRef<HTMLTextAreaElement>(null);
   return (
     <>
-      <Textarea value={value} ref={inputRef} onChange={onChange} minRows={minRows} maxRows={maxRows} maxLength={maxLength} />
+      <Textarea placeholder={placeholder} value={value} ref={inputRef} onChange={onChange} minRows={minRows} maxRows={maxRows} maxLength={maxLength} />
     </>
   );
 };
