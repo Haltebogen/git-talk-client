@@ -9,6 +9,10 @@ const getUsernoti = () => {
   return instance({ url: `/api/v1/notification` });
 };
 
+const getFollows = () => {
+  return instance({ url: `/api/v1/member/follows` });
+};
+
 const createFollow = (id: number) => {
   return instance({
     method: 'post',
@@ -43,6 +47,6 @@ const updateProfile = (data: Imember[]) => {
   });
 };
 
-const subInstance = { getUserInfo, getUsernoti, createFollow, allowFollow, searchFollow, updateProfile };
+const subInstance = { getUserInfo, getUsernoti, getFollows, createFollow, allowFollow, searchFollow, updateProfile };
 
 export default subInstance;
