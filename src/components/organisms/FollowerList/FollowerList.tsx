@@ -1,9 +1,15 @@
 import SearchBox from '@/molecules/search/SearchBox';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import Profile from '@/icons/profile_img.svg';
 import AddSomethingContainer from '@/molecules/addSomething/AddSomethingContainer';
 import { BasicInputProps } from '@/inputs/BasicInput';
 import { ButtonProps } from '@/buttons/Button';
-import FollowerListContainer from '@/molecules/followerList/FollowerListContainer';
+import Image from 'next/image';
+import { useDispatch } from 'react-redux';
+import { IMemberState, setMember } from 'store/features/memberSlice';
+import { BoxLayout } from '@/boxes/Box';
+import subInstance from 'utils/api/sub';
+import { useEffect, useState } from 'react';
 
 export const Container = styled.div`
   display: flex;
@@ -21,17 +27,107 @@ export const ListZone = styled.div`
   align-items: center;
 `;
 
-type FollowerListProps = ButtonProps & BasicInputProps;
+const FollowerListBox = styled(BoxLayout)`
+  gap: 1.3125rem;
+  align-items: center;
+  border: none;
+  min-width: 36.25rem;
+  max-height: 5.875rem;
+  min-height: 5.875rem;
 
-const FollowerList = ({ onChange, value, onClick }: FollowerListProps) => {
+  .profileImg {
+    padding-left: 43px;
+    padding: 0;
+    width: 100%;
+  }
+  .profileIconImg {
+    padding: 1.25rem 0 1.25rem 2.1875rem;
+    width: 100%;
+    transform: scale(0.2);
+    max-width: 3.25rem;
+
+    svg {
+      padding-left: 2.8125rem;
+    }
+  }
+`;
+
+const ProfileImage = styled(Image)`
+  border-radius: 50%;
+`;
+
+export const Name = styled.div`
+  ${({ theme }) => {
+    const { fontSize } = theme;
+    return css`
+      font-size: ${fontSize.sm};
+      display: flex;
+      width: 100%;
+      font-weight: 700;
+      justify-content: flex-start;
+      padding-left: 2.25rem;
+    `;
+  }}
+`;
+
+export const StatusMessage = styled.div`
+  ${({ theme }) => {
+    const { fontSize } = theme;
+    return css`
+      font-size: ${fontSize.sm}
+      padding-left: 2.25rem;;
+      display: flex;
+      justify-content: flex-start;
+      width: 100%;
+      height:100%
+      max-width: 12.5rem;
+      min-width: 8.75rem;
+    `;
+  }}
+`;
+
+type FollowerListTypeProps = ButtonProps & BasicInputProps;
+
+interface FollowerListProps extends FollowerListTypeProps {
+  openModal: () => void;
+}
+
+const STATUSMSG_MAX_LENGTH = 20;
+
+const FollowerList = ({ onChange, value, openModal }: FollowerListProps) => {
+  const [followMember, setFollowMember] = useState<IMemberState[]>([]);
+  useEffect(() => {
+    subInstance.getFollows().then((response) => {
+      setFollowMember(response.data);
+    });
+  }, []);
+  const dispatch = useDispatch();
+
   return (
     <Container>
-      <AddSomethingContainer title="친구" ariaLabel="친구 추가" onClick={onClick} />
+      <AddSomethingContainer title="친구" ariaLabel="친구 추가" onClick={openModal} />
       <SearchBox onChange={onChange} value={value} />
       <ListZone>
-        <FollowerListContainer onClick={() => console.log('click')} name="kimkyungmin" profileImg={null} statusMessage="상태메시지" />
-        <FollowerListContainer onClick={() => console.log('click')} name="kimkyungmin" profileImg={null} statusMessage="상태메시지" />
-        <FollowerListContainer onClick={() => console.log('click')} name="kimkyungmin" profileImg={null} statusMessage="상태메시지" />
+        {followMember?.map((data: any) => (
+          <div key={data.id}>
+            <FollowerListBox boxType="list" onClick={() => dispatch(setMember(data))} key={data?.id}>
+              {data.profileImageUrl ? (
+                <div className="profileImg">
+                  <ProfileImage src={data.profileImageUrl} alt="팔로워 프로필" width={70} height={70} unoptimized={true} />
+                </div>
+              ) : (
+                <div className="profileIconImg">
+                  <Profile />
+                </div>
+              )}
+              <Name>{data.name}</Name>
+              <StatusMessage>
+                {data.statusMessage &&
+                  (data.statusMessage.length > STATUSMSG_MAX_LENGTH ? `${data.statusMessage.slice(0, STATUSMSG_MAX_LENGTH)} ...` : data.statusMessage)}
+              </StatusMessage>
+            </FollowerListBox>
+          </div>
+        ))}
       </ListZone>
     </Container>
   );
