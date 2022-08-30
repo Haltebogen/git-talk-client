@@ -8,7 +8,10 @@ import useModal from 'hooks/useModal';
 import useSearch from 'hooks/useSearch';
 import { NextPage } from 'next';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { State } from 'store/configureStore';
 import { Container, Area } from 'styles/home';
+import { Imember } from 'type';
 import subInstance from 'utils/api/sub';
 
 const Home: NextPage = () => {
@@ -16,14 +19,15 @@ const Home: NextPage = () => {
   const [value, onChangeValue, setValue] = useInput('');
   const [newMember, onChangeNewMember, setNewMember] = useInput('');
   const { searchResult } = useSearch(newMember, false);
-  const [memberId, setMemberId] = useState(0);
+  const [memberId, setMemberId] = useState<number>(0);
+  const { name } = useSelector<State, Imember>((state) => state.member);
   console.log(searchResult);
   return (
     <Container>
       <NavBarLayout title="Git-Talk _ 홈">
         <Area>
           <FollowerList
-            onClick={openModal}
+            openModal={openModal}
             onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
               const { value } = event.target;
               onChangeValue;
@@ -32,9 +36,7 @@ const Home: NextPage = () => {
             value={value}
           />
         </Area>
-        <Area>
-          <FollowerProfile />
-        </Area>
+        <Area>{name && <FollowerProfile />}</Area>
       </NavBarLayout>
       <AddSomethingModal
         show={isShown}
