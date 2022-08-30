@@ -1,7 +1,10 @@
 import { BoxLayout } from '@/boxes/Box';
 import FollowerInfo from '@/contents/FollowerInfo';
 import ProfileMenu from '@/molecules/followerProfile/ProfileMenu';
+import { useSelector } from 'react-redux';
+import { State } from 'store/configureStore';
 import styled, { css } from 'styled-components';
+import { Imember } from 'type';
 
 const FollowerBackgroundBox = styled(BoxLayout)`
   ${({ theme }) => {
@@ -26,10 +29,11 @@ const Info = styled.div`
 `;
 
 const FollowerProfile = () => {
+  const { name, profileImageUrl, statusMessage } = useSelector<State, Imember>((state) => state.member);
   return (
     <FollowerBackgroundBox boxType="backrgound">
       <Info>
-        <FollowerInfo name="김oo" profileImg={null} stateMessages="상태 메시지 입니다." />
+        <FollowerInfo name={name} profileImg={profileImageUrl} stateMessages={statusMessage} />
       </Info>
       <ProfileMenu />
     </FollowerBackgroundBox>
