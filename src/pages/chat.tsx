@@ -12,7 +12,6 @@ const Chat: NextPage = () => {
   const { isShown, openModal, closeModal } = useModal();
   const [value, onChangeValue, setValue] = useInput('');
   const [chat, onChangeChat, setChat] = useInput('');
-  const object: [] = [];
 
   const onSubmit = useCallback((event: FormEvent) => {
     event.preventDefault();
