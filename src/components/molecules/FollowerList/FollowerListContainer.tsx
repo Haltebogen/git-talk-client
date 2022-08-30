@@ -1,24 +1,38 @@
 import { BoxLayout, BoxProps } from '@/boxes/Box';
 import styled, { css } from 'styled-components';
 import Profile from '@/icons/profile_img.svg';
+import { Imember } from 'type';
+import Image from 'next/image';
+import { useDispatch } from 'react-redux';
+import { setMember } from 'store/features/memberSlice';
 
 const FollowerListBox = styled(BoxLayout)`
   gap: 1.3125rem;
   align-items: center;
   border: none;
-  max-width: 36.25rem;
+  min-width: 36.25rem;
   max-height: 5.875rem;
+  min-height: 5.875rem;
 
   .profileImg {
-    padding: 1.25rem 0 1.25rem 2.1875rem;
-    transform: scale(0.2);
+    padding-left: 43px;
+    padding: 0;
     width: 100%;
+  }
+  .profileIconImg {
+    padding: 1.25rem 0 1.25rem 2.1875rem;
+    width: 100%;
+    transform: scale(0.2);
     max-width: 3.25rem;
 
     svg {
       padding-left: 2.8125rem;
     }
   }
+`;
+
+const ProfileImage = styled(Image)`
+  border-radius: 50%;
 `;
 
 export const Name = styled.div`
@@ -51,29 +65,41 @@ export const StatusMessage = styled.div`
   }}
 `;
 
-interface FollowerListContainer extends BoxProps {
-  name: string;
-  profileImg: string | null;
-  statusMessage?: string;
+interface FollowerListContainerProps extends BoxProps {
+  followMember: Imember[];
 }
 
 const STATUSMSG_MAX_LENGTH = 20;
 
-const FollowerListContainer = ({ name, profileImg, statusMessage, onClick }: FollowerListContainer) => {
+const FollowerListContainer = ({ followMember }: FollowerListContainerProps) => {
+  const dispatch = useDispatch();
+  const onListClick = () => {
+    dispatch(setMember);
+  };
+
   return (
-    <FollowerListBox boxType="list" onClick={onClick}>
-      {profileImg ? (
-        <div className="profileImg">{profileImg}</div>
-      ) : (
-        <div className="profileImg">
-          <Profile />
+    <>
+      {followMember?.map((data: any) => (
+        <div key={data.id}>
+          <FollowerListBox boxType="list" onClick={onListClick} key={data?.id}>
+            {data.profileImageUrl ? (
+              <div className="profileImg">
+                <ProfileImage src={data.profileImageUrl} alt="팔로워 프로필" width={70} height={70} unoptimized={true} />
+              </div>
+            ) : (
+              <div className="profileIconImg">
+                <Profile />
+              </div>
+            )}
+            <Name>{data.name}</Name>
+            <StatusMessage>
+              {data.statusMessage &&
+                (data.statusMessage.length > STATUSMSG_MAX_LENGTH ? `${data.statusMessage.slice(0, STATUSMSG_MAX_LENGTH)} ...` : data.statusMessage)}
+            </StatusMessage>
+          </FollowerListBox>
         </div>
-      )}
-      <Name>{name}</Name>
-      <StatusMessage>
-        {statusMessage && (statusMessage.length > STATUSMSG_MAX_LENGTH ? `${statusMessage.slice(0, STATUSMSG_MAX_LENGTH)} ...` : statusMessage)}
-      </StatusMessage>
-    </FollowerListBox>
+      ))}
+    </>
   );
 };
 

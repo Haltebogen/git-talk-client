@@ -1,33 +1,43 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import axios from 'axios';
-
+import { setAuthToken } from 'utils/storage/authCookie';
 const baseUrl = 'https://github.com/login/oauth/access_token';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const { code } = req.query;
   try {
-    const { data: requestToken } = await axios.post(
-      baseUrl,
-      {
-        client_id: process.env.NEXT_PUBLIC_GITHUB_ID,
-        client_secret: process.env.GITHUB_SECRET,
-        code,
-      },
-      {
-        headers: {
-          Accept: 'application/json',
-        },
-      },
-    );
+    const { data } = await getUser(req);
+    setAuthToken(res, data.accessToken, data.refreshToken);
 
-    console.log(`requestToken`, requestToken);
-
-    // api 구현되면 넘겨주기
-    // const { access_token, token_type, scope } = requestToken;
-
-    return res.status(201).redirect('/home');
+    return res.status(200).redirect('/home');
   } catch (err) {
     console.error(err);
-    return res.redirect(500, '/?loginError=서버 에러로 인한 로그인 실패');
+    return res.status(500).redirect('/non-login');
   }
+}
+
+async function getUser(req: NextApiRequest) {
+  const { code } = req.query;
+  const { data: requestToken } = await axios.post(
+    baseUrl,
+    {
+      client_id: process.env.NEXT_PUBLIC_GITHUB_ID,
+      client_secret: process.env.GITHUB_SECRET,
+      code,
+    },
+    {
+      headers: {
+        Accept: 'application/json',
+      },
+    },
+  );
+
+  const { access_token, token_type, scope } = requestToken;
+
+  const { data } = await axios.post(process.env.NEXT_PUBLIC_API_ENDPOINT + '/auth/login', {
+    access_token,
+    token_type,
+    scope,
+  });
+
+  return data;
 }

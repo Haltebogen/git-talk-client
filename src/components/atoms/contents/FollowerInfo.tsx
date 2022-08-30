@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import Profile from '@/icons/profile_img.svg';
+import Image from 'next/image';
 
 const Info = styled.div`
   ${({ theme }) => {
@@ -28,22 +29,20 @@ const Info = styled.div`
   }}
 `;
 
+const ProfileImage = styled(Image)`
+  border-radius: 50%;
+`;
+
 export interface FollowerInfoProps {
-  name: string;
-  profileImg: string | null;
+  name?: string | null;
+  profileImg?: string | null;
   stateMessages?: string | null;
 }
 
 const FollowerInfo = ({ name, profileImg, stateMessages }: FollowerInfoProps) => {
   return (
     <Info>
-      {profileImg ? (
-        <div className="profileImg">{profileImg}</div>
-      ) : (
-        <div className="profileImg">
-          <Profile />
-        </div>
-      )}
+      {profileImg ? <ProfileImage src={profileImg} alt="팔로워 프로필" width={260} height={260} unoptimized={true} /> : <Profile />}
       <span>{name}</span>
       <p>{stateMessages}</p>
     </Info>

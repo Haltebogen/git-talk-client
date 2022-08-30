@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
-import NavBarContainer from './NavBarContainer';
+import NavBar from './NavBar';
 import styled, { css } from 'styled-components';
+import Head from 'next/head';
 
 export const Layout = styled.div`
   display: flex;
@@ -20,12 +21,16 @@ export const Children = styled.div`
 
 export interface NavBarLayoutProps {
   children: ReactNode;
+  title: string;
 }
 
-const NavBarLayout = ({ children }: NavBarLayoutProps) => {
+const NavBarLayout = ({ children, title }: NavBarLayoutProps) => {
   return (
     <Layout>
-      <NavBarContainer />
+      <NavBar />
+      <Head>
+        <title>{title}</title>
+      </Head>
       <Children>{children}</Children>
     </Layout>
   );

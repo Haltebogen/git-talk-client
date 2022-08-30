@@ -1,4 +1,4 @@
-import { FormEvent, MouseEventHandler } from 'react';
+import { FormEvent, MouseEventHandler, ReactNode } from 'react';
 import BasicInput, { BasicInputProps } from '@/inputs/BasicInput';
 import Close from '@/icons/close.svg';
 import styled, { css } from 'styled-components';
@@ -75,10 +75,11 @@ interface AddSomethingModalProps extends BasicInputProps {
   show: boolean;
   onCloseModal: () => void;
   onSubmit: (event: FormEvent<HTMLFormElement>) => void;
-  onClick: MouseEventHandler<HTMLButtonElement>;
+  onCancelClick: MouseEventHandler<HTMLButtonElement>;
+  children: ReactNode;
 }
 
-const AddSomethingModal = ({ show, onCloseModal, onSubmit, placeholder, onChange, value, onClick }: AddSomethingModalProps) => {
+const AddSomethingModal = ({ show, onCloseModal, onSubmit, placeholder, onChange, value, onCancelClick, children }: AddSomethingModalProps) => {
   if (!show) {
     return null;
   }
@@ -101,15 +102,16 @@ const AddSomethingModal = ({ show, onCloseModal, onSubmit, placeholder, onChange
               <BasicInput placeholder={placeholder} onChange={onChange} value={value} />
             </InputZone>
             <ButtonZone>
-              <Button ariaLabel="추가" buttonType="primary" onClick={onClick} buttonRole="event">
+              <Button type="submit" ariaLabel="팔로워 추가" buttonType="primary" buttonRole="event">
                 추가
               </Button>
-              <Button ariaLabel="취소" buttonType="cancel" onClick={onClick} buttonRole="event">
+              <Button type="reset" ariaLabel="팔로워 추가 취소" buttonType="cancel" onClick={onCancelClick} buttonRole="event">
                 취소
               </Button>
             </ButtonZone>
           </form>
         </Box>
+        {children}
       </Modal>
     </Container>
   );

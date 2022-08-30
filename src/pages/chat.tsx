@@ -5,16 +5,21 @@ import NavBarLayout from '@/organisms/navBar/NavBarLayout';
 import useInput from 'hooks/useInput';
 import useModal from 'hooks/useModal';
 import { NextPage } from 'next';
+import { FormEvent, useCallback } from 'react';
 import { Container, Area } from 'styles/chat';
 
 const Chat: NextPage = () => {
   const { isShown, openModal, closeModal } = useModal();
   const [value, onChangeValue, setValue] = useInput('');
-  const [newMember, onChangeNewMember, setNewMember] = useInput('');
+  const [chat, onChangeChat, setChat] = useInput('');
+
+  const onSubmit = useCallback((event: FormEvent) => {
+    event.preventDefault();
+  }, []);
 
   return (
     <Container>
-      <NavBarLayout>
+      <NavBarLayout title="Git-Talk _ 채팅">
         <Area>
           <ChatList
             onClick={openModal}
@@ -31,20 +36,21 @@ const Chat: NextPage = () => {
         </Area>
       </NavBarLayout>
       <AddSomethingModal
+        value={chat}
         show={isShown}
-        onClick={() => setNewMember('')}
+        onSubmit={onSubmit}
+        onCancelClick={() => setChat('')}
         onCloseModal={closeModal}
-        onSubmit={(event) => {
-          event.preventDefault();
-        }}
         placeholder="이메일 혹은 아이디를 입력하세요"
         onChange={(event) => {
+          console.log(event.target.value);
           const { value } = event.target;
-          onChangeNewMember;
-          setNewMember(value);
+          onChangeChat;
+          setChat(value);
         }}
-        value={newMember}
-      />
+      >
+        결과
+      </AddSomethingModal>
     </Container>
   );
 };

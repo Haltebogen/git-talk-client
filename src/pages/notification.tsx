@@ -1,14 +1,45 @@
-import NotificationListContainer from '@/molecules/notificationList/NotificationListContainer';
 import NavBarLayout from '@/organisms/navBar/NavBarLayout';
+import { AllowButton, Content, NotiContiner, NotiDetails, NotificationBox, NotiTitle, ProfileImage, UserInfo } from '@/styles/Notification';
 import { NextPage } from 'next';
+import useSWR from 'swr';
+import fetcher from 'utils/api/main';
+import subInstance from 'utils/api/sub';
+
+const FOLLOW_REQUEST = 'FOLLOW_REQUEST';
 
 const Notification: NextPage = () => {
+  const { data: noti } = useSWR(`/api/v1/notification`, fetcher);
+
   return (
-    <div>
-      <NavBarLayout>
-        <NotificationListContainer />
-      </NavBarLayout>
-    </div>
+    <NavBarLayout title="Git-Talk _ 알림">
+      <NotiContiner>
+        {noti?.data?.map((data: any, index: number) => (
+          <NotificationBox key={index}>
+            <Content>
+              <NotiTitle>{data.title}</NotiTitle>
+              <UserInfo>
+                <ProfileImage src={data.sender.profileImageUrl} alt="프로필 이미지" width={50} height={50} unoptimized={true} />
+                <span>{data.sender.nickName}</span>
+              </UserInfo>
+              <NotiDetails>
+                <span>{data.message}</span>
+              </NotiDetails>
+              <span>{data.receiver.isRemoved}</span>
+              {data.notificationType === FOLLOW_REQUEST && (
+                <AllowButton
+                  onClick={() => subInstance.allowFollow(data.sender.providerId)}
+                  buttonRole="event"
+                  ariaLabel="팔로잉 수락하기"
+                  buttonType="primary"
+                >
+                  수락
+                </AllowButton>
+              )}
+            </Content>
+          </NotificationBox>
+        ))}
+      </NotiContiner>
+    </NavBarLayout>
   );
 };
 

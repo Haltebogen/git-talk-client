@@ -28,8 +28,8 @@ const Id = styled.div`
 `;
 
 export interface EditProfileUserInfoProps {
-  name: string;
-  id: string;
+  name: string | null | undefined;
+  id: string | null | undefined;
 }
 
 const EditProfileUserInfo = ({ name, id }: EditProfileUserInfoProps) => {

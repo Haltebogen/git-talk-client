@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import ProfileImg from '@/icons/profile_img.svg';
+import Image from 'next/image';
 
 export const Container = styled.div`
   ${({ theme }) => {
@@ -14,7 +15,7 @@ export const Container = styled.div`
       color: ${colors.gray};
       width: 100%;
 
-      .profileImg {
+      .defaultProfileImg {
         transform: scale(0.4);
         width: 100%;
         max-width: 6.1875rem;
@@ -24,6 +25,10 @@ export const Container = styled.div`
       }
     `;
   }}
+`;
+
+const ImageZone = styled(Image)`
+  border-radius: 50%;
 `;
 
 export const Name = styled.div`
@@ -47,18 +52,18 @@ export const Id = styled.div`
 `;
 
 export interface ProfileMainProps {
-  name?: string;
-  profileImg: string | null;
-  id?: string;
+  name?: string | null | undefined;
+  profileImg: string | null | undefined;
+  id?: string | null | undefined;
 }
 
 const ProfileMain = ({ name, id, profileImg }: ProfileMainProps) => {
   return (
     <Container>
       {profileImg ? (
-        <div className="profileImg">{profileImg}</div>
+        <ImageZone src={profileImg} alt="프로필 이미지" width={140} height={140} unoptimized={true} />
       ) : (
-        <div className="profileImg">
+        <div className="defaultProfileImg">
           <ProfileImg />
         </div>
       )}
