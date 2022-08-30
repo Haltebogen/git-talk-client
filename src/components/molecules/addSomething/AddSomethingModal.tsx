@@ -1,9 +1,8 @@
-import { Children, FormEvent, MouseEventHandler, ReactNode } from 'react';
+import { FormEvent, MouseEventHandler, ReactNode } from 'react';
 import BasicInput, { BasicInputProps } from '@/inputs/BasicInput';
 import Close from '@/icons/close.svg';
 import styled, { css } from 'styled-components';
 import Button from '@/buttons/Button';
-import SearchResult from '../search/SearchResult';
 
 const Container = styled.div`
   width: 100%;
