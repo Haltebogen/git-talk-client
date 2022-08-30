@@ -9,13 +9,14 @@ export interface Iuser {
 }
 
 export interface Imember {
-  bio?: string;
-  company?: string;
-  email?: string;
-  followersNum?: number;
-  followingsNum?: number;
-  name?: string;
-  nickName?: string;
-  profileImageUrl: string;
-  statusMessage?: string;
+  id?: number | null;
+  bio?: string | null;
+  company?: string | null;
+  email?: string | null;
+  followersNum?: number | null;
+  followingsNum?: number | null;
+  name?: string | null;
+  nickName?: string | null;
+  profileImageUrl?: string | null;
+  statusMessage?: string | null;
 }
