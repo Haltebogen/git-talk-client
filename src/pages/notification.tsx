@@ -16,14 +16,12 @@ const Notification: NextPage = () => {
               <NotiTitle>
                 <h2>{data.title}</h2>
                 <UserInfo>
-                  <ProfileImage src={data.receiver.profileImageUrl} alt="프로필 이미지" width={50} height={50} unoptimized={true} />
-                  <span>{data.receiver.nickName}</span>
+                  <ProfileImage src={data.sender.profileImageUrl} alt="프로필 이미지" width={50} height={50} unoptimized={true} />
+                  <span>{data.sender.nickName}</span>
                 </UserInfo>
               </NotiTitle>
-
               <NotiDetails>
                 <span>{data.message}</span>
-                <span>{data.sender}</span>
                 <span>{data.isRead}</span>
               </NotiDetails>
               <span>{data.receiver.isRemoved}</span>
