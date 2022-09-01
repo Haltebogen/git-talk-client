@@ -10,6 +10,7 @@ const FollowerBackgroundBox = styled(BoxLayout)`
   ${({ theme }) => {
     const { colors } = theme;
     return css`
+      position: relative;
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -25,7 +26,14 @@ const FollowerBackgroundBox = styled(BoxLayout)`
 const Info = styled.div`
   display: flex;
   justify-content: center;
+  padding-bottom: 9.375rem;
   width: 100%;
+`;
+
+const MenuZone = styled.div`
+  position: absolute;
+  bottom: 6.875rem;
+  right: 15.53125rem;
 `;
 
 const FollowerProfile = () => {
@@ -35,7 +43,9 @@ const FollowerProfile = () => {
       <Info>
         <FollowerInfo name={name} profileImg={profileImageUrl} stateMessages={statusMessage} />
       </Info>
-      <ProfileMenu />
+      <MenuZone>
+        <ProfileMenu />
+      </MenuZone>
     </FollowerBackgroundBox>
   );
 };
