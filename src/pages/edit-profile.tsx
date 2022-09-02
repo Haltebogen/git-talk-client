@@ -1,7 +1,7 @@
 import EditMyProfile from '@/organisms/editMyProfile/EditMyProfile';
 import NavBarLayout from '@/organisms/navBar/NavBarLayout';
 import useInput from 'hooks/useInput';
-import { NextPage } from 'next';
+import { GetServerSideProps, NextPage } from 'next';
 import { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { State } from 'store/configureStore';
@@ -50,3 +50,24 @@ const Editprofile: NextPage = () => {
   );
 };
 export default Editprofile;
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const {
+    req: { cookies },
+  } = context;
+
+  const isLogin = cookies['access_token'];
+
+  if (!isLogin) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: { cookies },
+  };
+};

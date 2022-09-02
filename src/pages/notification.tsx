@@ -1,6 +1,6 @@
 import NavBarLayout from '@/organisms/navBar/NavBarLayout';
 import { AllowButton, Content, NotiContiner, NotiDetails, NotificationBox, NotiTitle, ProfileImage, UserInfo } from '@/styles/Notification';
-import { NextPage } from 'next';
+import { GetServerSideProps, NextPage } from 'next';
 import useSWR from 'swr';
 import fetcher from 'utils/api/main';
 import subInstance from 'utils/api/sub';
@@ -44,3 +44,24 @@ const Notification: NextPage = () => {
 };
 
 export default Notification;
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const {
+    req: { cookies },
+  } = context;
+
+  const isLogin = cookies['access_token'];
+
+  if (!isLogin) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: { cookies },
+  };
+};

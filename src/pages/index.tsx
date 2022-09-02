@@ -1,5 +1,5 @@
 import HomeLogo from '@/logos/HomeLogo';
-import type { NextPage } from 'next';
+import type { GetServerSideProps, NextPage } from 'next';
 import { Container, LoginButton, TextContainer } from '@/styles/index';
 import Head from 'next/head';
 
@@ -26,3 +26,24 @@ const Login: NextPage = () => {
 };
 
 export default Login;
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const {
+    req: { cookies },
+  } = context;
+
+  const isLogin = cookies['access_token'];
+
+  if (isLogin) {
+    return {
+      redirect: {
+        destination: '/home',
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: { cookies },
+  };
+};
