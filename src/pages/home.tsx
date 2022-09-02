@@ -21,7 +21,7 @@ const Home: NextPage = () => {
   const { searchResult } = useSearch(newMember, false);
   const [memberId, setMemberId] = useState<number>(0);
   const { name } = useSelector<State, Imember>((state) => state.member);
-  console.log(searchResult);
+
   return (
     <Container>
       <NavBarLayout title="Git-Talk _ 홈">
