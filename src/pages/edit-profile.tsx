@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { State } from 'store/configureStore';
 import { IUserState, setUser } from 'store/features/userSlice';
 import subInstance from 'utils/api/sub';
+import onFileUpload from 'utils/onFileUpload';
 
 const Editprofile: NextPage = () => {
   const [statusValue, onStatusChange, setStatusValue] = useInput('');
@@ -14,19 +15,15 @@ const Editprofile: NextPage = () => {
   const { name, nickName, profileImageUrl, statusMessage, bio } = useSelector<State, IUserState>((state) => state.user);
   const dispatch = useDispatch();
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const onImageChange = () => {
-    console.log('change');
-  };
-  const onEditFileClick = () => {
-    console.log('chilck');
-  };
 
   return (
     <div>
       <NavBarLayout title="Git-Talk _ 프로필 수정">
         <EditMyProfile
-          onEditFileClick={onEditFileClick}
-          onImageChange={onImageChange}
+          onEditFileClick={() => {
+            fileInputRef.current?.click();
+          }}
+          onImageChange={onFileUpload}
           fileInputref={fileInputRef}
           bioPlaceholder={bio}
           statusPlaceholder={statusMessage}
