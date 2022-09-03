@@ -39,7 +39,7 @@ const MenuZone = styled.div`
 const FollowerProfile = () => {
   const { name, profileImageUrl, statusMessage } = useSelector<State, Imember>((state) => state.member);
   return (
-    <FollowerBackgroundBox boxType="backrgound">
+    <FollowerBackgroundBox boxType="background">
       <Info>
         <FollowerInfo name={name} profileImg={profileImageUrl} stateMessages={statusMessage} />
       </Info>

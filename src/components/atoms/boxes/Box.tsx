@@ -29,7 +29,7 @@ const backgroundBoxStyles = css`
   }}
 `;
 
-export const BoxLayout = styled.button<BoxProps>`
+export const BoxLayout = styled.div<BoxProps>`
   border-radius: 0.375rem;
   display: flex;
   width: 100%;
@@ -43,7 +43,7 @@ export const BoxLayout = styled.button<BoxProps>`
     switch (boxType) {
       case 'list':
         return listBoxStyles;
-      case 'backrgound':
+      case 'background':
         return backgroundBoxStyles;
       default:
         return listBoxStyles;
@@ -51,11 +51,11 @@ export const BoxLayout = styled.button<BoxProps>`
   }}
 `;
 
-export type BoxType = 'list' | 'backrgound';
+export type BoxType = 'list' | 'background';
 
 export interface BoxProps {
   children?: ReactNode;
-  onClick?: MouseEventHandler<HTMLButtonElement>;
+  onClick?: MouseEventHandler<HTMLDivElement>;
   boxType?: BoxType;
   width?: string;
   content?: string;
