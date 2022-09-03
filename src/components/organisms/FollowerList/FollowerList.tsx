@@ -12,6 +12,7 @@ import subInstance from 'utils/api/sub';
 import { useEffect, useState } from 'react';
 
 export const Container = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -36,11 +37,13 @@ const FollowerListBox = styled(BoxLayout)`
   min-height: 5.875rem;
 
   .profileImg {
-    padding-left: 43px;
-    padding: 0;
+    position: absolute;
+    padding: 1.25rem 0 1.25rem 2.1875rem;
     width: 100%;
   }
+
   .profileIconImg {
+    position: absolute;
     padding: 1.25rem 0 1.25rem 2.1875rem;
     width: 100%;
     transform: scale(0.2);
@@ -65,7 +68,7 @@ export const Name = styled.div`
       width: 100%;
       font-weight: 700;
       justify-content: flex-start;
-      padding-left: 2.25rem;
+      padding-left: 8.125rem;
     `;
   }}
 `;
