@@ -1,6 +1,7 @@
 import NavBarLayout from '@/organisms/navBar/NavBarLayout';
-import { AllowButton, Content, NotiContiner, NotiDetails, NotificationBox, NotiTitle, ProfileImage, UserInfo } from '@/styles/Notification';
+import { AllowButton, CloseButton, Content, NotiContiner, NotiDetails, NotificationBox, NotiTitle, ProfileImage, UserInfo } from '@/styles/Notification';
 import { GetServerSideProps, NextPage } from 'next';
+import Close from '@/icons/close.svg';
 import useSWR from 'swr';
 import fetcher from 'utils/api/main';
 import subInstance from 'utils/api/sub';
@@ -14,7 +15,7 @@ const Notification: NextPage = () => {
     <NavBarLayout title="Git-Talk _ 알림">
       <NotiContiner>
         {noti?.data?.map((data: any, index: number) => (
-          <NotificationBox key={index}>
+          <NotificationBox key={index} boxType="background">
             <Content>
               <NotiTitle>{data.title}</NotiTitle>
               <UserInfo>
@@ -25,9 +26,14 @@ const Notification: NextPage = () => {
                 <span>{data.message}</span>
               </NotiDetails>
               <span>{data.receiver.isRemoved}</span>
+              <CloseButton buttonType="clear">
+                <Close />
+              </CloseButton>
               {data.notificationType === FOLLOW_REQUEST && (
                 <AllowButton
-                  onClick={() => subInstance.allowFollow(data.sender.providerId)}
+                  onClick={() => {
+                    subInstance.allowFollow(data.sender.providerId);
+                  }}
                   buttonRole="event"
                   ariaLabel="팔로잉 수락하기"
                   buttonType="primary"
