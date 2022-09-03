@@ -27,7 +27,13 @@ const MenuButton = styled(Button)`
   }}
 `;
 
-const ProfileMenu = () => {
+interface ProfileMenuProps {
+  name?: string | null;
+}
+
+const ProfileMenu = ({ name }: ProfileMenuProps) => {
+  const FOLLOWER_GITHUB = `https://github.com/${name}`;
+
   return (
     <Menu>
       {/* 임시 링크 */}
@@ -39,7 +45,7 @@ const ProfileMenu = () => {
           </MenuButton>
         </a>
       </Link>
-      <a href="https://github.com/Haltebogen" role="button" aria-label="깃허브로 이동하기">
+      <a href={FOLLOWER_GITHUB} role="button" aria-label="깃허브로 이동하기">
         <MenuButton buttonType="clear" buttonRole="link">
           <Git />
           <span>GitHub</span>

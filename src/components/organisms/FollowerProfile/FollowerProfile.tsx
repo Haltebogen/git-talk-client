@@ -44,7 +44,7 @@ const FollowerProfile = () => {
         <FollowerInfo name={name} profileImg={profileImageUrl} stateMessages={statusMessage} />
       </Info>
       <MenuZone>
-        <ProfileMenu />
+        <ProfileMenu name={name} />
       </MenuZone>
     </FollowerBackgroundBox>
   );
