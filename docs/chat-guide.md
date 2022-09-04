@@ -28,6 +28,15 @@ export const leaveChatRoom = (targetChatRoomInfo) => ({
 });
 ```
 
+### Invite ChatRoom User
+
+```js
+export const InviteChatRoomUser = (targetChatRoomInfo) => ({
+  type: INVIETE_CHAT_ROOM_USER,
+  payload: targetChatRoomInfo,
+});
+```
+
 <br />
 
 ### Send Message
