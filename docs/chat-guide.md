@@ -64,14 +64,12 @@ export const receiveMessage = (message) => ({
 
 ## Chatting Components
 
-- Chatting 추가 컴포넌트 구조
-
-├── docs/
-│ └── chat-guide.md
-├── src/
-│ └── \_actions/
-│ ├── \_reducers
-│ └── components/
+├── docs/ <br />
+│ └── chat-guide.md <br />
+├── src/ <br />
+│ └── \_actions/ <br />
+│ ├── \_reducers <br />
+│ └── components/ <br />
 
 <br />
 
