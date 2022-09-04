@@ -32,7 +32,7 @@ const Notification: NextPage = () => {
               {data.notificationType === FOLLOW_REQUEST && (
                 <AllowButton
                   onClick={() => {
-                    subInstance.allowFollow(data.sender.providerId);
+                    subInstance.allowFollow(data.sender.id);
                   }}
                   buttonRole="event"
                   ariaLabel="팔로잉 수락하기"
