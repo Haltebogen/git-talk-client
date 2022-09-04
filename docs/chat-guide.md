@@ -10,3 +10,12 @@ export const createChatRoom = (targetChatRoomInfo) => ({
   payload: targetChatRoomInfo,
 });
 ```
+
+### Leave ChatRoom
+
+```js
+export const leaveChatRoom = (targetChatRoomInfo) => ({
+  type: LEAVE_CHAT_ROOM,
+  payload: targetChatRoomInfo,
+});
+```
