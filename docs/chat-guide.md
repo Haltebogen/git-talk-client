@@ -1,8 +1,12 @@
 # Chatting Guide
 
-## Redux Action
+- Redux Action
+- Chatting Components
+- Chatting API
 
 <br />
+
+## Redux Action
 
 ### Create ChatRoom
 
@@ -45,3 +49,25 @@ export const receiveMessage = (message) => ({
   payload: message,
 });
 ```
+
+<br />
+<br />
+
+## Chatting Components
+
+- Chatting 추가 컴포넌트 구조
+
+├── docs/
+│ └── chat-guide.md
+├── src/
+│ └── \_actions/
+│ ├── \_reducers
+│ └── components/
+
+<br />
+
+### components
+
+- Input
+- Messages
+- ChattingArea
