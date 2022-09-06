@@ -1,5 +1,7 @@
 export interface TargetChatRoom {
-  title: String
+  id: number
+  title: String,
+  messages: Array<String>
 }
 
 export interface TargetMessage {
