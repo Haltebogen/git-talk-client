@@ -1,17 +1,5 @@
 import instance from './core';
 
-const login = (access_token: string, token_type: string, scope: string) => {
-  return instance({
-    method: 'post',
-    url: `/auth/login`,
-    data: {
-      access_token,
-      token_type,
-      scope,
-    },
-  });
-};
-
 const getUserInfo = () => {
   return instance({ url: `/api/v1/member` });
 };
@@ -54,18 +42,14 @@ const searchFollow = (keyword: string) => {
   return instance({ url: `/api/v1/member/follow/search?keyword=${keyword}` });
 };
 
-const updateProfile = (statusMessage: string, bio: string, profileImageUrl: string) => {
+const updateProfile = (data: object) => {
   return instance({
     method: 'put',
     url: `/api/v1/member`,
-    data: {
-      statusMessage,
-      bio,
-      profileImageUrl,
-    },
+    data,
   });
 };
 
-const subInstance = { login, getUserInfo, getUsernoti, getFollows, getOtherProfile, createFollow, allowFollow, searchFollow, updateProfile };
+const subInstance = { getUserInfo, getUsernoti, getFollows, getOtherProfile, createFollow, allowFollow, searchFollow, updateProfile };
 
 export default subInstance;
