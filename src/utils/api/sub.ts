@@ -1,3 +1,4 @@
+import { User } from 'type';
 import instance from './core';
 
 const getUserInfo = () => {
@@ -42,7 +43,7 @@ const searchFollow = (keyword: string) => {
   return instance({ url: `/api/v1/member/follow/search?keyword=${keyword}` });
 };
 
-const updateProfile = (data: object) => {
+const updateProfile = (data: User) => {
   return instance({
     method: 'put',
     url: `/api/v1/member`,

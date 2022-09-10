@@ -6,7 +6,7 @@ import { BasicInputProps } from '@/inputs/BasicInput';
 import { ButtonProps } from '@/buttons/Button';
 import Image from 'next/image';
 import { useDispatch } from 'react-redux';
-import { IMemberState, setMember } from 'store/features/memberSlice';
+import { MemberState, setMember } from 'store/features/memberSlice';
 import { BoxLayout } from '@/boxes/Box';
 import subInstance from 'utils/api/sub';
 import { useEffect, useState } from 'react';
@@ -98,7 +98,7 @@ interface FollowerListProps extends FollowerListTypeProps {
 const STATUSMSG_MAX_LENGTH = 20;
 
 const FollowerList = ({ onChange, value, openModal }: FollowerListProps) => {
-  const [followMember, setFollowMember] = useState<IMemberState[]>([]);
+  const [followMember, setFollowMember] = useState<MemberState[]>([]);
   useEffect(() => {
     subInstance.getFollows().then((response) => {
       setFollowMember(response.data);

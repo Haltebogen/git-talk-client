@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-export interface IMemberState {
+export interface MemberState {
   bio?: string | null;
   company?: string | null;
   email?: string | null;
@@ -12,7 +12,7 @@ export interface IMemberState {
   statusMessage?: string | null;
 }
 
-const initialState: IMemberState = {
+const initialState: MemberState = {
   bio: null,
   company: null,
   email: null,
@@ -28,7 +28,7 @@ export const memberSlice = createSlice({
   name: 'member',
   initialState,
   reducers: {
-    setMember: (_, action: PayloadAction<IMemberState>) => action.payload,
+    setMember: (_, action: PayloadAction<MemberState>) => action.payload,
     extraReducers: (builder) => builder,
   },
 });

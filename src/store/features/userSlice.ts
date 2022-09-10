@@ -1,18 +1,18 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-export interface IUserState {
-  bio?: string | null;
-  company?: string | null;
-  email?: string | null;
-  followersNum?: number | null;
-  followingsNum?: number | null;
-  name?: string | null;
-  nickName?: string | null;
-  profileImageUrl?: string | null;
-  statusMessage?: string | null;
+export interface UserState {
+  bio: string | null;
+  company: string | null;
+  email: string | null;
+  followersNum: number | null;
+  followingsNum: number | null;
+  name: string | null;
+  nickName: string | null;
+  profileImageUrl: string | null;
+  statusMessage: string | null;
 }
 
-const initialState: IUserState = {
+const initialState: UserState = {
   bio: null,
   company: null,
   email: null,
@@ -28,7 +28,7 @@ export const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    setUser: (_, action: PayloadAction<IUserState>) => action.payload,
+    setUser: (_, action: PayloadAction<UserState>) => action.payload,
     logout: () => initialState,
     extraReducers: (builder) => builder,
   },

@@ -1,12 +1,12 @@
 import { createWrapper } from 'next-redux-wrapper';
 import { combineReducers, configureStore, getDefaultMiddleware, Store } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
-import userSlice, { IUserState } from './features/userSlice';
-import memberSlice, { IMemberState } from './features/memberSlice';
+import userSlice, { UserState } from './features/userSlice';
+import memberSlice, { MemberState } from './features/memberSlice';
 
 export interface State {
-  user: IUserState;
-  member: IMemberState;
+  user: UserState;
+  member: MemberState;
 }
 
 export const rootReducer = combineReducers({

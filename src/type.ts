@@ -1,4 +1,4 @@
-export interface Iuser {
+export interface User {
   bio: string;
   company: string;
   email: string;
@@ -10,7 +10,7 @@ export interface Iuser {
   statusMessage: string;
 }
 
-export interface Imember {
+export interface Member {
   id: number;
   bio: string;
   company: string;
