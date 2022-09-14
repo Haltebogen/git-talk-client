@@ -1,5 +1,5 @@
-import { createWrapper } from 'next-redux-wrapper';
-import { combineReducers, configureStore, getDefaultMiddleware, Store } from '@reduxjs/toolkit';
+import { createWrapper, HYDRATE } from 'next-redux-wrapper';
+import { AnyAction, CombinedState, combineReducers, configureStore, Reducer, Store } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
 import userSlice, { UserState } from './features/userSlice';
 import memberSlice, { MemberState } from './features/memberSlice';
@@ -9,14 +9,24 @@ export interface State {
   member: MemberState;
 }
 
-export const rootReducer = combineReducers({
-  user: userSlice,
-  member: memberSlice,
-});
+const rootReducer = (state: State, action: AnyAction): CombinedState<State> => {
+  switch (action.type) {
+    case HYDRATE:
+      return action.payload;
+
+    default: {
+      const combinedReducer = combineReducers({
+        user: userSlice,
+        member: memberSlice,
+      });
+      return combinedReducer(state, action);
+    }
+  }
+};
 
 const createStore = () => {
   const store = configureStore({
-    reducer: rootReducer,
+    reducer: rootReducer as Reducer<State, AnyAction>,
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
     devTools: process.env.NODE_ENV === 'development',
   });

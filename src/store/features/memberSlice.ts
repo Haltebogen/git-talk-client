@@ -1,6 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { HYDRATE } from 'next-redux-wrapper';
 
 export interface MemberState {
+  id?: number | null;
   bio?: string | null;
   company?: string | null;
   email?: string | null;
@@ -13,6 +15,7 @@ export interface MemberState {
 }
 
 const initialState: MemberState = {
+  id: null,
   bio: null,
   company: null,
   email: null,
@@ -30,6 +33,7 @@ export const memberSlice = createSlice({
   reducers: {
     setMember: (_, action: PayloadAction<MemberState>) => action.payload,
     extraReducers: (builder) => builder,
+    [HYDRATE]: (_, action) => action.payload.member,
   },
 });
 
