@@ -3,8 +3,8 @@ import FollowerInfo from '@/contents/FollowerInfo';
 import ProfileMenu from '@/molecules/followerProfile/ProfileMenu';
 import { useSelector } from 'react-redux';
 import { State } from 'store/configureStore';
+import { MemberState } from 'store/features/memberSlice';
 import styled, { css } from 'styled-components';
-import { Imember } from 'type';
 
 const FollowerBackgroundBox = styled(BoxLayout)`
   ${({ theme }) => {
@@ -37,7 +37,8 @@ const MenuZone = styled.div`
 `;
 
 const FollowerProfile = () => {
-  const { name, profileImageUrl, statusMessage } = useSelector<State, Imember>((state) => state.member);
+  const { name, profileImageUrl, statusMessage } = useSelector<State, MemberState>((state) => state.member);
+
   return (
     <FollowerBackgroundBox boxType="background">
       <Info>

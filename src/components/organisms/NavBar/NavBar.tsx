@@ -5,11 +5,11 @@ import styled, { css } from 'styled-components';
 import Button from '@/buttons/Button';
 import Link from 'next/link';
 import { useDispatch, useSelector } from 'react-redux';
-import { IUserState, logout, setUser } from 'store/features/userSlice';
+import { UserState, logout, setUser } from 'store/features/userSlice';
 import { useEffect, useState } from 'react';
 import { removeCookieToken } from 'utils/storage/authCookie';
 import subInstance from 'utils/api/sub';
-import { Iuser } from 'type';
+import { User } from 'type';
 import { State } from 'store/configureStore';
 
 const Container = styled.div`
@@ -53,8 +53,8 @@ const EditButton = styled(Button)`
 `;
 
 const NavBar = () => {
-  const [userInfo, setUserInfo] = useState<Iuser | null>(null);
-  const { name, nickName, profileImageUrl, statusMessage } = useSelector<State, IUserState>((state) => state.user);
+  const [userInfo, setUserInfo] = useState<User | null>(null);
+  const { name, nickName, profileImageUrl, statusMessage } = useSelector<State, UserState>((state) => state.user);
   const dispatch = useDispatch();
 
   const onLogout = () => {
@@ -67,7 +67,6 @@ const NavBar = () => {
       .getUserInfo()
       .then((response) => {
         setUserInfo(response.data);
-        console.log('userInfo', response.data);
         dispatch(setUser(response.data));
       })
       .catch((error) => console.log(error));
