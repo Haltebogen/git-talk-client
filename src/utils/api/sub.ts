@@ -1,4 +1,4 @@
-import { User } from 'type';
+import { UserState } from 'store/features/userSlice';
 import instance from './core';
 
 const getUserInfo = () => {
@@ -43,7 +43,7 @@ const searchFollow = (keyword: string) => {
   return instance({ url: `/api/v1/member/follow/search?keyword=${keyword}` });
 };
 
-const updateProfile = (data: User) => {
+const updateProfile = (data: UserState) => {
   return instance({
     method: 'put',
     url: `/api/v1/member`,
