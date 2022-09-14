@@ -4,9 +4,11 @@ import ChatList from '@/organisms/chatList/ChatList';
 import NavBarLayout from '@/organisms/navBar/NavBarLayout';
 import useInput from 'hooks/useInput';
 import useModal from 'hooks/useModal';
-import { GetServerSideProps, NextPage } from 'next';
+import { GetServerSideProps, GetServerSidePropsContext, NextPage } from 'next';
 import { FormEvent, useCallback } from 'react';
 import { Container, Area } from 'styles/chat';
+import wrapper from 'store/configureStore';
+import { initUser } from 'store/features/userSlice';
 
 const Chat: NextPage = () => {
   const { isShown, openModal, closeModal } = useModal();
@@ -57,23 +59,8 @@ const Chat: NextPage = () => {
 
 export default Chat;
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const {
-    req: { cookies },
-  } = context;
-
-  const isLogin = cookies['access_token'];
-
-  if (!isLogin) {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false,
-      },
-    };
-  }
-
-  return {
-    props: { cookies },
-  };
-};
+export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps((store) => async (context: GetServerSidePropsContext) => {
+  initUser(store, context);
+  await initUser(store, context);
+  return { props: {} };
+});

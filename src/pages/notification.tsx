@@ -1,10 +1,12 @@
 import NavBarLayout from '@/organisms/navBar/NavBarLayout';
 import { AllowButton, CloseButton, Content, NotiContiner, NotiDetails, NotificationBox, NotiTitle, ProfileImage, UserInfo } from '@/styles/Notification';
-import { GetServerSideProps, NextPage } from 'next';
+import { GetServerSideProps, GetServerSidePropsContext, NextPage } from 'next';
 import Close from '@/icons/close.svg';
 import useSWR from 'swr';
 import fetcher from 'utils/api/main';
 import subInstance from 'utils/api/sub';
+import { initUser } from 'store/features/userSlice';
+import wrapper from 'store/configureStore';
 
 const FOLLOW_REQUEST = 'FOLLOW_REQUEST';
 
@@ -51,23 +53,8 @@ const Notification: NextPage = () => {
 
 export default Notification;
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const {
-    req: { cookies },
-  } = context;
-
-  const isLogin = cookies['access_token'];
-
-  if (!isLogin) {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false,
-      },
-    };
-  }
-
-  return {
-    props: { cookies },
-  };
-};
+export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps((store) => async (context: GetServerSidePropsContext) => {
+  initUser(store, context);
+  await initUser(store, context);
+  return { props: {} };
+});

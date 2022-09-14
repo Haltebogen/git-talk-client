@@ -10,8 +10,8 @@ import { GetServerSideProps, NextPage } from 'next';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { State } from 'store/configureStore';
+import { MemberState } from 'store/features/memberSlice';
 import { Container, Area } from 'styles/home';
-import { Imember } from 'type';
 import subInstance from 'utils/api/sub';
 
 const Home: NextPage = () => {
@@ -20,7 +20,7 @@ const Home: NextPage = () => {
   const [newMember, onChangeNewMember, setNewMember] = useInput('');
   const { searchResult } = useSearch(newMember, false);
   const [memberId, setMemberId] = useState<number>(0);
-  const { name } = useSelector<State, Imember>((state) => state.member);
+  const { name } = useSelector<State, MemberState>((state) => state.member);
 
   return (
     <Container>

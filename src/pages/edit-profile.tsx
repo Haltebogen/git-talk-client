@@ -1,20 +1,20 @@
 import EditMyProfile from '@/organisms/editMyProfile/EditMyProfile';
 import NavBarLayout from '@/organisms/navBar/NavBarLayout';
 import useInput from 'hooks/useInput';
-import { GetServerSideProps, NextPage } from 'next';
+import { GetServerSideProps, GetServerSidePropsContext, NextPage } from 'next';
 import { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { State } from 'store/configureStore';
-import { IUserState, setUser } from 'store/features/userSlice';
+import wrapper, { State } from 'store/configureStore';
+import { UserState, setUser, initUser } from 'store/features/userSlice';
 import subInstance from 'utils/api/sub';
 import onFileUpload from 'utils/onFileUpload';
 
 const Editprofile: NextPage = () => {
   const [statusValue, onStatusChange, setStatusValue] = useInput('');
   const [bioValue, onBioChange, setBioValue] = useInput('');
-  const { name, nickName, profileImageUrl, statusMessage, bio } = useSelector<State, IUserState>((state) => state.user);
   const dispatch = useDispatch();
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const useData = useSelector<State, UserState>((state) => state.user);
 
   return (
     <div>
@@ -25,17 +25,17 @@ const Editprofile: NextPage = () => {
           }}
           onImageChange={onFileUpload}
           fileInputref={fileInputRef}
-          bioPlaceholder={bio}
-          statusPlaceholder={statusMessage}
-          name={name}
-          nickName={nickName}
-          profileImageUrl={profileImageUrl}
+          bioPlaceholder={useData.bio}
+          statusPlaceholder={useData.statusMessage}
+          name={useData.name}
+          nickName={useData.nickName}
+          profileImageUrl={useData.profileImageUrl}
           onSubmit={(event) => {
             event.preventDefault();
-            subInstance.updateProfile(statusValue, bioValue);
+            subInstance.updateProfile(useData);
             setStatusValue('');
             setBioValue('');
-            dispatch(setUser({ name, nickName, profileImageUrl, statusMessage: statusValue, bio: bioValue }));
+            dispatch(setUser({ nickName: useData.nickName, profileImageUrl: useData.profileImageUrl, statusMessage: statusValue, bio: bioValue }));
           }}
           statusValue={statusValue}
           onStatusChange={onStatusChange}
@@ -48,23 +48,8 @@ const Editprofile: NextPage = () => {
 };
 export default Editprofile;
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const {
-    req: { cookies },
-  } = context;
-
-  const isLogin = cookies['access_token'];
-
-  if (!isLogin) {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false,
-      },
-    };
-  }
-
-  return {
-    props: { cookies },
-  };
-};
+export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps((store) => async (context: GetServerSidePropsContext) => {
+  initUser(store, context);
+  await initUser(store, context);
+  return { props: {} };
+});
