@@ -1,7 +1,8 @@
 import AWS from 'aws-sdk';
-import subInstance from './api/sub';
+// 현재 사용되지 않아 잠시 주석
+// import subInstance from './api/sub';
 
-const AWS_S3_PREFIX = 'https://git-talk.s3.ap-northeast-2.amanzonaws.com/';
+// const AWS_S3_PREFIX = 'https://git-talk.s3.ap-northeast-2.amanzonaws.com/';
 
 const onFileUpload = (e: any) => {
   const REGION = 'ap-northeast-2';
@@ -28,8 +29,10 @@ const onFileUpload = (e: any) => {
 
   myBucket
     .putObject(params)
-    .on('httpUploadProgress', () => {
-      subInstance.updateProfileImage(AWS_S3_PREFIX + params.Key);
+    .on('httpUploadProgress', (e, re) => {
+      // TODO:  profile-image 수정 요청. 임시 주석처리
+      // subInstance.updateProfile(`${AWS_S3_PREFIX}${params.Key}`);
+      // s3 버킷에는 올라감
     })
 
     .send((err) => {
