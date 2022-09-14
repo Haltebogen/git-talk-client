@@ -59,8 +59,9 @@ const Chat: NextPage = () => {
 
 export default Chat;
 
-export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps((store) => async (context: GetServerSidePropsContext) => {
-  initUser(store, context);
-  await initUser(store, context);
+export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(() => async (context: GetServerSidePropsContext) => {
+  initUser(context);
+  await initUser(context);
+
   return { props: {} };
 });

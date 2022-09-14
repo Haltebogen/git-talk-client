@@ -1,7 +1,6 @@
-import { AnyAction, createSlice, PayloadAction, Store } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { GetServerSidePropsContext } from 'next';
 import { HYDRATE } from 'next-redux-wrapper';
-import { State } from '../configureStore';
 
 export interface UserState {
   bio?: string | null;
@@ -40,7 +39,7 @@ export const userSlice = createSlice({
 
 export const { logout, setUser } = userSlice.actions;
 
-export async function initUser(store: Store<State, AnyAction>, context: GetServerSidePropsContext) {
+export async function initUser(context: GetServerSidePropsContext) {
   try {
     const {
       req: { cookies },

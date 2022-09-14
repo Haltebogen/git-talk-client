@@ -6,11 +6,12 @@ import NavBarLayout from '@/organisms/navBar/NavBarLayout';
 import useInput from 'hooks/useInput';
 import useModal from 'hooks/useModal';
 import useSearch from 'hooks/useSearch';
-import { GetServerSideProps, NextPage } from 'next';
+import { GetServerSideProps, GetServerSidePropsContext, NextPage } from 'next';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { State } from 'store/configureStore';
+import wrapper, { State } from 'store/configureStore';
 import { MemberState } from 'store/features/memberSlice';
+import { initUser } from 'store/features/userSlice';
 import { Container, Area } from 'styles/home';
 import subInstance from 'utils/api/sub';
 
@@ -79,23 +80,8 @@ const Home: NextPage = () => {
 
 export default Home;
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const {
-    req: { cookies },
-  } = context;
-
-  const isLogin = cookies['access_token'];
-
-  if (!isLogin) {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false,
-      },
-    };
-  }
-
-  return {
-    props: { cookies },
-  };
-};
+export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(() => async (context: GetServerSidePropsContext) => {
+  initUser(context);
+  await initUser(context);
+  return { props: {} };
+});
