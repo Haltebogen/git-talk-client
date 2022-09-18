@@ -101,7 +101,15 @@ const FollowerList = ({ onChange, value, openModal }: FollowerListProps) => {
   const [followMember, setFollowMember] = useState<MemberState[]>([]);
   useEffect(() => {
     subInstance.getFollows().then((response) => {
-      setFollowMember(response.data);
+      setFollowMember(
+        response.data.filter((data1: MemberState, i: number) => {
+          return (
+            response.data.findIndex((data2: MemberState) => {
+              return data1.id === data2.id;
+            }) === i
+          );
+        }),
+      );
     });
   }, []);
   const dispatch = useDispatch();
