@@ -37,7 +37,7 @@ const MenuZone = styled.div`
 `;
 
 const FollowerProfile = () => {
-  const { name, profileImageUrl, statusMessage } = useSelector<State, MemberState>((state) => state.member);
+  const { name, nickName, profileImageUrl, statusMessage } = useSelector<State, MemberState>((state) => state.member);
 
   return (
     <FollowerBackgroundBox boxType="background">
@@ -45,7 +45,7 @@ const FollowerProfile = () => {
         <FollowerInfo name={name} profileImg={profileImageUrl} stateMessages={statusMessage} />
       </Info>
       <MenuZone>
-        <ProfileMenu name={name} />
+        <ProfileMenu nickName={nickName} />
       </MenuZone>
     </FollowerBackgroundBox>
   );
