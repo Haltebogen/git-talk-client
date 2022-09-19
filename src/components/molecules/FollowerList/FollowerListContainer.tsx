@@ -1,7 +1,7 @@
 import { BoxLayout, BoxProps } from '@/boxes/Box';
 import styled, { css } from 'styled-components';
 import Profile from '@/icons/profile_img.svg';
-import { Imember } from 'type';
+import { Member } from 'type';
 import Image from 'next/image';
 import { useDispatch } from 'react-redux';
 import { setMember } from 'store/features/memberSlice';
@@ -15,7 +15,7 @@ const FollowerListBox = styled(BoxLayout)`
   min-height: 5.875rem;
 
   .profileImg {
-    padding-left: 43px;
+    padding-left: 2.6875rem;
     padding: 0;
     width: 100%;
   }
@@ -66,7 +66,7 @@ export const StatusMessage = styled.div`
 `;
 
 interface FollowerListContainerProps extends BoxProps {
-  followMember: Imember[];
+  followMember: Member[];
 }
 
 const STATUSMSG_MAX_LENGTH = 20;

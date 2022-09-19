@@ -4,9 +4,11 @@ import ChatList from '@/organisms/chatList/ChatList';
 import NavBarLayout from '@/organisms/navBar/NavBarLayout';
 import useInput from 'hooks/useInput';
 import useModal from 'hooks/useModal';
-import { NextPage } from 'next';
+import { GetServerSideProps, GetServerSidePropsContext, NextPage } from 'next';
 import { FormEvent, useCallback } from 'react';
 import { Container, Area } from 'styles/chat';
+import wrapper from 'store/configureStore';
+import { initUser } from 'store/features/userSlice';
 
 const Chat: NextPage = () => {
   const { isShown, openModal, closeModal } = useModal();
@@ -56,3 +58,10 @@ const Chat: NextPage = () => {
 };
 
 export default Chat;
+
+export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(() => async (context: GetServerSidePropsContext) => {
+  initUser(context);
+  await initUser(context);
+
+  return { props: {} };
+});

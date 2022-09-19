@@ -26,10 +26,6 @@ export const NotificationBox = styled(BoxLayout)`
       width: 100%;
       padding: 2.5rem;
       gap: 0.625rem;
-
-      &:hover {
-        cursor: default;
-      }
     `;
   }}
 `;
@@ -90,9 +86,23 @@ export const NotiDetails = styled.div`
     `;
   }}
 `;
+export const CloseButton = styled(ButtonLayout)`
+  position: absolute;
+  scale: 0.6;
+  opacity: 0.6;
+  top: -65px;
+  right: -410px;
+
+  svg {
+    position: absolute;
+  }
+  &:hover {
+    opacity: 1;
+  }
+`;
 
 export const AllowButton = styled(ButtonLayout)`
   position: absolute;
-  right: 1.875rem;
+  right: 3.125rem;
   max-width: 4.375rem;
 `;

@@ -1,3 +1,4 @@
+import { UserState } from 'store/features/userSlice';
 import instance from './core';
 
 const getUserInfo = () => {
@@ -42,14 +43,11 @@ const searchFollow = (keyword: string) => {
   return instance({ url: `/api/v1/member/follow/search?keyword=${keyword}` });
 };
 
-const updateProfile = (statusMessage: string, bio: string) => {
+const updateProfile = (data: UserState) => {
   return instance({
     method: 'put',
     url: `/api/v1/member`,
-    data: {
-      statusMessage,
-      bio,
-    },
+    data,
   });
 };
 

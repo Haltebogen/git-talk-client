@@ -1,7 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Imember } from 'type';
+import { HYDRATE } from 'next-redux-wrapper';
 
-export interface IMemberState {
+export interface MemberState {
+  id?: number | null;
   bio?: string | null;
   company?: string | null;
   email?: string | null;
@@ -13,7 +14,8 @@ export interface IMemberState {
   statusMessage?: string | null;
 }
 
-const initialState: IMemberState = {
+const initialState: MemberState = {
+  id: null,
   bio: null,
   company: null,
   email: null,
@@ -29,8 +31,9 @@ export const memberSlice = createSlice({
   name: 'member',
   initialState,
   reducers: {
-    setMember: (_, action: PayloadAction<IMemberState>) => action.payload,
+    setMember: (_, action: PayloadAction<MemberState>) => action.payload,
     extraReducers: (builder) => builder,
+    [HYDRATE]: (_, action) => action.payload.member,
   },
 });
 

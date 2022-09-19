@@ -6,12 +6,13 @@ import { BasicInputProps } from '@/inputs/BasicInput';
 import { ButtonProps } from '@/buttons/Button';
 import Image from 'next/image';
 import { useDispatch } from 'react-redux';
-import { IMemberState, setMember } from 'store/features/memberSlice';
+import { MemberState, setMember } from 'store/features/memberSlice';
 import { BoxLayout } from '@/boxes/Box';
 import subInstance from 'utils/api/sub';
 import { useEffect, useState } from 'react';
 
 export const Container = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -36,11 +37,13 @@ const FollowerListBox = styled(BoxLayout)`
   min-height: 5.875rem;
 
   .profileImg {
-    padding-left: 43px;
-    padding: 0;
+    position: absolute;
+    padding: 1.25rem 0 1.25rem 2.1875rem;
     width: 100%;
   }
+
   .profileIconImg {
+    position: absolute;
     padding: 1.25rem 0 1.25rem 2.1875rem;
     width: 100%;
     transform: scale(0.2);
@@ -65,7 +68,7 @@ export const Name = styled.div`
       width: 100%;
       font-weight: 700;
       justify-content: flex-start;
-      padding-left: 2.25rem;
+      padding-left: 8.125rem;
     `;
   }}
 `;
@@ -95,10 +98,18 @@ interface FollowerListProps extends FollowerListTypeProps {
 const STATUSMSG_MAX_LENGTH = 20;
 
 const FollowerList = ({ onChange, value, openModal }: FollowerListProps) => {
-  const [followMember, setFollowMember] = useState<IMemberState[]>([]);
+  const [followMember, setFollowMember] = useState<MemberState[]>([]);
   useEffect(() => {
     subInstance.getFollows().then((response) => {
-      setFollowMember(response.data);
+      setFollowMember(
+        response.data.filter((data1: MemberState, i: number) => {
+          return (
+            response.data.findIndex((data2: MemberState) => {
+              return data1.id === data2.id;
+            }) === i
+          );
+        }),
+      );
     });
   }, []);
   const dispatch = useDispatch();

@@ -1,9 +1,12 @@
 import NavBarLayout from '@/organisms/navBar/NavBarLayout';
-import { AllowButton, Content, NotiContiner, NotiDetails, NotificationBox, NotiTitle, ProfileImage, UserInfo } from '@/styles/Notification';
-import { NextPage } from 'next';
+import { AllowButton, CloseButton, Content, NotiContiner, NotiDetails, NotificationBox, NotiTitle, ProfileImage, UserInfo } from '@/styles/Notification';
+import { GetServerSideProps, GetServerSidePropsContext, NextPage } from 'next';
+import Close from '@/icons/close.svg';
 import useSWR from 'swr';
 import fetcher from 'utils/api/main';
 import subInstance from 'utils/api/sub';
+import { initUser } from 'store/features/userSlice';
+import wrapper from 'store/configureStore';
 
 const FOLLOW_REQUEST = 'FOLLOW_REQUEST';
 
@@ -14,7 +17,7 @@ const Notification: NextPage = () => {
     <NavBarLayout title="Git-Talk _ 알림">
       <NotiContiner>
         {noti?.data?.map((data: any, index: number) => (
-          <NotificationBox key={index}>
+          <NotificationBox key={index} boxType="background">
             <Content>
               <NotiTitle>{data.title}</NotiTitle>
               <UserInfo>
@@ -25,9 +28,14 @@ const Notification: NextPage = () => {
                 <span>{data.message}</span>
               </NotiDetails>
               <span>{data.receiver.isRemoved}</span>
+              <CloseButton buttonType="clear">
+                <Close />
+              </CloseButton>
               {data.notificationType === FOLLOW_REQUEST && (
                 <AllowButton
-                  onClick={() => subInstance.allowFollow(data.sender.providerId)}
+                  onClick={() => {
+                    subInstance.allowFollow(data.sender.id);
+                  }}
                   buttonRole="event"
                   ariaLabel="팔로잉 수락하기"
                   buttonType="primary"
@@ -44,3 +52,9 @@ const Notification: NextPage = () => {
 };
 
 export default Notification;
+
+export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(() => async (context: GetServerSidePropsContext) => {
+  initUser(context);
+  await initUser(context);
+  return { props: {} };
+});
