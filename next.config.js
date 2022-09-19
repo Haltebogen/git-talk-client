@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['localhost', '*'],
+    domains: ['git-talk.s3.ap-northeast-2.amanzonaws.com'],
   },
 
   webpack: (config) => {
