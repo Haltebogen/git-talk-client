@@ -51,6 +51,16 @@ const updateProfile = (data: UserState) => {
   });
 };
 
-const subInstance = { getUserInfo, getUsernoti, getFollows, getOtherProfile, createFollow, allowFollow, searchFollow, updateProfile };
+const updateProfileImage = (profileImageUrl: string) => {
+  return instance({
+    method: 'put',
+    url: `/api/v1/member`,
+    data: {
+      profileImageUrl,
+    },
+  });
+};
+
+const subInstance = { getUserInfo, getUsernoti, getFollows, getOtherProfile, createFollow, allowFollow, searchFollow, updateProfile, updateProfileImage };
 
 export default subInstance;
