@@ -41,9 +41,9 @@ export type InfoType = 'follow' | 'company' | 'message';
 
 export interface ProfileDetailProps {
   InfoType: InfoType;
-  text?: string | null | undefined;
-  following?: number | undefined;
-  follower?: number | undefined;
+  text?: string | null;
+  following?: number;
+  follower?: number;
 }
 
 const ProfileDetail = ({ InfoType, text, following, follower }: ProfileDetailProps) => {
