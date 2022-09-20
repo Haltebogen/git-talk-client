@@ -1,6 +1,6 @@
 import AWS from 'aws-sdk';
 
-import subInstance from './api/sub';
+import mainInstance from './api/main';
 
 const AWS_S3_PREFIX = 'https://git-talk.s3.ap-northeast-2.amazonaws.com/';
 
@@ -30,7 +30,7 @@ const onFileUpload = (e: any) => {
   myBucket
     .putObject(params)
     .on('httpUploadProgress', (e, re) => {
-      subInstance.updateProfileImage(`${AWS_S3_PREFIX}${params.Key}`);
+      mainInstance.updateProfileImage(`${AWS_S3_PREFIX}${params.Key}`);
     })
     .send((err) => {
       if (err) console.log(err);

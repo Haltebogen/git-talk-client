@@ -1,66 +1,34 @@
-import { UserState } from 'store/features/userSlice';
 import instance from './core';
 
-const getUserInfo = () => {
-  return instance({ url: `/api/v1/member` });
+const getAllChatRooms = (userId: number) => {
+  return instance({ url: `/api/v1/chat/chatroom/${userId}}` });
 };
 
-const getUsernoti = () => {
-  return instance({ url: `/api/v1/notification` });
+const getChatRoomInfo = (chatRoomId: number) => {
+  return instance({ url: `/api/v1/chat/chatroom/detail/${chatRoomId}` });
 };
 
-const getFollows = () => {
-  return instance({ url: `/api/v1/member/follows` });
-};
-
-const getOtherProfile = (id: number) => {
-  return instance({ url: `/api/v1/member/${id}` });
-};
-
-const createFollow = (id: number) => {
+const createChatRoom = (participantsId: number, roomName: string) => {
   return instance({
     method: 'post',
-    url: `/api/v1/member/follow`,
+    url: `/api/v1/chat/register`,
     data: {
-      followStatus: 'PENDING',
-      following: id,
+      participantsId, // [0],
+      roomName,
     },
   });
 };
 
-const allowFollow = (id: number) => {
+const leaveChatRoom = (chatRoomId: number, leftUserId: number) => {
   return instance({
     method: 'post',
-    url: `/api/v1/member/follow/allow`,
+    url: `/api/v1/chat/${leftUserId}/chatroom/left/`,
     data: {
-      followStatus: 'COMPLETED',
-      following: id,
+      chatRoomId,
     },
   });
 };
 
-const searchFollow = (keyword: string) => {
-  return instance({ url: `/api/v1/member/follow/search?keyword=${keyword}` });
-};
-
-const updateProfile = (data: UserState) => {
-  return instance({
-    method: 'put',
-    url: `/api/v1/member`,
-    data,
-  });
-};
-
-const updateProfileImage = (profileImageUrl: string) => {
-  return instance({
-    method: 'put',
-    url: `/api/v1/member`,
-    data: {
-      profileImageUrl,
-    },
-  });
-};
-
-const subInstance = { getUserInfo, getUsernoti, getFollows, getOtherProfile, createFollow, allowFollow, searchFollow, updateProfile, updateProfileImage };
+const subInstance = { getChatRoomInfo, createChatRoom, getAllChatRooms, leaveChatRoom };
 
 export default subInstance;
