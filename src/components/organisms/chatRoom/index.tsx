@@ -1,33 +1,54 @@
-import ChatInputBox from '@/boxes/ChatInputBox';
-import ChatRoomNav from '@/boxes/ChatRoomNav';
 import ChatContainer from '@/molecules/chatRoom/ChatContainer';
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React, { FormEvent, useState } from 'react';
+import styled, { css } from 'styled-components';
 import useInput from 'hooks/useInput';
+import SendForm from '@/molecules/chatRoom/SendForm';
+import Topbar from '@/molecules/chatRoom/Topbar';
+import { BoxLayout } from '@/boxes/Box';
 
-const Container = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  max-height: 51.25rem;
+const Container = styled(BoxLayout)`
+  ${({ theme }) => {
+    const { colors } = theme;
+    return css`
+      background-color: ${colors.secondary};
+      justify-content: center;
+      flex-direction: column;
+      max-width: 44.3125rem;
+      max-height: 51.25rem;
+    `;
+  }}
 `;
 
-const ChatRoomContainer = () => {
+const ChatRoom = () => {
   const [chat, onChangeChat, setChat] = useInput('');
-  const [messages, setMessages] = useState<any[]>([]);
-  const onSubmitForm = (e: any) => {
+  const [messages, setMessages] = useState<string[]>([]);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+
+  const onSubmitForm = (e: FormEvent) => {
     e.preventDefault();
     if (!chat) return;
     setChat('');
     setMessages([...messages, chat]);
   };
+
+  const onPressEnter = (event: React.KeyboardEvent) => {
+    if (event.key === 'Enter' && !event.shiftKey) {
+      event.preventDefault();
+      onSubmitForm(event);
+    }
+  };
+
+  const handleVisible = () => {
+    setIsVisible(!isVisible);
+  };
+
   return (
-    <Container>
-      <ChatRoomNav name="선영" profileImg={null} nickname="yuniiyuns" />
+    <Container boxType="background">
+      <Topbar name="선영" profileImg={null} nickname="yuniiyuns" isVisible={isVisible} onSpread={handleVisible} />
       <ChatContainer messages={messages} />
-      <ChatInputBox onChange={onChangeChat} value={chat} onSubmit={onSubmitForm} />
+      <SendForm onChange={onChangeChat} value={chat} onSubmit={onSubmitForm} onKeyDown={onPressEnter} />
     </Container>
   );
 };
 
-export default ChatRoomContainer;
+export default ChatRoom;

@@ -1,4 +1,4 @@
-import ChatRoomContainer from '@/organisms/chatRoom';
+import ChatRoom from '@/organisms/chatRoom';
 import AddSomethingModal from '@/molecules/addSomething/AddSomethingModal';
 import ChatList from '@/organisms/chatList';
 import NavBarLayout from '@/organisms/navBar/NavBarLayout';
@@ -34,7 +34,7 @@ const Chat: NextPage = () => {
           />
         </Area>
         <Area>
-          <ChatRoomContainer />
+          <ChatRoom />
         </Area>
       </NavBarLayout>
       <AddSomethingModal
