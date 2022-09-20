@@ -13,7 +13,7 @@ const createChatRoom = (participantsId: number, roomName: string) => {
     method: 'post',
     url: `/api/v1/chat/register`,
     data: {
-      participantsId, // [0],
+      participantsId: [participantsId],
       roomName,
     },
   });
