@@ -36,7 +36,6 @@ const ProfileMenu = ({ nickName }: ProfileMenuProps) => {
 
   return (
     <Menu>
-      {/* 임시 링크 */}
       <Link href="/chat">
         <a role="button" aria-label="일대일 대화하기">
           <MenuButton buttonType="clear" buttonRole="link">
