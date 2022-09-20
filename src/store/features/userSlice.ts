@@ -3,15 +3,15 @@ import { GetServerSidePropsContext } from 'next';
 import { HYDRATE } from 'next-redux-wrapper';
 
 export interface UserState {
-  bio?: string | null;
+  bio: string | null;
   company?: string | null;
   email?: string | null;
   followersNum?: number | null;
   followingsNum?: number | null;
-  name?: string | null;
-  nickName?: string | null;
+  name: string | null;
+  nickName: string | null;
   profileImageUrl?: string | null;
-  statusMessage?: string | null;
+  statusMessage: string | null;
 }
 
 const initialState: UserState = {

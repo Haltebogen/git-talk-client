@@ -1,21 +1,21 @@
+import { ButtonLayout, ButtonProps } from '@/buttons/Button';
 import styled, { css } from 'styled-components';
 import ProfileImg from '@/icons/profile_img.svg';
-import React, { useState } from 'react';
-import { ButtonLayout, ButtonProps } from '@/buttons/Button';
 import ChatFollow from '@/icons/chat_follow.svg';
 import More from '@/icons/more.svg';
 import ChatExit from '@/icons/chat_exit.svg';
+import { MouseEventHandler } from 'react';
 
-export const Box = styled.div`
+const Container = styled.div`
   ${({ theme }) => {
     const { colors } = theme;
     return css`
-      max-width: 43.725rem;
       height: 10%;
       border-bottom: 0.125rem solid rgba(112, 124, 151, 0.1);
       background-color: ${colors.white};
       display: flex;
       gap: 2.375rem;
+
       .profileImg {
         margin-bottom: 2.225rem;
         margin-left: 0.875rem;
@@ -27,21 +27,11 @@ export const Box = styled.div`
   }}
 `;
 
-export const ChatFollowButton = styled(ButtonLayout)``;
-
-export const ChatExitButton = styled(ButtonLayout)`
-  margin-bottom: 0.5475rem;
+const Right = styled.div`
+  display: flex;
+  margin-right: 0.875rem;
 `;
 
-export const MoreButton = styled(ButtonLayout)`
-  ${({ theme }) => {
-    const { colors } = theme;
-    return css`
-      box-shadow: 0.0875rem 0.0875rem rgba(0, 0, 0, 0.1);
-      background-color: ${colors.white};
-    `;
-  }}
-`;
 const Middle = styled.div`
   ${({ theme }) => {
     const { colors, fontSize } = theme;
@@ -65,19 +55,27 @@ const Middle = styled.div`
   }}
 `;
 
-const Right = styled.div`
-  display: flex;
-  margin-right: 0.875rem;
-`;
-
-const ButtonDom = styled.div`
+const DropDownButton = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
   justify-content: center;
 `;
 
-const DropDownButton = styled.div<{ isVisible: boolean }>`
+const IconButton = styled(ButtonLayout)`
+  max-width: 2.9375rem;
+`;
+
+export const MoreButton = styled(IconButton)`
+  ${({ theme }) => {
+    const { colors } = theme;
+    return css`
+      background-color: ${colors.white};
+    `;
+  }}
+`;
+
+const HideButton = styled.div<{ isVisible: boolean }>`
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -86,23 +84,17 @@ const DropDownButton = styled.div<{ isVisible: boolean }>`
   display: ${(props) => (props.isVisible ? 'block' : 'none')};
 `;
 
-const DropUpButton = styled.div``;
-
-interface ChatRoomNavProps extends ButtonProps {
+interface TopbarProps extends ButtonProps {
   name: string;
   profileImg: string | null;
   nickname: string;
+  isVisible: boolean;
+  onSpread: MouseEventHandler<HTMLButtonElement>;
 }
 
-const ChatRoomNav = ({ name, profileImg, nickname, onClick }: ChatRoomNavProps) => {
-  const [isVisible, setIsVisible] = useState<boolean>(false);
-
-  const handleVisible = () => {
-    setIsVisible(!isVisible);
-  };
-
+const Topbar = ({ name, profileImg, nickname, onClick, isVisible, onSpread }: TopbarProps) => {
   return (
-    <Box>
+    <Container>
       {profileImg ? (
         <div className="profileImg">{profileImg}</div>
       ) : (
@@ -111,28 +103,26 @@ const ChatRoomNav = ({ name, profileImg, nickname, onClick }: ChatRoomNavProps) 
         </div>
       )}
       <Middle>
-        <div className="nickname">{nickname}</div>
-        <div className="name">{name}</div>
+        <span className="nickname">{nickname}</span>
+        <span className="name">{name}</span>
       </Middle>
       <Right>
-        <ButtonDom className="dropDown">
-          <DropUpButton>
-            <MoreButton onClick={handleVisible} buttonType="circle" buttonRole="event">
-              <More />
-            </MoreButton>
-          </DropUpButton>
-          <DropDownButton isVisible={isVisible}>
-            <ChatExitButton onClick={onClick} buttonType="circle" buttonRole="event">
+        <DropDownButton>
+          <MoreButton onClick={onSpread} buttonType="circle" buttonRole="event">
+            <More />
+          </MoreButton>
+          <HideButton isVisible={isVisible}>
+            <IconButton onClick={onClick} buttonType="circle" buttonRole="event">
               <ChatExit />
-            </ChatExitButton>
-            <ChatFollowButton onClick={onClick} buttonType="circle" buttonRole="event">
+            </IconButton>
+            <IconButton onClick={onClick} buttonType="circle" buttonRole="event">
               <ChatFollow />
-            </ChatFollowButton>
-          </DropDownButton>
-        </ButtonDom>
+            </IconButton>
+          </HideButton>
+        </DropDownButton>
       </Right>
-    </Box>
+    </Container>
   );
 };
 
-export default ChatRoomNav;
+export default Topbar;

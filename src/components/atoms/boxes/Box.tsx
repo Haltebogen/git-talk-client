@@ -29,6 +29,20 @@ const backgroundBoxStyles = css`
   }}
 `;
 
+const messageBoxStyles = css`
+  ${({ theme }) => {
+    const { colors } = theme;
+    return css`
+      padding: 0.75rem;
+      word-break: break-all;
+      background-color: ${colors.primary};
+      max-width: 32.5rem;
+      color: ${colors.white};
+      border-radius: 0rem 0.625rem 0.625rem 0.625rem;
+    `;
+  }}
+`;
+
 export const BoxLayout = styled.div<BoxProps>`
   border-radius: 0.375rem;
   display: flex;
@@ -45,13 +59,15 @@ export const BoxLayout = styled.div<BoxProps>`
         return listBoxStyles;
       case 'background':
         return backgroundBoxStyles;
+      case 'message':
+        return messageBoxStyles;
       default:
         return listBoxStyles;
     }
   }}
 `;
 
-export type BoxType = 'list' | 'background';
+export type BoxType = 'list' | 'background' | 'message';
 
 export interface BoxProps {
   children?: ReactNode;

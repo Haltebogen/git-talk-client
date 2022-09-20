@@ -1,8 +1,8 @@
-import { ChangeEventHandler, useRef } from 'react';
+import { ChangeEventHandler, KeyboardEventHandler, useRef } from 'react';
 import styled, { css } from 'styled-components';
 import TextareaAutosize from 'react-textarea-autosize';
 
-const Textarea = styled(TextareaAutosize)`
+export const Textarea = styled(TextareaAutosize)`
   ${({ theme }) => {
     const { colors } = theme;
     return css`
@@ -23,10 +23,11 @@ const Textarea = styled(TextareaAutosize)`
 export interface ContentInputProps {
   value?: string;
   onChange?: ChangeEventHandler<HTMLTextAreaElement>;
+  onKeyDown?: KeyboardEventHandler<HTMLTextAreaElement>;
   minRows?: number;
   maxRows?: number;
   maxLength?: number;
-  placeholder?: string | null | undefined;
+  placeholder?: string;
 }
 
 const ContentInput = ({ value, onChange, minRows, maxRows, maxLength, placeholder }: ContentInputProps) => {

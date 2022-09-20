@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { UserState, logout, setUser } from 'store/features/userSlice';
 import { useEffect, useState } from 'react';
 import { removeCookieToken } from 'utils/storage/authCookie';
-import subInstance from 'utils/api/sub';
+import mainInstance from 'utils/api/main';
 import { User } from 'type';
 import { State } from 'store/configureStore';
 
@@ -63,9 +63,10 @@ const NavBar = () => {
   };
 
   useEffect(() => {
-    subInstance
+    mainInstance
       .getUserInfo()
       .then((response) => {
+        console.log(response.data);
         setUserInfo(response.data);
         dispatch(setUser(response.data));
       })

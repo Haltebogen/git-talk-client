@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
-import ChatBox from './ChatBox';
 import styled, { css } from 'styled-components';
+import MessageArea from './MseeageArea';
 
 export const Container = styled.div`
   ${({ theme }) => {
@@ -32,9 +32,9 @@ const ChatContainer = ({ messages }: ChatContainerProps) => {
   return (
     <Container>
       {messages &&
-        messages.map((message: any, i: number) => (
+        messages.map((message: string, i: number) => (
           <div key={i} ref={scrollRef}>
-            <ChatBox profileImg={null} message={message} isMe={false} />
+            <MessageArea profileImg={null} message={message} isMe={false} />
           </div>
         ))}
     </Container>

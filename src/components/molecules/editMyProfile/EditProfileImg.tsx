@@ -14,7 +14,7 @@ const ImageZone = styled(Image)`
 `;
 
 export interface EditProfileImgProps {
-  profileImg: string | null | undefined;
+  profileImg?: string | null;
   fileInputref: RefObject<HTMLInputElement>;
   onImageChange: ChangeEventHandler<HTMLInputElement>;
   onEditFileClick: MouseEventHandler<HTMLDivElement>;

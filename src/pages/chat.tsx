@@ -1,6 +1,6 @@
-import ChatRoomContainer from '@/organisms/chatRoom/ChatRoomContainer';
+import ChatRoom from '@/organisms/chatRoom';
 import AddSomethingModal from '@/molecules/addSomething/AddSomethingModal';
-import ChatList from '@/organisms/chatList/ChatList';
+import ChatList from '@/organisms/chatList';
 import NavBarLayout from '@/organisms/navBar/NavBarLayout';
 import useInput from 'hooks/useInput';
 import useModal from 'hooks/useModal';
@@ -34,7 +34,7 @@ const Chat: NextPage = () => {
           />
         </Area>
         <Area>
-          <ChatRoomContainer />
+          <ChatRoom />
         </Area>
       </NavBarLayout>
       <AddSomethingModal
@@ -45,7 +45,6 @@ const Chat: NextPage = () => {
         onCloseModal={closeModal}
         placeholder="이메일 혹은 아이디를 입력하세요"
         onChange={(event) => {
-          console.log(event.target.value);
           const { value } = event.target;
           onChangeChat;
           setChat(value);

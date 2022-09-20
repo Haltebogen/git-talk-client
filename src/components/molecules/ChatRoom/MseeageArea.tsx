@@ -1,13 +1,14 @@
 import React from 'react';
-import styled from 'styled-components';
-import MsgBox from '@/boxes/MsgBox';
+import styled, { css } from 'styled-components';
 import ProfileImg from '@/icons/profile_img.svg';
+import { BoxLayout } from '@/boxes/Box';
 
 export const Container = styled.div`
   .receiver {
     display: flex;
     justify-content: flex-start;
     gap: 1.25rem;
+
     .profileImg {
       transform: scale(0.1);
       width: 100%;
@@ -15,6 +16,7 @@ export const Container = styled.div`
       max-height: 1rem;
     }
   }
+
   .sender {
     display: flex;
     justify-content: flex-end;
@@ -25,20 +27,43 @@ export const Space = styled.div`
   min-width: 6.25rem;
 `;
 
-export interface ChatBoxProps {
+const SendMessage = styled(BoxLayout)`
+  ${({ theme }) => {
+    const { colors } = theme;
+    return css`
+      color: ${colors.navy};
+      background-color: ${colors.secondary};
+      border: 0.0625rem solid rgba(112, 124, 151, 0.25);
+      border-radius: 0.625rem 0.625rem 0rem 0.625rem;
+      width: auto;
+    `;
+  }}
+`;
+
+const ReceiveMessage = styled(BoxLayout)`
+  ${({ theme }) => {
+    const { colors } = theme;
+    return css`
+      color: ${colors.white};
+      width: auto;
+    `;
+  }}
+`;
+
+export interface MessageAreaProps {
   profileImg: string | null;
   isMe: boolean;
   message: string;
 }
 
-const ChatBox = ({ profileImg, isMe, message }: ChatBoxProps) => {
+const MessageArea = ({ profileImg, isMe, message }: MessageAreaProps) => {
   return (
     <>
       {isMe ? (
         <Container>
           <Space />
           <div className="sender">
-            <MsgBox message={message} isMe={isMe} />
+            <SendMessage boxType="message">{message}</SendMessage>
           </div>
         </Container>
       ) : (
@@ -51,7 +76,7 @@ const ChatBox = ({ profileImg, isMe, message }: ChatBoxProps) => {
                 <ProfileImg />
               </div>
             )}
-            <MsgBox message={message} isMe={isMe} />
+            <ReceiveMessage boxType="message">{message}</ReceiveMessage>
           </div>
           <Space />
         </Container>
@@ -60,4 +85,4 @@ const ChatBox = ({ profileImg, isMe, message }: ChatBoxProps) => {
   );
 };
 
-export default ChatBox;
+export default MessageArea;

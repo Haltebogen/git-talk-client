@@ -8,7 +8,7 @@ import Image from 'next/image';
 import { useDispatch } from 'react-redux';
 import { MemberState, setMember } from 'store/features/memberSlice';
 import { BoxLayout } from '@/boxes/Box';
-import subInstance from 'utils/api/sub';
+import mainInstance from 'utils/api/main';
 import { useEffect, useState } from 'react';
 
 export const Container = styled.div`
@@ -100,15 +100,16 @@ const STATUSMSG_MAX_LENGTH = 20;
 const FollowerList = ({ onChange, value, openModal }: FollowerListProps) => {
   const [followMember, setFollowMember] = useState<MemberState[]>([]);
   useEffect(() => {
-    subInstance.getFollows().then((response) => {
+    mainInstance.getFollows().then((response) => {
       setFollowMember(
-        response.data.filter((data1: MemberState, i: number) => {
-          return (
-            response.data.findIndex((data2: MemberState) => {
-              return data1.id === data2.id;
-            }) === i
-          );
-        }),
+        response.data,
+        // response.data.filter((data1: MemberState, i: number) => {
+        //   return (
+        //     response.data.findIndex((data2: MemberState) => {
+        //       return data1.id === data2.id;
+        //     }) === i
+        //   );
+        // }),
       );
     });
   }, []);
@@ -119,7 +120,7 @@ const FollowerList = ({ onChange, value, openModal }: FollowerListProps) => {
       <AddSomethingContainer title="친구" ariaLabel="친구 추가" onClick={openModal} />
       <SearchBox onChange={onChange} value={value} />
       <ListZone>
-        {followMember?.map((data: any) => (
+        {followMember?.map((data: MemberState) => (
           <div key={data.id}>
             <FollowerListBox boxType="list" onClick={() => dispatch(setMember(data))} key={data?.id}>
               {data.profileImageUrl ? (
