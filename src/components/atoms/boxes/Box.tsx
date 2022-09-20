@@ -11,6 +11,7 @@ const listBoxStyles = css`
       &:hover {
         background-color: ${colors.hover};
         color: ${colors.white};
+        cursor: pointer;
       }
 
       &:active {
@@ -48,10 +49,6 @@ export const BoxLayout = styled.div<BoxProps>`
   display: flex;
   width: 100%;
   border: none;
-
-  &:hover {
-    cursor: pointer;
-  }
 
   ${({ boxType }) => {
     switch (boxType) {
