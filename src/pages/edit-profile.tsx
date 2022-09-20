@@ -1,4 +1,4 @@
-import EditMyProfile from '@/organisms/editMyProfile/EditMyProfile';
+import EditMyProfile from '@/organisms/editMyProfile';
 import NavBarLayout from '@/organisms/navBar/NavBarLayout';
 import useInput from 'hooks/useInput';
 import { GetServerSideProps, GetServerSidePropsContext, NextPage } from 'next';
@@ -6,7 +6,7 @@ import { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import wrapper, { State } from 'store/configureStore';
 import { UserState, setUser, initUser } from 'store/features/userSlice';
-import subInstance from 'utils/api/sub';
+import mainInstance from 'utils/api/main';
 import onFileUpload from 'utils/onFileUpload';
 
 const Editprofile: NextPage = () => {
@@ -32,10 +32,12 @@ const Editprofile: NextPage = () => {
           profileImageUrl={useData.profileImageUrl}
           onSubmit={(event) => {
             event.preventDefault();
-            subInstance.updateProfile(useData);
+            dispatch(
+              setUser({ nickName: useData.nickName, name: useData.name, profileImageUrl: useData.profileImageUrl, statusMessage: statusValue, bio: bioValue }),
+            );
+            mainInstance.updateProfile(useData);
             setStatusValue('');
             setBioValue('');
-            dispatch(setUser({ nickName: useData.nickName, profileImageUrl: useData.profileImageUrl, statusMessage: statusValue, bio: bioValue }));
           }}
           statusValue={statusValue}
           onStatusChange={onStatusChange}

@@ -1,7 +1,7 @@
 import AddSomethingModal from '@/molecules/addSomething/AddSomethingModal';
 import SearchResult from '@/molecules/search/SearchResult';
-import FollowerList from '@/organisms/followerList/FollowerList';
-import FollowerProfile from '@/organisms/followerProfile/FollowerProfile';
+import FollowerList from '@/organisms/followerList';
+import FollowerProfile from '@/organisms/followerProfile';
 import NavBarLayout from '@/organisms/navBar/NavBarLayout';
 import useInput from 'hooks/useInput';
 import useModal from 'hooks/useModal';
@@ -13,7 +13,7 @@ import wrapper, { State } from 'store/configureStore';
 import { MemberState } from 'store/features/memberSlice';
 import { initUser } from 'store/features/userSlice';
 import { Container, Area } from 'styles/home';
-import subInstance from 'utils/api/sub';
+import mainInstance from 'utils/api/main';
 
 const Home: NextPage = () => {
   const { isShown, openModal, closeModal } = useModal();
@@ -47,7 +47,7 @@ const Home: NextPage = () => {
         }}
         onSubmit={(event) => {
           event.preventDefault();
-          subInstance.createFollow(memberId);
+          mainInstance.createFollow(memberId);
           setNewMember('');
           setMemberId(0);
         }}

@@ -69,9 +69,9 @@ const EditButton = styled(ButtonLayout)`
 
 interface EditMyProfileProps extends EditProfileStateProps {
   onSubmit: (event: FormEvent<HTMLFormElement>) => void;
-  name: string | null | undefined;
-  nickName: string | null | undefined;
-  profileImageUrl: string | null | undefined;
+  name: string | null;
+  nickName: string | null;
+  profileImageUrl?: string | null;
   fileInputref: RefObject<HTMLInputElement>;
   onImageChange: ChangeEventHandler<HTMLInputElement>;
   onEditFileClick: MouseEventHandler<HTMLDivElement>;

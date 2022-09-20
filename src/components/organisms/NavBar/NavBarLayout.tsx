@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import NavBar from './NavBar';
+import NavBar from '.';
 import styled, { css } from 'styled-components';
 import Head from 'next/head';
 

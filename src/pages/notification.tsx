@@ -4,7 +4,7 @@ import { GetServerSideProps, GetServerSidePropsContext, NextPage } from 'next';
 import Close from '@/icons/close.svg';
 import useSWR from 'swr';
 import fetcher from 'utils/api/main';
-import subInstance from 'utils/api/sub';
+import mainInstance from 'utils/api/main';
 import { initUser } from 'store/features/userSlice';
 import wrapper from 'store/configureStore';
 
@@ -34,7 +34,7 @@ const Notification: NextPage = () => {
               {data.notificationType === FOLLOW_REQUEST && (
                 <AllowButton
                   onClick={() => {
-                    subInstance.allowFollow(data.sender.id);
+                    mainInstance.allowFollow(data.sender.id);
                   }}
                   buttonRole="event"
                   ariaLabel="팔로잉 수락하기"

@@ -1,6 +1,6 @@
 import SearchBox from '@/molecules/search/SearchBox';
 import ChatListContainer from '@/molecules/chatList/ChatListContainer';
-import { Container } from '@/organisms/followerList/FollowerList';
+import { Container } from '@/organisms/followerList';
 import AddSomethingContainer from '@/molecules/addSomething/AddSomethingContainer';
 import { BasicInputProps } from '@/inputs/BasicInput';
 import { ButtonProps } from '@/buttons/Button';
