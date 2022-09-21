@@ -37,8 +37,8 @@ export interface EditProfileStateProps {
   bioValue?: string;
   onStatusChange?: ChangeEventHandler<HTMLTextAreaElement>;
   onBioChange?: ChangeEventHandler<HTMLTextAreaElement>;
-  statusPlaceholder?: string;
-  bioPlaceholder?: string;
+  statusPlaceholder?: string | null;
+  bioPlaceholder?: string | null;
 }
 
 const EditProfileContent = ({
