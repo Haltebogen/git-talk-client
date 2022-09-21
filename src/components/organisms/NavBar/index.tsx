@@ -66,7 +66,6 @@ const NavBar = () => {
     mainInstance
       .getUserInfo()
       .then((response) => {
-        console.log(response.data);
         setUserInfo(response.data);
         dispatch(setUser(response.data));
       })
