@@ -27,7 +27,7 @@ export interface ContentInputProps {
   minRows?: number;
   maxRows?: number;
   maxLength?: number;
-  placeholder?: string | null;
+  placeholder?: string;
 }
 
 const ContentInput = ({ value, onChange, minRows, maxRows, maxLength, placeholder }: ContentInputProps) => {
