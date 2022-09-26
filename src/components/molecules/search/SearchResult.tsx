@@ -46,6 +46,7 @@ const ResultList = styled.ul`
         justify-content: flex-start;
         cursor: pointer;
         margin: 0;
+
         &:hover {
           cursor: pointer;
           background-color: ${colors.primary};
@@ -66,7 +67,7 @@ interface SearchResultProps {
 
 const SearchResult = ({ children }: SearchResultProps) => {
   return (
-    <ResultBox boxType="backrgound">
+    <ResultBox boxType="background">
       <ResultList>{children}</ResultList>
     </ResultBox>
   );

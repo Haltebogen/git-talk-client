@@ -1,10 +1,11 @@
 import AWS from 'aws-sdk';
+import { ChangeEvent } from 'react';
 
 import mainInstance from './api/main';
 
 const AWS_S3_PREFIX = 'https://git-talk.s3.ap-northeast-2.amazonaws.com/';
 
-const onFileUpload = (e: any) => {
+const onFileUpload = (e: ChangeEvent<HTMLInputElement>) => {
   const REGION = 'ap-northeast-2';
   const S3_BUCKET = 'git-talk';
 
@@ -17,8 +18,8 @@ const onFileUpload = (e: any) => {
     params: { Bucket: S3_BUCKET },
     region: REGION,
   });
-
-  const file = e.target.files[0];
+  const target = e.currentTarget;
+  const file = (target.files as FileList)[0];
 
   const params = {
     ACL: 'public-read',
@@ -29,7 +30,7 @@ const onFileUpload = (e: any) => {
 
   myBucket
     .putObject(params)
-    .on('httpUploadProgress', (e, re) => {
+    .on('httpUploadProgress', () => {
       mainInstance.updateProfileImage(`${AWS_S3_PREFIX}${params.Key}`);
     })
     .send((err) => {

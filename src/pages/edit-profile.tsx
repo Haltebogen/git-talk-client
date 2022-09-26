@@ -5,7 +5,7 @@ import { GetServerSideProps, GetServerSidePropsContext, NextPage } from 'next';
 import { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import wrapper, { State } from 'store/configureStore';
-import { UserState, setUser, initUser } from 'store/features/userSlice';
+import { UserState, initUser, editUser } from 'store/features/userSlice';
 import mainInstance from 'utils/api/main';
 import onFileUpload from 'utils/onFileUpload';
 
@@ -32,10 +32,8 @@ const Editprofile: NextPage = () => {
           profileImageUrl={useData.profileImageUrl}
           onSubmit={(event) => {
             event.preventDefault();
-            dispatch(
-              setUser({ nickName: useData.nickName, name: useData.name, profileImageUrl: useData.profileImageUrl, statusMessage: statusValue, bio: bioValue }),
-            );
-            mainInstance.updateProfile(useData);
+            dispatch(editUser({ statusMessage: statusValue, bio: bioValue }));
+            mainInstance.updateProfile(statusValue, bioValue);
             setStatusValue('');
             setBioValue('');
           }}
@@ -50,8 +48,29 @@ const Editprofile: NextPage = () => {
 };
 export default Editprofile;
 
-export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(() => async (context: GetServerSidePropsContext) => {
-  initUser(context);
-  await initUser(context);
+export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps((store) => async (context: GetServerSidePropsContext) => {
+  const { user } = await initUser(store);
+  try {
+    const {
+      req: { cookies },
+    } = context;
+
+    const isLogin = cookies['access_token'];
+
+    if (!user || !isLogin) {
+      return {
+        redirect: {
+          destination: '/',
+          permanent: false,
+        },
+      };
+    }
+
+    return {
+      props: { cookies },
+    };
+  } catch (err) {
+    console.error(err);
+  }
   return { props: {} };
 });

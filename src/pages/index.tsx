@@ -1,7 +1,9 @@
 import HomeLogo from '@/logos/HomeLogo';
-import type { NextPage } from 'next';
+import type { GetServerSideProps, GetServerSidePropsContext, NextPage } from 'next';
 import { Container, LoginButton, TextContainer } from '@/styles/index';
 import Head from 'next/head';
+import { initUser } from 'store/features/userSlice';
+import wrapper from 'store/configureStore';
 
 const Login: NextPage = () => {
   const loginUrl = `https://github.com/login/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_GITHUB_ID}&redirect_uri=${process.env.NEXT_PUBLIC_CLIENT_URL}/api/auth/github/callback`;
@@ -26,3 +28,31 @@ const Login: NextPage = () => {
 };
 
 export default Login;
+
+export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps((store) => async (context: GetServerSidePropsContext) => {
+  const { user } = await initUser(store);
+  try {
+    const {
+      req: { cookies },
+    } = context;
+
+    const isLogin = cookies['access_token'];
+
+    if (user && isLogin) {
+      return {
+        redirect: {
+          destination: '/home',
+          permanent: false,
+        },
+      };
+    }
+
+    return {
+      props: { cookies },
+    };
+  } catch (err) {
+    console.error(err);
+  }
+
+  return { props: {} };
+});

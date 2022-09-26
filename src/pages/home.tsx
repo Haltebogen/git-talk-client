@@ -80,8 +80,29 @@ const Home: NextPage = () => {
 
 export default Home;
 
-export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(() => async (context: GetServerSidePropsContext) => {
-  initUser(context);
-  await initUser(context);
+export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps((store) => async (context: GetServerSidePropsContext) => {
+  const { user } = await initUser(store);
+  try {
+    const {
+      req: { cookies },
+    } = context;
+
+    const isLogin = cookies['access_token'];
+
+    if (!user || !isLogin) {
+      return {
+        redirect: {
+          destination: '/',
+          permanent: false,
+        },
+      };
+    }
+
+    return {
+      props: { cookies },
+    };
+  } catch (err) {
+    console.error(err);
+  }
   return { props: {} };
 });

@@ -54,7 +54,7 @@ const EditButton = styled(Button)`
 
 const NavBar = () => {
   const [userInfo, setUserInfo] = useState<User | null>(null);
-  const { name, nickName, profileImageUrl, statusMessage } = useSelector<State, UserState>((state) => state.user);
+  const { profileImageUrl, statusMessage } = useSelector<State, UserState>((state) => state.user);
   const dispatch = useDispatch();
 
   const onLogout = () => {
@@ -66,7 +66,6 @@ const NavBar = () => {
     mainInstance
       .getUserInfo()
       .then((response) => {
-        console.log(response.data);
         setUserInfo(response.data);
         dispatch(setUser(response.data));
       })
@@ -77,7 +76,7 @@ const NavBar = () => {
     <Container>
       <ProfileContainer>
         <ProfileBox>
-          <ProfileMain name={name} id={nickName} profileImg={profileImageUrl} />
+          <ProfileMain name={userInfo?.name} id={userInfo?.nickName} profileImg={profileImageUrl} />
           <ButtonZone>
             <Link href="/edit-profile">
               <a aria-label="내 프로필 수정하기" role="button">
