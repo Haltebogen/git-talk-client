@@ -3,15 +3,15 @@ import { HYDRATE } from 'next-redux-wrapper';
 import { State } from 'store/configureStore';
 
 export interface UserState {
-  bio: string;
+  bio?: string;
   company?: string;
   email?: string;
   followersNum?: number;
   followingsNum?: number;
-  name: string;
-  nickName: string;
+  name?: string;
+  nickName?: string;
   profileImageUrl?: string;
-  statusMessage: string;
+  statusMessage?: string;
 }
 
 const initialState: UserState = {

@@ -1,4 +1,5 @@
 import { UserState } from 'store/features/userSlice';
+import { User } from 'type';
 import instance from './core';
 
 const fetcher = (url: string) => instance.get(url).then((response) => response.data);
@@ -45,11 +46,11 @@ const searchFollow = (keyword: string) => {
   return instance({ url: `/api/v1/member/follow/search?keyword=${keyword}` });
 };
 
-const updateProfile = (data: UserState) => {
+const updateProfile = (statusMessage: string, bio: string) => {
   return instance({
     method: 'put',
     url: `/api/v1/member`,
-    data,
+    data: { statusMessage, bio },
   });
 };
 
