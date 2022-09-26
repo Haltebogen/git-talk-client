@@ -30,7 +30,7 @@ const onFileUpload = (e: ChangeEvent<HTMLInputElement>) => {
 
   myBucket
     .putObject(params)
-    .on('httpUploadProgress', (e, re) => {
+    .on('httpUploadProgress', () => {
       mainInstance.updateProfileImage(`${AWS_S3_PREFIX}${params.Key}`);
     })
     .send((err) => {

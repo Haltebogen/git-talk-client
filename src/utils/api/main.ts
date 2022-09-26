@@ -1,5 +1,3 @@
-import { UserState } from 'store/features/userSlice';
-import { User } from 'type';
 import instance from './core';
 
 const fetcher = (url: string) => instance.get(url).then((response) => response.data);
