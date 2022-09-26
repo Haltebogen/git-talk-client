@@ -2,7 +2,7 @@ import EditMyProfile from '@/organisms/editMyProfile';
 import NavBarLayout from '@/organisms/navBar/NavBarLayout';
 import useInput from 'hooks/useInput';
 import { GetServerSideProps, GetServerSidePropsContext, NextPage } from 'next';
-import { useCallback, useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import wrapper, { State } from 'store/configureStore';
 import { UserState, initUser, editUser } from 'store/features/userSlice';
@@ -16,16 +16,6 @@ const Editprofile: NextPage = () => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const useData = useSelector<State, UserState>((state) => state.user);
 
-  useEffect(() => {
-    console.log(useData);
-    mainInstance.getUserInfo().then((data) => console.log('useE', data.data));
-  }, [useData, onFileUpload]);
-
-  const onFileChange = useCallback((e: any) => {
-    console.log('e', e);
-    onFileUpload;
-  }, []);
-
   return (
     <div>
       <NavBarLayout title="Git-Talk _ 프로필 수정">
@@ -33,7 +23,7 @@ const Editprofile: NextPage = () => {
           onEditFileClick={() => {
             fileInputRef.current?.click();
           }}
-          onImageChange={onFileChange}
+          onImageChange={onFileUpload}
           fileInputref={fileInputRef}
           bioPlaceholder={useData.bio}
           statusPlaceholder={useData.statusMessage}
@@ -42,10 +32,8 @@ const Editprofile: NextPage = () => {
           profileImageUrl={useData.profileImageUrl}
           onSubmit={(event) => {
             event.preventDefault();
-            dispatch(
-              editUser({ nickName: useData.nickName, name: useData.name, profileImageUrl: useData.profileImageUrl, statusMessage: statusValue, bio: bioValue }),
-            );
-            mainInstance.updateProfile(useData);
+            dispatch(editUser({ statusMessage: statusValue, bio: bioValue }));
+            mainInstance.updateProfile(statusValue, bioValue);
             setStatusValue('');
             setBioValue('');
           }}
