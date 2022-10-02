@@ -1,20 +1,22 @@
 import instance from './core';
 
-const getAllChatRooms = (userId: number) => {
-  return instance({ url: `/api/v1/chat/chatroom/${userId}}` });
+const getAllChatRooms = () => {
+  return instance({
+    url: `/api/v1/chat/chatrooms/`,
+  });
 };
 
 const getChatRoomInfo = (chatRoomId: number) => {
   return instance({ url: `/api/v1/chat/chatroom/detail/${chatRoomId}` });
 };
 
-const createChatRoom = (participantsId: number, roomName: string) => {
+const createChatRoom = (roomName: string, ...participantsId: (number | null | undefined)[]) => {
   return instance({
     method: 'post',
     url: `/api/v1/chat/register`,
     data: {
-      participantsId: [participantsId],
       roomName,
+      participantsId,
     },
   });
 };
