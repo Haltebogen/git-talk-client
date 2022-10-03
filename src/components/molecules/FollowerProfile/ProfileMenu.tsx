@@ -2,6 +2,8 @@ import Button from '@/buttons/Button';
 import Chat from '@/icons/follower_chat.svg';
 import Git from '@/icons/github.svg';
 import Link from 'next/link';
+import { MouseEventHandler } from 'react';
+
 import styled, { css } from 'styled-components';
 
 const Menu = styled.div`
@@ -29,21 +31,24 @@ const MenuButton = styled(Button)`
 
 interface ProfileMenuProps {
   nickName?: string | null;
+  chatLink: string;
+  onChatClick: MouseEventHandler<HTMLAnchorElement>;
 }
 
-const ProfileMenu = ({ nickName }: ProfileMenuProps) => {
+const ProfileMenu = ({ nickName, chatLink, onChatClick }: ProfileMenuProps) => {
   const FOLLOWER_GITHUB = `https://github.com/${nickName}`;
 
   return (
     <Menu>
-      <Link href="/chat">
-        <a role="button" aria-label="일대일 대화하기">
-          <MenuButton buttonType="clear" buttonRole="link">
+      <Link href={chatLink}>
+        <a role="button" aria-label="일대일 대화하기" onClick={onChatClick}>
+          <MenuButton buttonType="clear">
             <Chat />
             <span>1:1 채팅</span>
           </MenuButton>
         </a>
       </Link>
+
       <a href={FOLLOWER_GITHUB} role="button" aria-label="깃허브로 이동하기" target="_blank" rel="noreferrer noopener">
         <MenuButton buttonType="clear" buttonRole="link">
           <Git />
