@@ -28,31 +28,3 @@ const Login: NextPage = () => {
 };
 
 export default Login;
-
-export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps((store) => async (context: GetServerSidePropsContext) => {
-  const { user } = await initUser(store);
-  try {
-    const {
-      req: { cookies },
-    } = context;
-
-    const isLogin = cookies['access_token'];
-
-    if (user && isLogin) {
-      return {
-        redirect: {
-          destination: '/home',
-          permanent: false,
-        },
-      };
-    }
-
-    return {
-      props: { cookies },
-    };
-  } catch (err) {
-    console.error(err);
-  }
-
-  return { props: {} };
-});

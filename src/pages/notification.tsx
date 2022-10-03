@@ -1,5 +1,5 @@
 import NavBarLayout from '@/organisms/navBar/NavBarLayout';
-import { AllowButton, CloseButton, Content, NotiContiner, NotiDetails, NotificationBox, NotiTitle, ProfileImage, UserInfo } from '@/styles/Notification';
+import { AllowButton, CloseButton, Content, NotiContiner, NotiDetails, NotificationBox, NotiTitle, ProfileImage, UserInfo } from '@/styles/notification';
 import { GetServerSideProps, GetServerSidePropsContext, NextPage } from 'next';
 import Close from '@/icons/close.svg';
 import useSWR from 'swr';
