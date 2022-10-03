@@ -11,7 +11,6 @@ import wrapper from 'store/configureStore';
 import { initUser } from 'store/features/userSlice';
 import SearchResult from '@/molecules/search/SearchResult';
 import useSearch from 'hooks/useSearch';
-import subInstance from 'utils/api/sub';
 import { useRouter } from 'next/router';
 
 const Chat: NextPage = () => {

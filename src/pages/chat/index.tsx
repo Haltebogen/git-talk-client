@@ -1,4 +1,3 @@
-import ChatRoom from '@/organisms/chatRoom';
 import AddSomethingModal from '@/molecules/addSomething/AddSomethingModal';
 import ChatList from '@/organisms/chatList';
 import NavBarLayout from '@/organisms/navBar/NavBarLayout';

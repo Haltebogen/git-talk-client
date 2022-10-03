@@ -1,4 +1,4 @@
-import { ButtonLayout, ButtonProps } from '@/buttons/Button';
+import { ButtonLayout } from '@/buttons/Button';
 import styled, { css } from 'styled-components';
 import ProfileImg from '@/icons/profile_img.svg';
 import ChatFollow from '@/icons/chat_follow.svg';
