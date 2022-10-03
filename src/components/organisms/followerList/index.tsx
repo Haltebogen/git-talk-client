@@ -101,16 +101,7 @@ const FollowerList = ({ onChange, value, openModal }: FollowerListProps) => {
   const [followMember, setFollowMember] = useState<MemberState[]>([]);
   useEffect(() => {
     mainInstance.getFollows().then((response) => {
-      setFollowMember(
-        response.data,
-        // response.data.filter((data1: MemberState, i: number) => {
-        //   return (
-        //     response.data.findIndex((data2: MemberState) => {
-        //       return data1.id === data2.id;
-        //     }) === i
-        //   );
-        // }),
-      );
+      setFollowMember(response.data);
     });
   }, []);
   const dispatch = useDispatch();
@@ -122,7 +113,13 @@ const FollowerList = ({ onChange, value, openModal }: FollowerListProps) => {
       <ListZone>
         {followMember?.map((data: MemberState) => (
           <div key={data.id}>
-            <FollowerListBox boxType="list" onClick={() => dispatch(setMember(data))} key={data?.id}>
+            <FollowerListBox
+              boxType="list"
+              onClick={() => {
+                dispatch(setMember(data));
+              }}
+              key={data?.id}
+            >
               {data.profileImageUrl ? (
                 <div className="profileImg">
                   <ProfileImage src={data.profileImageUrl} alt="팔로워 프로필" width={70} height={70} unoptimized={true} />
