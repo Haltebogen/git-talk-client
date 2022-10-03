@@ -19,7 +19,11 @@ const Container = styled(BoxLayout)`
   }}
 `;
 
-const ChatRoom = () => {
+interface ChatRoomProps {
+  nickname?: string | string[];
+}
+
+const ChatRoom = ({ nickname }: ChatRoomProps) => {
   const [chat, onChangeChat, setChat] = useInput('');
   const [messages, setMessages] = useState<string[]>([]);
   const [isVisible, setIsVisible] = useState<boolean>(false);
@@ -44,7 +48,7 @@ const ChatRoom = () => {
 
   return (
     <Container boxType="background">
-      <Topbar name="선영" profileImg={null} nickname="yuniiyuns" isVisible={isVisible} onSpread={handleVisible} />
+      <Topbar nickname={nickname} profileImg={null} isVisible={isVisible} onSpread={handleVisible} onClick={() => console.log('event')} />
       <ChatContainer messages={messages} />
       <SendForm onChange={onChangeChat} value={chat} onSubmit={onSubmitForm} onKeyDown={onPressEnter} />
     </Container>

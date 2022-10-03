@@ -41,7 +41,7 @@ const MenuZone = styled.div`
 const FollowerProfile = () => {
   const { id, name, nickName, profileImageUrl, statusMessage } = useSelector<State, MemberState>((state) => state.member);
   const Myinfo = useSelector<State, UserState>((state) => state.user);
-  const chatLink = `/chat/${name}`;
+  const chatLink = `/chat/${nickName}`;
 
   return (
     <FollowerBackgroundBox boxType="background">

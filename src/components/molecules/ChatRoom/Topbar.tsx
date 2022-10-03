@@ -5,6 +5,7 @@ import ChatFollow from '@/icons/chat_follow.svg';
 import More from '@/icons/more.svg';
 import ChatExit from '@/icons/chat_exit.svg';
 import { MouseEventHandler } from 'react';
+import React from 'react';
 
 const Container = styled.div`
   ${({ theme }) => {
@@ -34,7 +35,7 @@ const Right = styled.div`
 
 const Middle = styled.div`
   ${({ theme }) => {
-    const { colors, fontSize } = theme;
+    const { fontSize } = theme;
     return css`
       display: flex;
       flex-direction: column;
@@ -42,14 +43,9 @@ const Middle = styled.div`
       width: 100%;
       gap: 0.3125rem;
 
-      .name {
+      span {
         font-size: ${fontSize.sm};
         font-size: 1.875rem;
-      }
-
-      .nickname {
-        color: ${colors.lightgray};
-        font-size: ${fontSize.md};
       }
     `;
   }}
@@ -84,15 +80,15 @@ const HideButton = styled.div<{ isVisible: boolean }>`
   display: ${(props) => (props.isVisible ? 'block' : 'none')};
 `;
 
-interface TopbarProps extends ButtonProps {
-  name: string;
+interface TopbarProps {
   profileImg: string | null;
-  nickname: string;
+  nickname?: string | string[];
   isVisible: boolean;
   onSpread: MouseEventHandler<HTMLButtonElement>;
+  onClick: MouseEventHandler<HTMLButtonElement>;
 }
 
-const Topbar = ({ name, profileImg, nickname, onClick, isVisible, onSpread }: TopbarProps) => {
+const Topbar = ({ profileImg, nickname, onClick, isVisible, onSpread }: TopbarProps) => {
   return (
     <Container>
       {profileImg ? (
@@ -103,8 +99,7 @@ const Topbar = ({ name, profileImg, nickname, onClick, isVisible, onSpread }: To
         </div>
       )}
       <Middle>
-        <span className="nickname">{nickname}</span>
-        <span className="name">{name}</span>
+        <span>{nickname}</span>
       </Middle>
       <Right>
         <DropDownButton>
