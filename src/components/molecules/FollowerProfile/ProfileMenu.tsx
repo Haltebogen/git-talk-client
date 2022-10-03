@@ -49,12 +49,14 @@ const ProfileMenu = ({ nickName, chatLink, onChatClick }: ProfileMenuProps) => {
         </a>
       </Link>
 
-      <a href={FOLLOWER_GITHUB} role="button" aria-label="깃허브로 이동하기" target="_blank" rel="noreferrer noopener">
-        <MenuButton buttonType="clear" buttonRole="link">
-          <Git />
-          <span>GitHub</span>
-        </MenuButton>
-      </a>
+      <Link href={FOLLOWER_GITHUB} passHref>
+        <a role="button" aria-label="깃허브로 이동하기" target="_blank" rel="noreferrer noopener">
+          <MenuButton buttonType="clear" buttonRole="link">
+            <Git />
+            <span>GitHub</span>
+          </MenuButton>
+        </a>
+      </Link>
     </Menu>
   );
 };
