@@ -4,7 +4,9 @@ import ProfileMenu from '@/molecules/followerProfile/ProfileMenu';
 import { useSelector } from 'react-redux';
 import { State } from 'store/configureStore';
 import { MemberState } from 'store/features/memberSlice';
+import { UserState } from 'store/features/userSlice';
 import styled, { css } from 'styled-components';
+import subInstance from 'utils/api/sub';
 
 const FollowerBackgroundBox = styled(BoxLayout)`
   ${({ theme }) => {
@@ -37,7 +39,9 @@ const MenuZone = styled.div`
 `;
 
 const FollowerProfile = () => {
-  const { name, nickName, profileImageUrl, statusMessage } = useSelector<State, MemberState>((state) => state.member);
+  const { id, name, nickName, profileImageUrl, statusMessage } = useSelector<State, MemberState>((state) => state.member);
+  const Myinfo = useSelector<State, UserState>((state) => state.user);
+  const chatLink = `/chat/${nickName}`;
 
   return (
     <FollowerBackgroundBox boxType="background">
@@ -45,7 +49,11 @@ const FollowerProfile = () => {
         <FollowerInfo name={name} profileImg={profileImageUrl} stateMessages={statusMessage} />
       </Info>
       <MenuZone>
-        <ProfileMenu nickName={nickName} />
+        <ProfileMenu
+          nickName={nickName}
+          chatLink={chatLink}
+          onChatClick={() => subInstance.createChatRoom(`${Myinfo.nickName},${nickName}`, Myinfo.id, id).then((data) => console.log(data.data))}
+        />
       </MenuZone>
     </FollowerBackgroundBox>
   );

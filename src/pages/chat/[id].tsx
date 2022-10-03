@@ -11,14 +11,16 @@ import wrapper from 'store/configureStore';
 import { initUser } from 'store/features/userSlice';
 import SearchResult from '@/molecules/search/SearchResult';
 import useSearch from 'hooks/useSearch';
-import subInstance from 'utils/api/sub';
+import { useRouter } from 'next/router';
 
 const Chat: NextPage = () => {
   const { isShown, openModal, closeModal } = useModal();
   const [value, onChangeValue, setValue] = useInput('');
   const [follower, onChangeFollower, setFollower] = useInput('');
   const { searchResult } = useSearch(undefined, true);
-  const [followerId, setFollowerId] = useState<number>(0);
+  const [followerId, setFollowerId] = useState<number>(0); // TODO: 검색 시 사용
+  const router = useRouter();
+  const { id } = router.query;
 
   return (
     <Container>
@@ -35,7 +37,7 @@ const Chat: NextPage = () => {
           />
         </Area>
         <Area>
-          <ChatRoom />
+          <ChatRoom nickname={id} />
         </Area>
       </NavBarLayout>
       <AddSomethingModal
@@ -43,7 +45,6 @@ const Chat: NextPage = () => {
         show={isShown}
         onSubmit={(event) => {
           event.preventDefault();
-          subInstance.createChatRoom(followerId, ''); //roomname
           setFollower('');
           setFollowerId(0);
         }}
