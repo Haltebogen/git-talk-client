@@ -20,7 +20,7 @@ const Chat: NextPage = () => {
   const { searchResult } = useSearch(undefined, true);
   const [followerId, setFollowerId] = useState<number>(0); // TODO: 검색 시 사용
   const router = useRouter();
-  const { id } = router.query;
+  const nickname = router.query.id as string;
 
   return (
     <Container>
@@ -37,7 +37,7 @@ const Chat: NextPage = () => {
           />
         </Area>
         <Area>
-          <ChatRoom nickname={id} />
+          <ChatRoom nickname={nickname} />
         </Area>
       </NavBarLayout>
       <AddSomethingModal

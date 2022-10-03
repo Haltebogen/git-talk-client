@@ -82,7 +82,7 @@ const HideButton = styled.div<{ isVisible: boolean }>`
 
 interface TopbarProps {
   profileImg: string | null;
-  nickname?: string | string[];
+  nickname: string;
   isVisible: boolean;
   onSpread: MouseEventHandler<HTMLButtonElement>;
   onClick: MouseEventHandler<HTMLButtonElement>;

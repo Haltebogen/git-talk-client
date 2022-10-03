@@ -20,7 +20,7 @@ const Container = styled(BoxLayout)`
 `;
 
 interface ChatRoomProps {
-  nickname?: string | string[];
+  nickname: string;
 }
 
 const ChatRoom = ({ nickname }: ChatRoomProps) => {
