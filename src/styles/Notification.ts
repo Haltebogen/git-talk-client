@@ -50,6 +50,7 @@ export const UserInfo = styled.div`
       position: absolute;
       top: 3rem;
       left: 1.5rem;
+
       span {
         padding: 0.625rem 0 0 0.625rem;
         font-size: ${fontSize.xxs};
@@ -65,6 +66,7 @@ export const Content = styled.div`
   justify-content: center;
   align-items: center;
   gap: 3.125rem;
+  padding-top: 10px;
 `;
 
 export const ProfileImage = styled(Image)`
@@ -87,15 +89,16 @@ export const NotiDetails = styled.div`
   }}
 `;
 export const CloseButton = styled(ButtonLayout)`
+  max-width: 0.625rem;
   position: absolute;
-  scale: 0.6;
-  opacity: 0.6;
-  top: -65px;
-  right: -410px;
+  opacity: 0.3;
+  top: 1.25rem;
+  right: 1.25rem;
 
   svg {
     position: absolute;
   }
+
   &:hover {
     opacity: 1;
   }
@@ -103,6 +106,7 @@ export const CloseButton = styled(ButtonLayout)`
 
 export const AllowButton = styled(ButtonLayout)`
   position: absolute;
+  top: 3.4rem;
   right: 3.125rem;
   max-width: 4.375rem;
 `;
